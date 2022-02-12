@@ -15,8 +15,10 @@ echo ""
 pacman -S --noconfirm pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 cp $SCRIPT_DIR/configs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
-chmod 644 /etc/pacman.d/mirrorlist
 
 echo "- Install Arch Linux base packages"
 echo ""
-#pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware
+
+echo "- Generate new fstab file"
+genfstab -U /mnt >> /mnt/etc/fstab
