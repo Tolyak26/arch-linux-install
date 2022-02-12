@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get current script path
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -18,11 +18,14 @@ sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 cp $SCRIPT_DIR/configs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 echo ""
 
-echo "- Install Arch Linux base packages"
+echo "- Install Arch Linux base system"
 echo ""
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware linux-headers dkms --noconfirm --needed
+echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
+cp -R ${SCRIPT_DIR} /mnt/root/arch-linux-install
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo ""
 
 echo "- Generate new fstab file"
-genfstab -U /mnt >> /mnt/etc/fstab
 echo ""
+genfstab -U /mnt >> /mnt/etc/fstab

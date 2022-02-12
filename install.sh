@@ -24,4 +24,3 @@ echo ""
 echo "Launch 04-post-setup.sh in root folder"
 echo ""
 arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
-echo ""
