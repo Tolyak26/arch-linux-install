@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# Get current script path
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
 # Import settings from setup.conf
-source $SCRIPT_DIR/setup.conf
+source /root/arch-linux-install/setup.conf
 
 echo "- Update system clocks"
 echo ""
@@ -15,14 +12,15 @@ echo "- Setting up Yandex Arch Linux repo mirror for optimal download"
 echo ""
 pacman -S --noconfirm pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-cp $SCRIPT_DIR/configs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
+cp /root/arch-linux-install/configs/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 echo ""
 
 echo "- Install Arch Linux base system"
 echo ""
 pacstrap /mnt base base-devel linux linux-firmware linux-headers dkms --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-yes | cp -rf ${SCRIPT_DIR} /mnt/root/arch-linux-install
+rm -rf /mnt/root/arch-linux-install
+cp -R /root/arch-linux-install /mnt/root/arch-linux-install
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo ""
 
