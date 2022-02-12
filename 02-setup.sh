@@ -8,7 +8,7 @@ source $SCRIPT_DIR/setup.conf
 
 echo "- Install additional packages for Arch Linux system"
 echo ""
-pacman -S --noconfirm --needed - < $SCRIPT_DIR/pkg-lists/arch-additional.txt
+pacman -S --noconfirm --needed - < $SCRIPT_DIR/pkg-lists/pkg-arch-additional.txt
 echo ""
 
 echo "- Generate mkinitcpio"
