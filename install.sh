@@ -12,8 +12,8 @@ bash 01-pre-setup.sh
 echo -ne "Запуск скрипта 02-setup.sh в root каталоге /"
 arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 
-echo -ne "Запуск скрипта в каталоге пользователя $USERNAME"
+echo -ne "Запуск скрипта 03-user.sh в каталоге пользователя $USERNAME"
 arch-chroot /mnt /usr/bin/runuser -u $USERNAME -- /home/$USERNAME/arch-linux-install/03-user.sh
 
-# Запуск скрипта установки в root каталоге /
+echo -ne "Запуск скрипта 04-post-setup.sh в root каталоге /"
 arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
