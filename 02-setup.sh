@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-# Get current script path
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
 # Import settings from setup.conf
-source $SCRIPT_DIR/setup.conf
+source /root/arch-linux-install/setup.conf
 
 echo "- Install additional packages for Arch Linux system"
 echo ""
-pacman -S --noconfirm --needed - < $SCRIPT_DIR/pkg-lists/pkg-arch-additional.txt
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-arch-additional.txt
 echo ""
 
 echo "- Generate mkinitcpio"
