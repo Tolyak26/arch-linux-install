@@ -3,8 +3,7 @@
 # Get current script path
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-echo "Import settings from setup.conf"
-echo ""
+# Import settings from setup.conf
 source $SCRIPT_DIR/setup.conf
 
 echo "Launch 01-pre-setup.sh"
