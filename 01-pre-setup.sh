@@ -14,8 +14,7 @@ echo "- Setting up Yandex Arch Linux repo mirror for optimal download"
 echo ""
 pacman -S --noconfirm pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo "Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+echo -ne "Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
 chmod 644 /etc/pacman.d/mirrorlist
 
 echo "- Install Arch Linux base packages"
