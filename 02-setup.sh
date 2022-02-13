@@ -10,7 +10,7 @@ source /root/arch-linux-install/setup.conf
 
 echo "- Optimizing pacman for optimal download ... "
 echo ""
-sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+#sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 cp /root/arch-linux-install/cfg-files/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
