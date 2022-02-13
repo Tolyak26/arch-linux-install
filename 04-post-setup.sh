@@ -21,6 +21,3 @@ systemctl enable NetworkManager
 systemctl enable smb
 systemctl enable nmb
 systemctl enable winbind
-
-
-
