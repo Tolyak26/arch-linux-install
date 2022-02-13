@@ -38,6 +38,7 @@ if ! source /root/arch-linux-install/setup.conf; then
 	done
     echo "nameofmachine=${nameofmachine,,}" >> /root/arch-linux-install/setup.conf
 fi
+source /root/arch-linux-install/setup.conf
 echo ""
 
 echo "- Updating system clocks ... "

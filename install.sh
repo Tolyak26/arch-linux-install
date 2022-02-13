@@ -5,6 +5,9 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+# Import settings from setup.conf
+source /root/arch-linux-install/setup.conf
+
 chmod +x /root/arch-linux-install/01-pre-setup.sh
 chmod +x /root/arch-linux-install/02-setup.sh
 chmod +x /root/arch-linux-install/03-post-setup.sh
