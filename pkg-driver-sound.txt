@@ -1,6 +1,0 @@
-alsa
-alsa-lib
-alsa-utils
-alsa-firmware
-pulseaudio
-pulseaudio-alsa
