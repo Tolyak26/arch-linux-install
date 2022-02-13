@@ -23,17 +23,20 @@ echo ""
 arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 echo ""
 
-echo "Running 03-post-setup.sh in root folder ... "
+echo "Running 03-aur.sh in $username's home folder ... "
 echo ""
-arch-chroot /mnt /root/arch-linux-install/03-post-setup.sh
+arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
+echo ""
 
-echo "Running 04-aur.sh in $username's home folder ... "
+echo "Running 04-post-setup.sh in root folder ... "
 echo ""
-arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/04-aur.sh
+arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
+echo ""
 
 echo "Cleaning ... "
 echo ""
 rm -rf /mnt/root/arch-linux-install
 rm -rf /mnt/home/$username/arch-linux-install
+echo ""
 
 echo "Installation is done! Please reboot your system."

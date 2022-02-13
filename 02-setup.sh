@@ -16,7 +16,7 @@ cp /root/arch-linux-install/cfg-files/etc/pacman.d/mirrorlist /etc/pacman.d/mirr
 pacman -Sy --noconfirm
 echo ""
 
-echo "- Optimizing makeflags configuration with your CPU ... "
+echo "- Optimizing makeflags configuration for your CPU ... "
 echo ""
 get_cpu_core_count=$(grep -c ^processor /proc/cpuinfo)
 sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$get_cpu_core_count\"/g" /etc/makepkg.conf
@@ -91,3 +91,44 @@ else
 	grub-install --target=i386-pc --boot-directory=/boot /dev/sda
 fi
 grub-mkconfig -o /boot/grub/grub.cfg
+echo ""
+
+echo "- Setting up sudo without no password rights for users ... "
+echo ""
+sed -i 's/^# %wheel/%wheel/' /etc/sudoers
+echo ""
+
+echo "- Adding user $username"
+echo ""
+useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $username
+echo "$username:$password" | chpasswd
+rm -rf /home/$username/arch-linux-install
+cp -R /root/arch-linux-install /home/$username/
+chown -R $username: /home/$username/arch-linux-install
+echo ""
+
+echo "- Setting up system locale and timezone ... "
+echo ""
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
+locale-gen
+tee -a /etc/locale.conf << EOF
+LANGUAGE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LANG=en_US.UTF-8
+EOF
+ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
+hwclock --systohc
+timedatectl set-ntp true
+echo ""
+
+echo "- Setiing up /etc/hosts & /etc/hostname"
+echo ""
+tee -a /etc/hosts << EOF
+127.0.0.1        localhost
+::1              localhost
+127.0.1.1        $nameofmachine
+EOF
+echo $nameofmachine > /etc/hostname
