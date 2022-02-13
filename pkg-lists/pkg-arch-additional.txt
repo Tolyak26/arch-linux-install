@@ -31,3 +31,9 @@ vim
 zip
 unzip
 unrar
+pacman-contrib
+git
+curl
+rsync
+xdg-user-dirs
+cups
