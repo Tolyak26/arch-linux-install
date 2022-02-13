@@ -37,3 +37,4 @@ curl
 rsync
 xdg-user-dirs
 cups
+cifs-utils

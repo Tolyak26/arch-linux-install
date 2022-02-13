@@ -1,0 +1,14 @@
+i3-wm
+i3status
+i3lock
+i3blocks
+dmenu
+network-manager-applet
+libnotify
+xdg-desktop-portal
+htop
+qalculate-gtk
+ttf-ms-fonts
+ttf-ubuntu-font-family
+arc-gtk-theme
+arc-icon-theme
