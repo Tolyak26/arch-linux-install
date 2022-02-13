@@ -33,11 +33,6 @@ echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
 echo ""
 
-echo "- Installing Xorg packages ... "
-echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
-echo ""
-
 echo "- Installing microcode package for CPU ... "
 echo ""
 get_cpu_vendor=$(lscpu)
@@ -85,6 +80,11 @@ echo ""
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
+echo ""
+
+echo "- Installing Xorg packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
 echo ""
 
 echo "- Generating mkinitcpio ... "
