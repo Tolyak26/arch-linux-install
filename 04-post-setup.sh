@@ -14,6 +14,7 @@ ntpd -qg
 systemctl enable ntpd
 systemctl enable cups
 systemctl enable bluetooth
+systemctl enable sddm
 systemctl disable dhcpcd
 systemctl stop dhcpcd
 systemctl enable NetworkManager

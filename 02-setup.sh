@@ -23,14 +23,14 @@ sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$get_cpu_core_count\"/g" /etc/makepkg
 sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $get_cpu_core_count -z -)/g" /etc/makepkg.conf
 echo ""
 
-echo "- Installing NetworkManager package ... "
-echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
-echo ""
-
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-arch-additional.txt
+echo ""
+
+echo "- Installing NetworkManager packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
 echo ""
 
 echo "- Installing Xorg packages ... "
@@ -77,12 +77,22 @@ elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
 fi
 echo ""
 
+echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-sound.txt
+echo ""
+
+echo "- Installing packages for Bluetooth hardware ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
+echo ""
+
 echo "- Generating mkinitcpio ... "
 echo ""
 mkinitcpio -P
 echo ""
 
-echo "- Installing & configuring GRUB Bootloader package ... "
+echo "- Installing GRUB Bootloader packages ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-grub.txt
 if [[ -d "/sys/firmware/efi" ]]; then
@@ -132,3 +142,18 @@ tee -a /etc/hosts << EOF
 127.0.1.1        $nameofmachine
 EOF
 echo $nameofmachine > /etc/hostname
+echo ""
+
+echo "- Installing Samba packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
+echo ""
+
+echo "- Installing SDDM display manager packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-sddm.txt
+echo ""
+
+echo "- Installing i3 desktop packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktop-i3.txt
