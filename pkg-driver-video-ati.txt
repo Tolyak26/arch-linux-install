@@ -1,0 +1,7 @@
+xf86-video-ati
+mesa
+lib32-mesa
+mesa-vdpau
+libva-mesa-driver
+libva-vdpau-driver
+libvdpau-va-gl
