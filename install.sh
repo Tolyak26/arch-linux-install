@@ -1,28 +1,36 @@
 #!/bin/bash
 
-# Import settings from setup.conf
-source /root/arch-linux-install/setup.conf
+# Script
+# by
+# Tolyak26
+# URL: github.com/Tolyak26/arch-linux-install
 
 chmod +x /root/arch-linux-install/01-pre-setup.sh
 chmod +x /root/arch-linux-install/02-setup.sh
-chmod +x /root/arch-linux-install/03-user.sh
-chmod +x /root/arch-linux-install/04-post-setup.sh
+chmod +x /root/arch-linux-install/03-post-setup.sh
+chmod +x /root/arch-linux-install/04-aur.sh
 
-echo "Launch 01-pre-setup.sh"
+echo "Running 01-pre-setup.sh ... "
 echo ""
 bash /root/arch-linux-install/01-pre-setup.sh
 echo ""
 
-echo "Launch 02-setup.sh in root folder"
+echo "Running 02-setup.sh in root folder ... "
 echo ""
 arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 echo ""
 
-echo "Launch 03-user.sh in $USERNAME's home folder"
+echo "Running 03-post-setup.sh in root folder ... "
 echo ""
-arch-chroot /mnt /usr/bin/runuser -u $USERNAME -- /home/$USERNAME/arch-linux-install/03-user.sh
-echo ""
+arch-chroot /mnt /root/arch-linux-install/03-post-setup.sh
 
-echo "Launch 04-post-setup.sh in root folder"
+echo "Running 04-aur.sh in $username's home folder ... "
 echo ""
-arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
+arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/04-aur.sh
+
+echo "Cleaning ... "
+echo ""
+rm -rf /mnt/root/arch-linux-install
+rm -rf /mnt/home/$USERNAME/arch-linux-install
+
+echo "Installation is done! Please reboot your system."
