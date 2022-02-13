@@ -37,7 +37,7 @@ echo ""
 
 echo "- Setting up sudo without no password rights for users ... "
 echo ""
-sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+sed -i 's/^# %wheel/%wheel/' /etc/sudoers
 echo ""
 
 echo "- Setiing up /etc/hosts & /etc/hostname"

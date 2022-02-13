@@ -13,9 +13,10 @@ echo ""
 cd $HOME
 git clone https://aur.archlinux.org/yay.git
 cd $HOME/yay
+sudo pacman -S --noconfirm go
 makepkg -si --noconfirm
 echo ""
 
 echo "- Installing AUR packages ... "
 echo ""
-yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur.txt
+yay -S --noconfirm - < $HOME/arch-linux-install/pkg-lists/pkg-aur.txt
