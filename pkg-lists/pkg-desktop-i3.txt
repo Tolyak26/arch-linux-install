@@ -8,7 +8,6 @@ libnotify
 xdg-desktop-portal
 htop
 qalculate-gtk
-ttf-ms-fonts
 ttf-ubuntu-font-family
 arc-gtk-theme
 arc-icon-theme
