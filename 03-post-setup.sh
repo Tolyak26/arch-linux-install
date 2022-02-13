@@ -22,6 +22,7 @@ LANG=en_US.UTF-8
 EOF
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
 hwclock --systohc
+timedatectl set-ntp true
 echo ""
 
 echo "- Enabling services ... "

@@ -55,7 +55,7 @@ echo ""
 
 echo "- Installing Arch Linux base system ... "
 echo ""
-pacstrap /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt
+pacstrap /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 rm -rf /mnt/root/arch-linux-install
 cp -R /root/arch-linux-install /mnt/root/arch-linux-install
