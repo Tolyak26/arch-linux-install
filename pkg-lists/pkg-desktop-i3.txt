@@ -1,7 +1,8 @@
-i3-wm
+i3-gaps
 i3status
 i3lock
 i3blocks
+rofi
 dmenu
 network-manager-applet
 libnotify

@@ -1,4 +1,5 @@
 polybar
+betterlockscreen
 pamac-aur
 mintstick
 ttf-ms-fonts
