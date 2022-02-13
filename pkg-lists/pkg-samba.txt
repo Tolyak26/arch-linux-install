@@ -1,0 +1,4 @@
+samba
+smbclient
+cifs-utils
+gvfs-smb

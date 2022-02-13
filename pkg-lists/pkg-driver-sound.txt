@@ -2,5 +2,7 @@ alsa
 alsa-lib
 alsa-utils
 alsa-firmware
+sof-firmware
+alsa-ucm-conf
 pulseaudio
 pulseaudio-alsa
