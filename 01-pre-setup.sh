@@ -49,13 +49,13 @@ echo ""
 echo "- Setting up Yandex Arch Linux repo mirror for optimal download ... "
 echo ""
 pacman -S --noconfirm pacman-contrib
-#sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 cp /root/arch-linux-install/cfg-files/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 echo ""
 
 echo "- Installing Arch Linux base system ... "
 echo ""
-pacstrap /mnt < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt
+pacstrap /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 rm -rf /mnt/root/arch-linux-install
 cp -R /root/arch-linux-install /mnt/root/arch-linux-install

@@ -10,7 +10,7 @@ source /root/arch-linux-install/setup.conf
 
 echo "- Optimizing pacman for optimal download ... "
 echo ""
-#sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 cp /root/arch-linux-install/cfg-files/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
@@ -84,7 +84,7 @@ echo ""
 
 echo "- Installing & configuring GRUB Bootloader package ... "
 echo ""
-pacman -S --noconfirm < /root/arch-linux-install/pkg-lists/pkg-bootloader-grub.txt
+pacman -S --noconfirm - < /root/arch-linux-install/pkg-lists/pkg-bootloader-grub.txt
 if [[ -d "/sys/firmware/efi" ]]; then
 	grub-install --target=i386-efi --efi-directory=/boot /dev/sda
 else
