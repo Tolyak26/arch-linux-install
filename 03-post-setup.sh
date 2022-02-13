@@ -6,7 +6,7 @@
 # URL: github.com/Tolyak26/arch-linux-install
 
 # Import settings from setup.conf
-source $HOME/arch-linux-install/setup.conf
+source /root/arch-linux-install/setup.conf
 
 echo "- Setting up system locale and timezone ... "
 echo ""
@@ -50,10 +50,10 @@ EOF
 echo $nameofmachine > /etc/hostname
 echo ""
 
-echo "- Adding user $USERNAME"
+echo "- Adding user $username"
 echo ""
-useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $USERNAME
-echo "$USERNAME:$PASSWORD" | chpasswd
-rm -rf /home/$USERNAME/arch-linux-install
-cp -R /root/arch-linux-install /home/$USERNAME/
-chown -R $USERNAME: /home/$USERNAME/arch-linux-install
+useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $username
+echo "$username:$password" | chpasswd
+rm -rf /home/$username/arch-linux-install
+cp -R /root/arch-linux-install /home/$username/
+chown -R $username: /home/$username/arch-linux-install

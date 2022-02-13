@@ -6,7 +6,7 @@
 # URL: github.com/Tolyak26/arch-linux-install
 
 # Import settings from setup.conf
-source $HOME/arch-linux-install/setup.conf
+source /root/arch-linux-install/setup.conf
 
 echo "- Optimizing pacman for optimal download ... "
 echo ""

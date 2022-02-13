@@ -34,6 +34,6 @@ arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-ins
 echo "Cleaning ... "
 echo ""
 rm -rf /mnt/root/arch-linux-install
-rm -rf /mnt/home/$USERNAME/arch-linux-install
+rm -rf /mnt/home/$username/arch-linux-install
 
 echo "Installation is done! Please reboot your system."
