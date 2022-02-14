@@ -105,7 +105,7 @@ echo ""
 
 echo "- Setting up sudo without no password rights for users ... "
 echo ""
-sed -i 's/^# %wheel/%wheel/' /etc/sudoers
+sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 echo ""
 
 echo "- Adding user $username"
