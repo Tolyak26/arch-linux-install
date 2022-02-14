@@ -96,7 +96,7 @@ echo "- Installing GRUB Bootloader packages ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-grub.txt
 if [[ -d "/sys/firmware/efi" ]]; then
-	grub-install --target=i386-efi --efi-directory=/boot /dev/sda
+	grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB /dev/sda
 else
 	grub-install --target=i386-pc --boot-directory=/boot /dev/sda
 fi
