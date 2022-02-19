@@ -152,6 +152,7 @@ echo ""
 echo "- Installing SDDM display manager packages ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-sddm.txt
+cp /root/arch-linux-install/cfg-files/etc/sddm.conf.d/theme.conf /etc/sddm.conf.d/theme.conf
 echo ""
 
 echo "- Installing i3 desktop packages ... "

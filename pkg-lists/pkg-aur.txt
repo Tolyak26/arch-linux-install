@@ -1,3 +1,4 @@
+archlinux-themes-sddm
 betterlockscreen
 pamac-aur
 mintstick
