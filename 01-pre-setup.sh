@@ -46,7 +46,7 @@ echo ""
 timedatectl set-ntp true
 echo ""
 
-echo "- Setting up Yandex Arch Linux repo mirror for optimal download ... "
+echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
 pacman -S --noconfirm pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf

@@ -1,3 +1,4 @@
+i3lock-color
 betterlockscreen
 pamac-aur
 mintstick

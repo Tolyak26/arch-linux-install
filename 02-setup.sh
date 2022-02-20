@@ -45,6 +45,11 @@ elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
 fi
 echo ""
 
+echo "- Installing Xorg packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
+echo ""
+
 echo "- Installing driver packages for GPU ... "
 echo ""
 get_gpu_vendor=$(lspci)
@@ -82,11 +87,6 @@ echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
 echo ""
 
-echo "- Installing Xorg packages ... "
-echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
-echo ""
-
 echo "- Generating mkinitcpio ... "
 echo ""
 mkinitcpio -P
@@ -100,21 +100,38 @@ if [[ -d "/sys/firmware/efi" ]]; then
 else
 	grub-install /dev/sda --target=i386-pc
 fi
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 /' /etc/default/grub
+sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
+sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 echo ""
 
-echo "- Setting up sudo without no password rights for users ... "
+echo "- Installing SDDM display manager packages ... "
 echo ""
-sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-sddm.txt
 echo ""
 
-echo "- Adding user $username"
+echo "- Installing i3 desktop packages ... "
 echo ""
-useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $username
-echo "$username:$password" | chpasswd
-rm -rf /home/$username/arch-linux-install
-cp -R /root/arch-linux-install /home/$username/
-chown -R $username: /home/$username/arch-linux-install
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktop-i3.txt
+
+echo "- Installing Samba packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
+echo ""
+
+echo "- Copy theme files ... "
+echo ""
+cp -R /root/arch-linux-install/theme-files/usr/share/sddm/themes/* /usr/share/sddm/themes
+cp -R /root/arch-linux-install/theme-files/usr/share/icons/* /usr/share/icons
+echo ""
+
+echo "- Copy config files ... "
+echo ""
+cp /root/arch-linux-install/cfg-files/etc/pamac.conf /etc/pamac.conf
+cp -R /root/arch-linux-install/cfg-files/etc/skel /etc
+mkdir -p /etc/sddm.conf.d
+cp -R /root/arch-linux-install/cfg-files/etc/sddm.conf.d /etc
 echo ""
 
 echo "- Setting up system locale and timezone ... "
@@ -144,19 +161,15 @@ EOF
 echo $nameofmachine > /etc/hostname
 echo ""
 
-echo "- Installing Samba packages ... "
+echo "- Setting up sudo without no password rights for users ... "
 echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
-echo ""
-
-echo "- Installing SDDM display manager packages ... "
-echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-sddm.txt
-cp /root/arch-linux-install/cfg-files/etc/sddm.conf.d/theme.conf /etc/sddm.conf.d/theme.conf
-cp -R /root/arch-linux-install/theme-files/usr/share/sddm/themes /mnt/usr/share/sddm/themes
-chown -R root /mnt/usr/share/sddm/themes
+sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 echo ""
 
-echo "- Installing i3 desktop packages ... "
+echo "- Adding user $username ... "
 echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktop-i3.txt
+useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $username
+echo "$username:$password" | chpasswd
+rm -rf /home/$username/arch-linux-install
+cp -R /root/arch-linux-install /home/$username
+chown -R $username: /home/$username/arch-linux-install

@@ -38,3 +38,5 @@ rsync
 xdg-user-dirs
 cups
 cifs-utils
+acpilight
+net-tools
