@@ -128,6 +128,10 @@ echo ""
 
 echo "- Copy config files ... "
 echo ""
+mv /root/arch-linux-install/cfg-files/etc/skel/gtkrc-2.0 /root/arch-linux-install/cfg-files/etc/skel/.gtkrc-2.0
+mv /root/arch-linux-install/cfg-files/etc/skel/config /root/arch-linux-install/cfg-files/etc/skel/.config
+mv /root/arch-linux-install/cfg-files/etc/skel/icons /root/arch-linux-install/cfg-files/etc/skel/.icons
+
 cp /root/arch-linux-install/cfg-files/etc/pamac.conf /etc/pamac.conf
 cp -R /root/arch-linux-install/cfg-files/etc/skel /etc
 mkdir -p /etc/sddm.conf.d
