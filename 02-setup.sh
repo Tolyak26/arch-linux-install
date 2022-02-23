@@ -58,14 +58,14 @@ if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
+elif lspci | grep 'VGA' | grep -E "Radeon HD"; then
+	echo "Installing ATI Legacy packages"
+    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-ati.txt
+	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 elif lspci | grep 'VGA' | grep -E "AMD"; then
 	echo "Installing AMDGPU packages"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
-elif lspci | grep 'VGA' | grep -E "ATI"; then
-	echo "Installing ATI Legacy packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-ati.txt
-	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 elif grep -E "Integrated Graphics Controller" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-intel.txt
