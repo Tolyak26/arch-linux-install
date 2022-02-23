@@ -120,10 +120,10 @@ echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
 echo ""
 
-echo "- Copy theme files ... "
+echo "- Installing theme files ... "
 echo ""
-cp -R /root/arch-linux-install/theme-files/usr/share/sddm/themes/* /usr/share/sddm/themes
-cp -R /root/arch-linux-install/theme-files/usr/share/icons/* /usr/share/icons
+tar -xf /root/arch-linux-install/theme-files/icons/McMojave-cursors.tar.xz /usr/share/icons
+tar -xf /root/arch-linux-install/theme-files/sddm/archlinux-themes-sddm.tar /usr/share/sddm/themes
 echo ""
 
 echo "- Copy config files ... "
