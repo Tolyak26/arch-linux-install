@@ -122,8 +122,8 @@ echo ""
 
 echo "- Installing theme files ... "
 echo ""
-tar -xf /root/arch-linux-install/theme-files/icons/McMojave-cursors.tar.xz /usr/share/icons
-tar -xf /root/arch-linux-install/theme-files/sddm/archlinux-themes-sddm.tar /usr/share/sddm/themes
+tar -xf /root/arch-linux-install/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
+tar -xf /root/arch-linux-install/theme-files/sddm/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 echo ""
 
 echo "- Copy config files ... "
