@@ -1,6 +1,7 @@
 tor
 virtualbox
-virtualbox-host-modules-arch
+virtualbox-host-dkms
+virtualbox-guest-utils
 virtualbox-guest-iso
 vde2
 strawberry
