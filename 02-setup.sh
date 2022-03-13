@@ -185,7 +185,7 @@ echo ""
 
 echo "- Adding user $username ... "
 echo ""
-useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers -s /bin/bash $username
+useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers,vboxsf -s /bin/bash $username
 echo "$username:$password" | chpasswd
 rm -rf /home/$username/arch-linux-install
 cp -R /root/arch-linux-install /home/$username
