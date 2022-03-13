@@ -1,1 +1,4 @@
 networkmanager
+openvpn
+pptpclient
+strongswan

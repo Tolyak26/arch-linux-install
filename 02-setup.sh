@@ -114,10 +114,21 @@ echo ""
 echo "- Installing i3 desktop packages ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktop-i3.txt
+echo ""
 
 echo "- Installing Samba packages ... "
 echo ""
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
+echo ""
+
+echo "- Installing Media Codec packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-media-codecs.txt
+echo ""
+
+echo "- Installing User Software packages ... "
+echo ""
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-user-soft.txt
 echo ""
 
 echo "- Installing theme files ... "
@@ -134,6 +145,7 @@ mv /root/arch-linux-install/cfg-files/etc/skel/icons /root/arch-linux-install/cf
 
 cp /root/arch-linux-install/cfg-files/etc/environment /etc/environment
 cp /root/arch-linux-install/cfg-files/etc/pamac.conf /etc/pamac.conf
+cp /root/arch-linux-install/cfg-files/etc/clearine.conf /etc/clearine.conf
 cp -R /root/arch-linux-install/cfg-files/etc/skel /etc
 mkdir -p /etc/sddm.conf.d
 cp -R /root/arch-linux-install/cfg-files/etc/sddm.conf.d /etc
@@ -173,7 +185,7 @@ echo ""
 
 echo "- Adding user $username ... "
 echo ""
-useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel -s /bin/bash $username
+useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers -s /bin/bash $username
 echo "$username:$password" | chpasswd
 rm -rf /home/$username/arch-linux-install
 cp -R /root/arch-linux-install /home/$username

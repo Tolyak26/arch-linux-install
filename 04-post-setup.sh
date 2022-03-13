@@ -22,3 +22,4 @@ systemctl enable smb
 systemctl enable nmb
 systemctl enable winbind
 systemctl enable sshd
+systemctl enable teamviewerd

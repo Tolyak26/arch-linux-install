@@ -4,3 +4,15 @@ clearine-git
 pamac-aur
 mintstick
 ttf-ms-fonts
+jdownloader2
+xdman
+youtubedl-gui
+skypeforlinux-stable-bin
+anydesk-bin
+teamviewer
+nomachine
+pix
+spotify
+timeshift
+woeusb
+anki

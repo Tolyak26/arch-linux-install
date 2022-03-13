@@ -6,3 +6,5 @@ sof-firmware
 alsa-ucm-conf
 pulseaudio
 pulseaudio-alsa
+lib32-libpulse
+lib32-jack

@@ -54,6 +54,7 @@ exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
+exec --no-startup-id blueberry-tray
 exec --no-startup-id playerctld daemon
 
 # Use pactl to adjust volume in PulseAudio.
