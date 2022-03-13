@@ -1,5 +1,6 @@
 i3lock-color
 betterlockscreen
+clearine-git
 pamac-aur
 mintstick
 ttf-ms-fonts

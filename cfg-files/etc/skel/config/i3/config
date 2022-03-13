@@ -81,6 +81,9 @@ bindsym $mod+p exec --no-startup-id pamac-manager
 # start a betterlockscreen
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
 
+# start a betterlockscreen
+bindsym $mod+x exec --no-startup-id clearine
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
