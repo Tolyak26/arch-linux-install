@@ -37,6 +37,10 @@ if ! source /root/arch-linux-install/setup.conf; then
 		fi
 	done
     echo "nameofmachine=${nameofmachine,,}" >> /root/arch-linux-install/setup.conf
+
+	echo "bootloader=grub" >> /root/arch-linux-install/setup.conf
+	echo "nameofmachine=sddm" >> /root/arch-linux-install/setup.conf
+	echo "nameofmachine=i3" >> /root/arch-linux-install/setup.conf
 fi
 source /root/arch-linux-install/setup.conf
 echo ""
@@ -70,7 +74,7 @@ echo ""
 echo "- Making swap file for low memory systems <8GB ... "
 echo ""
 get_total_memory=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
-if [[  $get_total_memory -lt 8000000 ]]; then
+if [ $get_total_memory -lt 8000000 ]; then
     mkdir /mnt/opt/swap
     dd if=/dev/zero of=/mnt/opt/swap/swapfile bs=1M count=2048 status=progress
     chmod 600 /mnt/opt/swap/swapfile

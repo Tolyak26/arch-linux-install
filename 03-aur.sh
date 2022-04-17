@@ -17,6 +17,11 @@ sudo pacman -S --noconfirm --needed go
 makepkg -si --noconfirm --needed
 echo ""
 
-echo "- Installing AUR packages ... "
+echo "- Installing AUR Desktop Environment packages ... "
 echo ""
-yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur.txt
+yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+echo ""
+
+echo "- Installing AUR User Software packages ... "
+echo ""
+yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur-user-soft.txt

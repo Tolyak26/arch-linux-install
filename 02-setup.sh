@@ -92,28 +92,30 @@ echo ""
 mkinitcpio -P
 echo ""
 
-echo "- Installing GRUB Bootloader packages ... "
+echo "- Installing Bootloader packages ... "
 echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-grub.txt
-if [[ -d "/sys/firmware/efi" ]]; then
-	grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
-else
-	grub-install /dev/sda --target=i386-pc
+if [ $bootloader == "grub" ]; then
+	pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-$bootloader.txt
+	if [[ -d "/sys/firmware/efi" ]]; then
+		grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
+	else
+		grub-install /dev/sda --target=i386-pc
+	fi
+	sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 /' /etc/default/grub
+	sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
+	sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
+	grub-mkconfig -o /boot/grub/grub.cfg
 fi
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 /' /etc/default/grub
-sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
-sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
 echo ""
 
-echo "- Installing SDDM display manager packages ... "
+echo "- Installing Display Manager packages ... "
 echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-sddm.txt
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-$displaymanager.txt
 echo ""
 
-echo "- Installing i3 desktop packages ... "
+echo "- Installing Desktop Environment packages ... "
 echo ""
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktop-i3.txt
+pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 echo ""
 
 echo "- Installing Samba packages ... "
@@ -189,4 +191,4 @@ useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,
 echo "$username:$password" | chpasswd
 rm -rf /home/$username/arch-linux-install
 cp -R /root/arch-linux-install /home/$username
-chown -R $username: /home/$username/arch-linux-install
+chown -R $username:users /home/$username/arch-linux-install

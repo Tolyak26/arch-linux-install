@@ -1,0 +1,12 @@
+mintstick
+jdownloader2
+xdman
+youtubedl-gui
+skypeforlinux-stable-bin
+anydesk-bin
+teamviewer
+nomachine
+spotify
+timeshift
+woeusb
+anki

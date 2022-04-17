@@ -1,5 +1,5 @@
+intel-media-sdk
 gst-libav
 gst-plugins-good
-intel-media-sdk
 gst-plugins-bad
 gst-plugins-ugly
