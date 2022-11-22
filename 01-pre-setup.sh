@@ -52,7 +52,7 @@ echo ""
 
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
-pacman -S --noconfirm pacman-contrib
+pacman -S --noconfirm --needed pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 cp /root/arch-linux-install/cfg-files/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
 echo ""

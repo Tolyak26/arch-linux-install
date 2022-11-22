@@ -5,8 +5,8 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
-pacman -Sy
-pacman -S --noconfirm git
+pacman -Sy --noconfirm
+pacman -S --noconfirm --needed git
 git clone https://github.com/Tolyak26/arch-linux-install.git
 
 # Import settings from setup.conf

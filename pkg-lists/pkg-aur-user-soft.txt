@@ -1,4 +1,4 @@
-mintstick
+mintstick-git
 jdownloader2
 xdman
 youtubedl-gui
