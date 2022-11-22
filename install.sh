@@ -18,7 +18,7 @@ chmod +x /root/arch-linux-install/04-post-setup.sh
 
 echo "Running 01-pre-setup.sh ... "
 echo ""
-bash /root/arch-linux-install/01-pre-setup.sh
+/root/arch-linux-install/01-pre-setup.sh
 echo ""
 
 echo "Running 02-setup.sh in root folder ... "
