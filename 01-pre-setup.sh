@@ -79,6 +79,5 @@ if [ $get_total_memory -lt 8000000 ]; then
     chmod 600 /mnt/opt/swap/swapfile
     chown root /mnt/opt/swap/swapfile
     mkswap /mnt/opt/swap/swapfile
-    swapon /mnt/opt/swap/swapfile
     echo "/opt/swap/swapfile	none	swap	sw	0	0" >> /mnt/etc/fstab
 fi
