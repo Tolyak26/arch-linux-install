@@ -17,6 +17,8 @@ chmod +x /root/arch-linux-install/02-setup.sh
 chmod +x /root/arch-linux-install/03-aur.sh
 chmod +x /root/arch-linux-install/04-post-setup.sh
 
+mkdir -p /mnt/{boot,root,opt}
+
 echo "Running 01-pre-setup.sh ... "
 echo ""
 /root/arch-linux-install/01-pre-setup.sh
