@@ -6,6 +6,7 @@
 # URL: github.com/Tolyak26/arch-linux-install
 
 # Import settings from setup.conf
+
 source $HOME/arch-linux-install/setup.conf
 
 echo "- Installing AUR Helper ... "

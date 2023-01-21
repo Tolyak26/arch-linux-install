@@ -6,6 +6,7 @@
 # URL: github.com/Tolyak26/arch-linux-install
 
 # Import settings from setup.conf
+
 source /root/arch-linux-install/setup.conf
 
 echo "- Optimizing pacman for optimal download ... "
@@ -97,9 +98,9 @@ echo ""
 if [ $bootloader == "grub" ]; then
 	pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-$bootloader.txt
 	if [[ -d "/sys/firmware/efi" ]]; then
-		grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
+		grub-install --target=x86_64-efi --efi-directory=/boot /dev/vda 
 	else
-		grub-install /dev/sda --target=i386-pc
+		grub-install --target=i386-pc /dev/vda
 	fi
 	sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 /' /etc/default/grub
 	sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
@@ -189,6 +190,5 @@ echo "- Adding user $username ... "
 echo ""
 useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers,vboxsf -s /bin/bash $username
 echo "$username:$password" | chpasswd
-rm -rf /home/$username/arch-linux-install
 cp -R /root/arch-linux-install /home/$username
 chown -R $username:users /home/$username/arch-linux-install
