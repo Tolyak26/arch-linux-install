@@ -127,6 +127,7 @@ if [ $bootloader == "grub" ]; then
 	sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
 	sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
 	grub-mkconfig -o /boot/grub/grub.cfg
+	sleep 5
 fi
 echo ""
 
