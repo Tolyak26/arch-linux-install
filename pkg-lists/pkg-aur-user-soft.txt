@@ -6,7 +6,6 @@ skypeforlinux-stable-bin
 anydesk-bin
 teamviewer
 nomachine
-spotify
 timeshift
 woeusb
 anki
