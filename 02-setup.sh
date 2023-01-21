@@ -217,7 +217,6 @@ LANG=en_US.UTF-8
 EOF
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
 hwclock --systohc
-timedatectl set-ntp 1
 echo ""
 
 echo "- Setiing up /etc/hosts & /etc/hostname"
