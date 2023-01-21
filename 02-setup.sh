@@ -182,7 +182,7 @@ echo "- Copy config files ... "
 echo ""
 sleep 5
 
-cp -R /root/arch-linux-install/system/cfg-files/etc/skel /etc
+cp -R /root/arch-linux-install/cfg-files/system/etc/skel /etc
 
 if [ $displaymanager == "sddm" ]; then
 	mkdir -p /etc/sddm.conf.d
