@@ -38,9 +38,10 @@ if ! source /root/arch-linux-install/setup.conf; then
 	done
     echo "nameofmachine=${nameofmachine,,}" >> /root/arch-linux-install/setup.conf
 
+	echo "typeofmachine=pc" >> /root/arch-linux-install/setup.conf
 	echo "bootloader=grub" >> /root/arch-linux-install/setup.conf
 	echo "nameofmachine=sddm" >> /root/arch-linux-install/setup.conf
-	echo "nameofmachine=i3" >> /root/arch-linux-install/setup.conf
+	echo "nameofmachine=kde" >> /root/arch-linux-install/setup.conf
 fi
 source /root/arch-linux-install/setup.conf
 echo ""
