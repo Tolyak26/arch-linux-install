@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script
 # by
@@ -21,28 +21,40 @@ mkdir -p /mnt/{boot,root,opt}
 
 echo "Running 01-pre-setup.sh ... "
 echo ""
+sleep 3
+
 /root/arch-linux-install/01-pre-setup.sh
 echo ""
 
 echo "Running 02-setup.sh in root folder ... "
 echo ""
+sleep 3
+
 arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 echo ""
 
 echo "Running 03-aur.sh in $username's home folder ... "
 echo ""
+sleep 3
+
 arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
 echo ""
 
 echo "Running 04-post-setup.sh in root folder ... "
 echo ""
+sleep 3
+
 arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
 echo ""
 
 echo "Cleaning ... "
 echo ""
+sleep 3
+
 rm -rf /mnt/root/arch-linux-install
 rm -rf /mnt/home/$username/arch-linux-install
 echo ""
+
+sleep 3
 
 echo "Installation is done! Please reboot your system."
