@@ -10,7 +10,7 @@ source $HOME/arch-linux-install/setup.conf
 
 echo "- Installing AUR Helper ... "
 echo ""
-sleep 3
+sleep 5
 
 cd $HOME
 git clone https://aur.archlinux.org/yay.git
@@ -22,13 +22,13 @@ echo ""
 
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
-sleep 3
+sleep 5
 
 yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 echo ""
 
 echo "- Installing AUR User Software packages ... "
 echo ""
-sleep 3
+sleep 5
 
 yay -S --noconfirm --needed - < $HOME/arch-linux-install/pkg-lists/pkg-aur-user-soft.txt

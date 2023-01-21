@@ -8,7 +8,7 @@
 # Setting up setup.conf file
 echo "- Setting up setup.conf file ... "
 echo ""
-sleep 3
+sleep 5
 
 if ! source /root/arch-linux-install/setup.conf; then
 	while true
@@ -51,14 +51,14 @@ echo ""
 
 echo "- Updating system clocks ... "
 echo ""
-sleep 3
+sleep 5
 
 timedatectl set-ntp true
 echo ""
 
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed pacman-contrib
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
@@ -67,7 +67,7 @@ echo ""
 
 echo "- Installing Arch Linux base system ... "
 echo ""
-sleep 3
+sleep 5
 
 pacstrap -K /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
@@ -77,14 +77,14 @@ echo ""
 
 echo "- Generating fstab file ... "
 echo ""
-sleep 3
+sleep 5
 
 genfstab -U /mnt >> /mnt/etc/fstab
 echo ""
 
 echo "- Making swap file for low memory systems <8GB ... "
 echo ""
-sleep 3
+sleep 5
 
 get_total_memory=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
 if [ $get_total_memory -lt 8000000 ]; then

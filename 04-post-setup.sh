@@ -10,7 +10,7 @@ source /root/arch-linux-install/setup.conf
 
 echo "- Enabling services ... "
 echo ""
-sleep 3
+sleep 5
 
 ntpd -qg
 systemctl enable ntpd

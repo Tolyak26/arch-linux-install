@@ -10,7 +10,7 @@ source /root/arch-linux-install/setup.conf
 
 echo "- Optimizing pacman for optimal download ... "
 echo ""
-sleep 3
+sleep 5
 
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
@@ -20,7 +20,7 @@ echo ""
 
 echo "- Optimizing makeflags configuration for your CPU ... "
 echo ""
-sleep 3
+sleep 5
 
 get_cpu_core_count=$(grep -c ^processor /proc/cpuinfo)
 sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$get_cpu_core_count\"/g" /etc/makepkg.conf
@@ -29,21 +29,21 @@ echo ""
 
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-arch-additional.txt
 echo ""
 
 echo "- Installing NetworkManager packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
 echo ""
 
 echo "- Installing microcode package for CPU ... "
 echo ""
-sleep 3
+sleep 5
 
 get_cpu_vendor=$(lscpu)
 if grep -E "GenuineIntel" <<< ${get_cpu_vendor}; then
@@ -57,14 +57,14 @@ echo ""
 
 echo "- Installing Xorg packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
 echo ""
 
 echo "- Installing driver packages for GPU ... "
 echo ""
-sleep 3
+sleep 5
 
 get_gpu_vendor=$(lspci)
 if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
@@ -93,28 +93,28 @@ echo ""
 
 echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-sound.txt
 echo ""
 
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
 echo ""
 
 echo "- Generating mkinitcpio ... "
 echo ""
-sleep 3
+sleep 5
 
 mkinitcpio -P
 echo ""
 
 echo "- Installing Bootloader packages ... "
 echo ""
-sleep 3
+sleep 5
 
 if [ $bootloader == "grub" ]; then
 	pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-$bootloader.txt
@@ -132,42 +132,42 @@ echo ""
 
 echo "- Installing Display Manager packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-$displaymanager.txt
 echo ""
 
 echo "- Installing Desktop Environment packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 echo ""
 
 echo "- Installing Samba packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
 echo ""
 
 echo "- Installing Media Codec packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-media-codecs.txt
 echo ""
 
 echo "- Installing User Software packages ... "
 echo ""
-sleep 3
+sleep 5
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-user-soft.txt
 echo ""
 
 echo "- Installing theme files ... "
 echo ""
-sleep 3
+sleep 5
 
 if [ $desktopenvironment == "i3" ]; then
 tar -xf /root/arch-linux-install/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
@@ -180,7 +180,7 @@ echo ""
 
 echo "- Copy config files ... "
 echo ""
-sleep 3
+sleep 5
 
 cp -R /root/arch-linux-install/system/cfg-files/etc/skel /etc
 
@@ -203,7 +203,7 @@ echo ""
 
 echo "- Setting up system locale and timezone ... "
 echo ""
-sleep 3
+sleep 5
 
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sed -i 's/^#ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen
@@ -222,7 +222,7 @@ echo ""
 
 echo "- Setiing up /etc/hosts & /etc/hostname"
 echo ""
-sleep 3
+sleep 5
 
 tee -a /etc/hosts << EOF
 127.0.0.1        localhost
@@ -235,14 +235,14 @@ echo ""
 
 echo "- Setting up sudo without no password rights for users ... "
 echo ""
-sleep 3
+sleep 5
 
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
 echo ""
 
 echo "- Adding user $username ... "
 echo ""
-sleep 3
+sleep 5
 
 useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers,vboxsf -s /bin/bash $username
 echo "$username:$password" | chpasswd
