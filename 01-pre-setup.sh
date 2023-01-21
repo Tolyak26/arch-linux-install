@@ -6,6 +6,7 @@
 # URL: github.com/Tolyak26/arch-linux-install
 
 # Setting up setup.conf file
+
 echo "- Setting up setup.conf file ... "
 echo ""
 if ! source /root/arch-linux-install/setup.conf; then
@@ -43,6 +44,7 @@ if ! source /root/arch-linux-install/setup.conf; then
 	echo "nameofmachine=sddm" >> /root/arch-linux-install/setup.conf
 	echo "nameofmachine=kde" >> /root/arch-linux-install/setup.conf
 fi
+
 source /root/arch-linux-install/setup.conf
 echo ""
 
