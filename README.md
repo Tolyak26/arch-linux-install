@@ -1,7 +1,9 @@
 # arch-linux-install
 Мои скрипты для установки Arch Linux
 
-cfdisk /dev/sda - table - dos (MBR)/gpt
+----
+
+cfdisk -z /dev/sda - table - dos (MBR)/gpt
 
 BIOS MBR (dos): 
 /boot - /dev/sda1 - Linux filesystem - 512 Mb
