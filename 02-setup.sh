@@ -12,9 +12,10 @@ echo "- Optimizing pacman for optimal download ... "
 echo ""
 sleep 5
 
+pacman -S --noconfirm --needed reflector
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-cp /root/arch-linux-install/cfg-files/system/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
+reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
 echo ""
 

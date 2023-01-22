@@ -60,9 +60,9 @@ echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
 sleep 5
 
-pacman -S --noconfirm --needed pacman-contrib
+pacman -S --noconfirm --needed pacman-contrib reflector
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-cp /root/arch-linux-install/cfg-files/system/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
+reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 echo ""
 
 echo "- Installing Arch Linux base system ... "
