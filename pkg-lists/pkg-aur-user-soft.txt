@@ -10,3 +10,4 @@ timeshift
 woeusb
 anki
 google-chrome
+mangohud
