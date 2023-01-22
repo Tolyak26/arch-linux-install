@@ -1,5 +1,4 @@
 xorg-server
 xorg-xinit
 xorg-xrandr
-xorg-xbacklight
 xorg-xgamma
