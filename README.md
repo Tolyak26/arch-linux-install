@@ -3,6 +3,21 @@
 
 ----
 
+```
+pacman -Sy
+
+pacman -S wget
+
+wget -O install.sh tinyurl.com/arch-tolyak26
+
+chmod +x install.sh
+
+./install.sh
+```
+
+----
+
+```
 cfdisk -z /dev/sda - table - dos (MBR)/gpt
 
 BIOS MBR (dos):
@@ -31,10 +46,11 @@ UEFI GPT:
 /boot or /efi - /dev/sda1 - EFI System - 512 Mb
 
 / - /dev/sda2 - Linux filesystem - All disk space
-
+```
 
 ----
 
+```
 BIOS MBR:
 
 mkfs.ext4 /dev/sda1
@@ -61,10 +77,11 @@ UEFI GPT:
 mkfs.fat -F32 /dev/sda1
 
 mkfs.ext4 /dev/sda2
-
+```
 
 ----
 
+```
 BIOS MBR:
 
 mount /dev/sda2 /mnt
@@ -99,3 +116,4 @@ mount /dev/sda2 /mnt
 mkdir /mnt/boot
 
 mount /dev/sda1 /mnt/boot
+```
