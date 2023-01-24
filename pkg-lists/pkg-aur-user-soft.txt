@@ -1,5 +1,3 @@
-linux-xanmod
-linux-xanmod-headers
 mintstick-git
 jdownloader2
 xdman
