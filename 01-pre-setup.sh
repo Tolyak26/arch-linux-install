@@ -42,6 +42,7 @@ if ! source /root/arch-linux-install/setup.conf; then
 
 	echo "typeofmachine=pc" >> /root/arch-linux-install/setup.conf
 	echo "bootloader=grub" >> /root/arch-linux-install/setup.conf
+	echo "bootloaderinstallpath=/dev/vda" >> /root/arch-linux-install/setup.conf
 	echo "displaymanager=sddm" >> /root/arch-linux-install/setup.conf
 	echo "desktopenvironment=kde" >> /root/arch-linux-install/setup.conf
 fi

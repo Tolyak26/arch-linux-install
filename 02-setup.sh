@@ -120,9 +120,9 @@ sleep 5
 if [ $bootloader == "grub" ]; then
 	pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-$bootloader.txt
 	if [[ -d "/sys/firmware/efi" ]]; then
-		grub-install --target=x86_64-efi --efi-directory=/boot /dev/sda 
+		grub-install --target=x86_64-efi --efi-directory=/boot $bootloaderinstallpath 
 	else
-		grub-install --target=i386-pc /dev/sda
+		grub-install --target=i386-pc $bootloaderinstallpath
 	fi
 
 	get_cpu_vendor=$(lscpu)
