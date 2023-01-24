@@ -124,6 +124,14 @@ if [ $bootloader == "grub" ]; then
 	else
 		grub-install --target=i386-pc /dev/sda
 	fi
+
+	get_cpu_vendor=$(lscpu)
+	if grep -E "GenuineIntel" <<< ${get_cpu_vendor}; then
+		sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on iommu=pt /' /etc/default/grub
+	elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
+		sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="amd_iommu=on iommu=pt video=efifb:off /' /etc/default/grub
+	fi
+
 	sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 /' /etc/default/grub
 	sed -i 's/^GRUB_DISABLE_RECOVERY=true/GRUB_DISABLE_RECOVERY=false/' /etc/default/grub
 	sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
