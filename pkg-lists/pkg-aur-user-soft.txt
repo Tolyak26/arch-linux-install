@@ -1,3 +1,5 @@
+linux-xanmod
+linux-xanmod-headers
 mintstick-git
 jdownloader2
 xdman
@@ -11,3 +13,5 @@ woeusb
 anki
 google-chrome
 mangohud
+winbox
+protonup-qt

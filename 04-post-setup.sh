@@ -26,3 +26,10 @@ systemctl enable winbind
 systemctl enable sshd
 systemctl enable teamviewerd
 systemctl enable vboxservice
+echo ""
+
+echo "- Updating /boot/grub/grub.cfg ... "
+echo ""
+sleep 5
+
+grub-mkconfig -o /boot/grub/grub.cfg
