@@ -193,11 +193,13 @@ echo ""
 sleep 5
 
 mv /root/arch-linux-install/cfg-files/system/etc/skel/config /root/arch-linux-install/cfg-files/system/etc/skel/.config
-cp -R /root/arch-linux-install/cfg-files/system/etc/skel /etc
+cp -R /root/arch-linux-install/cfg-files/system/* /
+
+cp -R 
 
 if [ $displaymanager == "sddm" ]; then
 	mkdir -p /etc/sddm.conf.d
-	cp -R /root/arch-linux-install/cfg-files/displaymanager-$displaymanager/etc/sddm.conf.d /etc
+	cp -R /root/arch-linux-install/cfg-files/displaymanager-$displaymanager/* /
 fi
 
 if [ $desktopenvironment == "i3" ]; then
@@ -205,10 +207,7 @@ if [ $desktopenvironment == "i3" ]; then
 	mv /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/config /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/.config
 	mv /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/icons /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/.icons
 
-	cp /root/arch-linux-install/desktopenvironment-$desktopenvironment/cfg-files/etc/environment /etc/environment
-	cp /root/arch-linux-install/desktopenvironment-$desktopenvironment/cfg-files/etc/pamac.conf /etc/pamac.conf
-	cp /root/arch-linux-install/desktopenvironment-$desktopenvironment/cfg-files/etc/clearine.conf /etc/clearine.conf
-	cp -R /root/arch-linux-install/desktopenvironment-$desktopenvironment/cfg-files/etc/skel /etc
+	cp -R /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 echo ""
 

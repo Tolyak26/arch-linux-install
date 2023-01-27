@@ -11,5 +11,7 @@ woeusb
 anki
 google-chrome
 mangohud
+lib32-mangohud
 winbox
 protonup-qt
+cpu-x
