@@ -5,7 +5,7 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
-echo "- Installing linux-xanmod-x64v3 binary packages for Zen3 from AUR ... "
+echo "- Installing linux-fsync-nobara binary packages from AUR ... "
 echo ""
 sleep 5
 
