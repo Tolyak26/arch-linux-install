@@ -9,5 +9,4 @@ echo "- Installing mesa-git packages from AUR ... "
 echo ""
 sleep 5
 
-yay -S --noconfirm --noeditmenu --needed --removemake mesa-git lib32-mesa-git
-echo ""
+yay -S --noconfirm --noeditmenu --needed --removemake --mflags "--skippgpcheck" mesa-git lib32-mesa-git
