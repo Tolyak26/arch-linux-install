@@ -18,34 +18,32 @@ chmod +x install.sh
 ----
 
 ```
-cfdisk -z /dev/sda - table - dos (MBR)/gpt
+cfdisk -z /dev/sda -> Table type "dos" (MBR) или "gpt"
 
-BIOS MBR (dos):
+BIOS dos (MBR):
 
-/boot - /dev/sda1 - Linux filesystem - 512 Mb
-
-/ - /dev/sda2 - Linux filesystem - All disk space
+Mount point "/" -> Device "/dev/sda1" -> Boot "*" -> Type "Linux" -> All disk space
 
 
-BIOS GPT:
+BIOS gpt:
 
-/boot - /dev/sda1 - BIOS Boot - 512 Mb
+No mount point -> Device "/dev/sda1" -> Type "BIOS Boot" -> Size "1 Mb"
 
-/ - /dev/sda2 - Linux filesystem - All disk space
-
-
-UEFI MBR:
-
-/boot or /efi - /dev/sda1 - EFI (FAT12/16/32) - 512 Mb
-
-/ - /dev/sda2 - Linux filesystem - All disk space
+Mount point "/" -> Device "/dev/sda2" -> Type "Linux filesystem" -> All disk space
 
 
-UEFI GPT:
+UEFI dos (MBR):
 
-/boot or /efi - /dev/sda1 - EFI System - 512 Mb
+Mount point "/boot" or "/efi" -> Device "/dev/sda1" -> Type "EFI (FAT12/16/32)" -> Size "1 Gb"
 
-/ - /dev/sda2 - Linux filesystem - All disk space
+Mount point "/" -> Device "/dev/sda2" -> Type "Linux" -> All disk space
+
+
+UEFI gpt:
+
+Mount point "/boot" or "/efi" -> Device "/dev/sda1" -> Type "EFI System" -> Size "1 Gb"
+
+Mount point "/" -> Device "/dev/sda2" -> Type "Linux filesystem" -> All disk space
 ```
 
 ----
@@ -55,12 +53,8 @@ BIOS MBR:
 
 mkfs.ext4 /dev/sda1
 
-mkfs.ext4 /dev/sda2
-
 
 BIOS GPT:
-
-mkfs.ext4 /dev/sda1
 
 mkfs.ext4 /dev/sda2
 
@@ -84,20 +78,12 @@ mkfs.ext4 /dev/sda2
 ```
 BIOS MBR:
 
-mount /dev/sda2 /mnt
-
-mkdir /mnt/boot
-
-mount /dev/sda1 /mnt/boot
+mount /dev/sda1 /mnt
 
 
 BIOS GPT:
 
 mount /dev/sda2 /mnt
-
-mkdir /mnt/boot
-
-mount /dev/sda1 /mnt/boot
 
 
 UEFI MBR:
