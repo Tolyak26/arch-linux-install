@@ -12,7 +12,7 @@ echo "- Optimizing pacman for optimal download ... "
 echo ""
 sleep 5
 
-pacman -S --noconfirm --needed reflector
+pacman -S --noconfirm --needed python3 reflector
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
@@ -194,8 +194,6 @@ sleep 5
 
 mv /root/arch-linux-install/cfg-files/system/etc/skel/config /root/arch-linux-install/cfg-files/system/etc/skel/.config
 cp -R /root/arch-linux-install/cfg-files/system/* /
-
-cp -R 
 
 if [ $displaymanager == "sddm" ]; then
 	mkdir -p /etc/sddm.conf.d
