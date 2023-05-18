@@ -23,28 +23,28 @@ echo "Running 01-pre-setup.sh ... "
 echo ""
 sleep 5
 
-/root/arch-linux-install/01-pre-setup.sh | tee 01-pre-setup.log
+/root/arch-linux-install/01-pre-setup.sh |& tee 01-pre-setup.log
 echo ""
 
 echo "Running 02-setup.sh in root folder ... "
 echo ""
 sleep 5
 
-arch-chroot /mnt /root/arch-linux-install/02-setup.sh | tee 02-setup.log
+arch-chroot /mnt /root/arch-linux-install/02-setup.sh |& tee 02-setup.log
 echo ""
 
 echo "Running 03-aur.sh in $username's home folder ... "
 echo ""
 sleep 5
 
-arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh | tee 03-aur.log
+arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh |& tee 03-aur.log
 echo ""
 
 echo "Running 04-post-setup.sh in root folder ... "
 echo ""
 sleep 5
 
-arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh | tee 04-post-setup.log
+arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh |& tee 04-post-setup.log
 echo ""
 
 echo "Cleaning ... "
