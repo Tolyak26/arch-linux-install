@@ -42,7 +42,7 @@ sleep 5
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
 echo ""
 
-echo "- Installing microcode package for CPU ... "
+echo "- Installing microcode packages for CPU ... "
 echo ""
 sleep 5
 
@@ -73,11 +73,11 @@ if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
-elif lspci | grep 'VGA' | grep -E "Radeon HD"; then
+elif grep 'VGA' | grep -E "Radeon HD" <<< ${get_gpu_vendor}; then
 	echo "Installing ATI Legacy packages"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
-elif lspci | grep 'VGA' | grep -E "AMD"; then
+elif grep 'VGA' | grep -E "AMD" <<< ${get_gpu_vendor}; then
 	echo "Installing AMDGPU packages"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
@@ -89,6 +89,25 @@ elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
+fi
+echo ""
+
+echo "- Installing packages for Virtual Machine Environment ... "
+echo ""
+sleep 5
+
+get_vm_product=$(dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
+# https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest
+if grep -E "VirtualBox" <<< ${get_vm_product}; then
+    echo "Installing VirtualBox packages"
+    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-vm-virtualbox.txt
+	systemctl enable vboxservice.service
+
+# https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest
+elif grep -E "VMware" <<< ${get_vm_product}; then
+    echo "Installing VMWare packages"
+    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-vm-vmware.txt
+	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 echo ""
 
