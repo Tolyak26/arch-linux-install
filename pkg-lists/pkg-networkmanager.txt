@@ -1,4 +1,0 @@
-networkmanager
-openvpn
-pptpclient
-strongswan
