@@ -57,3 +57,4 @@ libdvdcss
 libdvdnav
 libdvdread
 libnfs
+ufw
