@@ -5,10 +5,9 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
-# Setting up setup.conf file
+echo ""
 echo "- Setting up setup.conf file ... "
 echo ""
-sleep 5
 
 if ! source /root/arch-linux-install/setup.conf; then
 	while true
@@ -48,44 +47,39 @@ if ! source /root/arch-linux-install/setup.conf; then
 fi
 
 source /root/arch-linux-install/setup.conf
-echo ""
 
+echo ""
 echo "- Updating system clocks ... "
 echo ""
-sleep 5
 
 timedatectl set-ntp true
-echo ""
 
+echo ""
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
-sleep 5
 
 pacman -S --noconfirm --needed python3 pacman-contrib reflector
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-echo ""
 
+echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
-sleep 5
 
 pacstrap -K /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R /root/arch-linux-install/ /mnt/root/arch-linux-install/
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
-echo ""
 
+echo ""
 echo "- Generating fstab file ... "
 echo ""
-sleep 5
 
 genfstab -U /mnt >> /mnt/etc/fstab
-echo ""
 
+echo ""
 echo "- Making swap file for low memory systems <8GB ... "
 echo ""
-sleep 5
 
 get_total_memory=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
 if [ $get_total_memory -lt 8000000 ]; then
@@ -95,3 +89,5 @@ if [ $get_total_memory -lt 8000000 ]; then
     mkswap /mnt/swapfile
     echo "/swapfile none swap sw 0 0" >> /mnt/etc/fstab
 fi
+
+echo ""

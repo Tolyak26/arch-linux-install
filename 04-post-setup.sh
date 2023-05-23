@@ -8,9 +8,9 @@
 # Import settings from setup.conf
 source /root/arch-linux-install/setup.conf
 
+echo ""
 echo "- Enabling services ... "
 echo ""
-sleep 5
 
 ntpd -qg
 systemctl enable ntpd
@@ -26,10 +26,11 @@ systemctl enable winbind
 systemctl enable sshd
 systemctl enable teamviewerd
 systemctl enable vboxservice
-echo ""
 
+echo ""
 echo "- Updating /boot/grub/grub.cfg ... "
 echo ""
-sleep 5
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+echo ""
