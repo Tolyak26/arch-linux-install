@@ -27,6 +27,7 @@ systemctl enable sshd
 systemctl enable teamviewerd
 systemctl enable vboxservice
 
+sleep 3
 echo ""
 echo "- Updating /boot/grub/grub.cfg ... "
 echo ""
