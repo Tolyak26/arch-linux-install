@@ -1,7 +1,6 @@
 tor
 virtualbox
 virtualbox-host-dkms
-virtualbox-guest-utils
 virtualbox-guest-iso
 vde2
 strawberry
@@ -17,12 +16,6 @@ discord
 telegram-desktop
 remmina
 steam
-steam-native-runtime
 gamescope
 gamemode
 lib32-gamemode
-wine-staging
-wine-gecko
-wine-mono
-winetricks
-lutris
