@@ -17,28 +17,28 @@ sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
-echo ""
 
+echo ""
 echo "- Optimizing makeflags configuration for your CPU ... "
 echo ""
 
 get_cpu_core_count=$(grep -c ^processor /proc/cpuinfo)
 sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$get_cpu_core_count\"/g" /etc/makepkg.conf
 sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $get_cpu_core_count -z -)/g" /etc/makepkg.conf
-echo ""
 
+echo ""
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-arch-additional.txt
-echo ""
 
+echo ""
 echo "- Installing NetworkManager packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
-echo ""
 
+echo ""
 echo "- Installing microcode packages for CPU ... "
 echo ""
 
@@ -50,14 +50,14 @@ elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
     echo "Installing AMD microcode package"
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-microcode-amd.txt
 fi
-echo ""
 
+echo ""
 echo "- Installing Xorg packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
-echo ""
 
+echo ""
 echo "- Installing driver packages for GPU ... "
 echo ""
 
@@ -84,8 +84,8 @@ elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
-echo ""
 
+echo ""
 echo "- Installing packages for Virtual Machine Environment ... "
 echo ""
 
@@ -102,26 +102,26 @@ elif grep -E "VMware" <<< ${get_vm_product}; then
     pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-vm-vmware.txt
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
-echo ""
 
+echo ""
 echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-sound.txt
-echo ""
 
+echo ""
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
-echo ""
 
+echo ""
 echo "- Generating mkinitcpio ... "
 echo ""
 
 mkinitcpio -P
-echo ""
 
+echo ""
 echo "- Installing Bootloader packages ... "
 echo ""
 
@@ -145,38 +145,38 @@ if [ $bootloader == "grub" ]; then
 	sed -i 's/^#GRUB_DISABLE_OS_PROBER/GRUB_DISABLE_OS_PROBER/' /etc/default/grub
 	grub-mkconfig -o /boot/grub/grub.cfg
 fi
-echo ""
 
+echo ""
 echo "- Installing Display Manager packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-$displaymanager.txt
-echo ""
 
+echo ""
 echo "- Installing Desktop Environment packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
-echo ""
 
+echo ""
 echo "- Installing Samba packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
-echo ""
 
+echo ""
 echo "- Installing Media Codec packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-media-codecs.txt
-echo ""
 
+echo ""
 echo "- Installing User Software packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-user-soft.txt
-echo ""
 
+echo ""
 echo "- Installing theme files ... "
 echo ""
 
@@ -187,8 +187,8 @@ fi
 if [ $displaymanager == "sddm" ]; then
 	tar -xf /root/arch-linux-install/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 fi
-echo ""
 
+echo ""
 echo "- Copy config files ... "
 echo ""
 
@@ -207,8 +207,8 @@ if [ $desktopenvironment == "i3" ]; then
 
 	cp -R /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
-echo ""
 
+echo ""
 echo "- Setting up system locale and timezone ... "
 echo ""
 
@@ -224,8 +224,8 @@ LANG=en_US.UTF-8
 EOF
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
 hwclock --systohc
-echo ""
 
+echo ""
 echo "- Setiing up /etc/hosts & /etc/hostname"
 echo ""
 
@@ -236,14 +236,14 @@ tee -a /etc/hosts << EOF
 EOF
 
 echo $nameofmachine > /etc/hostname
-echo ""
 
+echo ""
 echo "- Setting up sudo without no password rights for users ... "
 echo ""
 
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
-echo ""
 
+echo ""
 echo "- Adding user $username ... "
 echo ""
 
