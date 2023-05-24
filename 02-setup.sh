@@ -13,7 +13,7 @@ echo "- Optimizing pacman for optimal download ... "
 echo ""
 
 pacman -S --noconfirm --needed python3 reflector
-sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+#sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
