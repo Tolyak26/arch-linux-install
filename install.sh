@@ -29,22 +29,42 @@ echo ""
 sleep 3
 echo "Running 01-pre-setup.sh ... "
 
-$scriptdir/arch-linux-install/01-pre-setup.sh
+if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+then
+    $scriptdir/arch-linux-install/01-pre-setup.sh | tee 01-pre-setup.log
+else
+    $scriptdir/arch-linux-install/01-pre-setup.sh
+fi
 
 sleep 3
 echo "Running 02-setup.sh in root folder ... "
 
-arch-chroot /mnt /root/arch-linux-install/02-setup.sh
+if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+then
+    arch-chroot /mnt /root/arch-linux-install/02-setup.sh | tee 02-setup.log
+else
+    arch-chroot /mnt /root/arch-linux-install/02-setup.sh
+fi
 
 sleep 3
 echo "Running 03-aur.sh in $username's home folder ... "
 
-arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
+if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+then
+    arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh | tee 03-aur.log
+else
+    arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
+fi
 
 sleep 3
 echo "Running 04-post-setup.sh in root folder ... "
 
-arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
+if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+then
+    arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh | tee 04-post-setup.log
+else
+    arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
+fi
 
 sleep 3
 echo "Cleaning ... "
