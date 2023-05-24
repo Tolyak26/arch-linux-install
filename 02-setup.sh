@@ -7,7 +7,6 @@
 
 script="$( readlink -f "${BASH_SOURCE[0]}" )"
 scriptdir="$( dirname "$script" )"
-scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
 
 cd "$scriptdir" || exit 1
 
@@ -280,6 +279,6 @@ echo ""
 useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers -s /bin/bash $username
 echo "$username:$password" | chpasswd
 cp -R $scriptdir /home/$username
-chown -R $username:users /home/$username/$scriptparentdirname
+chown -R $username:users /home/$username/arch-linux-install
 
 echo ""

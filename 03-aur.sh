@@ -7,7 +7,6 @@
 
 script="$( readlink -f "${BASH_SOURCE[0]}" )"
 scriptdir="$( dirname "$script" )"
-scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
 
 cd "$scriptdir" || exit 1
 
