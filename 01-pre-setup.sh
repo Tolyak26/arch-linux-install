@@ -79,7 +79,7 @@ echo ""
 
 pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-cp -R $scriptdir/ /mnt/root/$scriptparentdirname/
+cp -R -v $scriptdir/ /mnt/root/$scriptparentdirname/
 #cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 sleep 3
