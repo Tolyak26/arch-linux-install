@@ -11,6 +11,8 @@ scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
 
 cd "$scriptdir" || exit 1
 
+echo "$scriptdir"
+
 echo ""
 echo "- Setting up setup.conf file ... "
 echo ""
