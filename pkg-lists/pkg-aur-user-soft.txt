@@ -8,7 +8,6 @@ teamviewer
 nomachine
 timeshift
 woeusb
-anki
 google-chrome
 mangohud
 lib32-mangohud

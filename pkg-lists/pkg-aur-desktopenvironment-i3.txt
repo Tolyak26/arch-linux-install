@@ -2,5 +2,4 @@ i3lock-color
 betterlockscreen
 clearine-git
 pamac-aur
-ttf-ms-fonts
 pix

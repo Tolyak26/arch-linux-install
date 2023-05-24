@@ -1,2 +1,2 @@
 octopi
-ttf-ms-fonts
+sddm-git
