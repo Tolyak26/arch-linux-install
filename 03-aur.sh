@@ -25,14 +25,14 @@ makepkg -si --noconfirm --needed
 rm -rf $HOME/yay
 cd $scriptdir
 
-sleep 3
+sleep 5
 echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
 yay -S --noconfirm --noeditmenu --needed --removemake - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
-sleep 3
+sleep 5
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""

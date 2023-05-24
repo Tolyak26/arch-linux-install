@@ -26,7 +26,7 @@ mkdir -p /mnt/{boot,root,opt}
 
 echo ""
 
-sleep 3
+sleep 5
 echo "Running 01-pre-setup.sh ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
@@ -36,7 +36,7 @@ else
     $scriptdir/arch-linux-install/01-pre-setup.sh
 fi
 
-sleep 3
+sleep 5
 echo "Running 02-setup.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
@@ -46,7 +46,7 @@ else
     arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 fi
 
-sleep 3
+sleep 5
 echo "Running 03-aur.sh in $username's home folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
@@ -56,7 +56,7 @@ else
     arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
 fi
 
-sleep 3
+sleep 5
 echo "Running 04-post-setup.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
@@ -66,7 +66,7 @@ else
     arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
 fi
 
-sleep 3
+sleep 5
 echo "Cleaning ... "
 
 echo ""
