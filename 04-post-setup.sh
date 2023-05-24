@@ -5,8 +5,14 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+script="$( readlink -f "${BASH_SOURCE[0]}" )"
+scriptdir="$( dirname "$script" )"
+scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
+
+cd "$scriptdir" || exit 1
+
 # Import settings from setup.conf
-source /root/arch-linux-install/setup.conf
+source $scriptdir/setup.conf
 
 echo ""
 echo "- Enabling services ... "

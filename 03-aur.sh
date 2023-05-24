@@ -5,8 +5,14 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+script="$( readlink -f "${BASH_SOURCE[0]}" )"
+scriptdir="$( dirname "$script" )"
+scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
+
+cd "$scriptdir" || exit 1
+
 # Import settings from setup.conf
-source $HOME/arch-linux-install/setup.conf
+source $scriptdir/setup.conf
 
 echo ""
 echo "- Installing AUR Helper ... "
@@ -18,19 +24,20 @@ cd $HOME/yay
 sudo pacman -S --noconfirm --needed go
 makepkg -si --noconfirm --needed
 rm -rf $HOME/yay
+cd $scriptdir
 
 sleep 3
 echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
-yay -S --noconfirm --noeditmenu --needed --removemake - < $HOME/arch-linux-install/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+yay -S --noconfirm --noeditmenu --needed --removemake - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
 sleep 3
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""
 
-yay -S --noconfirm --noeditmenu --needed --removemake - < $HOME/arch-linux-install/pkg-lists/pkg-aur-user-soft.txt
+yay -S --noconfirm --noeditmenu --needed --removemake - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
 
 echo ""

@@ -5,8 +5,14 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+script="$( readlink -f "${BASH_SOURCE[0]}" )"
+scriptdir="$( dirname "$script" )"
+scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
+
+cd "$scriptdir" || exit 1
+
 # Import settings from setup.conf
-source /root/arch-linux-install/setup.conf
+source $scriptdir/setup.conf
 
 echo ""
 echo "- Optimizing pacman for optimal download ... "
@@ -32,14 +38,14 @@ echo ""
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-arch-additional.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-arch-additional.txt
 
 sleep 3
 echo ""
 echo "- Installing NetworkManager packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-networkmanager.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-networkmanager.txt
 
 sleep 3
 echo ""
@@ -49,10 +55,10 @@ echo ""
 get_cpu_vendor=$(lscpu)
 if grep -E "GenuineIntel" <<< ${get_cpu_vendor}; then
     echo "Installing Intel microcode package"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-microcode-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-intel.txt
 elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
     echo "Installing AMD microcode package"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-microcode-amd.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
 fi
 
 sleep 3
@@ -60,7 +66,7 @@ echo ""
 echo "- Installing Xorg packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-xorg.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
 sleep 3
 echo ""
@@ -70,24 +76,24 @@ echo ""
 get_gpu_vendor=$(lspci)
 if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
 	echo "Installing NVIDIA packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-nvidia.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
 elif lspci | grep 'VGA' | grep -E "Radeon HD"; then
 	echo "Installing ATI Legacy packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-ati.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 elif lspci | grep 'VGA' | grep -E "AMD"; then
 	echo "Installing AMDGPU packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-amd.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
 elif grep -E "Integrated Graphics Controller" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-video-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
 
@@ -99,11 +105,11 @@ echo ""
 get_vm_product=$(dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
 if grep -E "VirtualBox" <<< ${get_vm_product}; then
     echo "Installing VirtualBox packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-vm-virtualbox.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
 	systemctl enable vboxservice.service
 elif grep -E "VMware" <<< ${get_vm_product}; then
     echo "Installing VMWare packages"
-    pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-vm-vmware.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 
@@ -112,14 +118,14 @@ echo ""
 echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-sound.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound.txt
 
 sleep 3
 echo ""
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-driver-bluetooth.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
 
 sleep 3
 echo ""
@@ -134,7 +140,7 @@ echo "- Installing Bootloader packages ... "
 echo ""
 
 if [ $bootloader == "grub" ]; then
-	pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-bootloader-$bootloader.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-bootloader-$bootloader.txt
 	if [[ -d "/sys/firmware/efi" ]]; then
 		grub-install --target=x86_64-efi --efi-directory=/boot $bootloaderinstallpath 
 	else
@@ -159,35 +165,35 @@ echo ""
 echo "- Installing Display Manager packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-displaymanager-$displaymanager.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
 
 sleep 3
 echo ""
 echo "- Installing Desktop Environment packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 
 sleep 3
 echo ""
 echo "- Installing Samba packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-samba.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-samba.txt
 
 sleep 3
 echo ""
 echo "- Installing Media Codec packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-media-codecs.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 
 sleep 3
 echo ""
 echo "- Installing User Software packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < /root/arch-linux-install/pkg-lists/pkg-user-soft.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
 
 sleep 3
 echo ""
@@ -195,11 +201,11 @@ echo "- Installing theme files ... "
 echo ""
 
 if [ $desktopenvironment == "i3" ]; then
-tar -xf /root/arch-linux-install/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
+tar -xf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
 fi
 
 if [ $displaymanager == "sddm" ]; then
-	tar -xf /root/arch-linux-install/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
+	tar -xf $scriptdir/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 fi
 
 sleep 3
@@ -207,20 +213,25 @@ echo ""
 echo "- Copy config files ... "
 echo ""
 
-mv /root/arch-linux-install/cfg-files/system/etc/skel/config /root/arch-linux-install/cfg-files/system/etc/skel/.config
-cp -R /root/arch-linux-install/cfg-files/system/* /
+cd $scriptdir/cfg-files/system/etc/skel
+mv config .config
+cd $scriptdir
+
+cp -R $scriptdir/cfg-files/system/* /
 
 if [ $displaymanager == "sddm" ]; then
 	mkdir -p /etc/sddm.conf.d
-	cp -R /root/arch-linux-install/cfg-files/displaymanager-$displaymanager/* /
+	cp -R $scriptdir/cfg-files/displaymanager-$displaymanager/* /
 fi
 
 if [ $desktopenvironment == "i3" ]; then
-	mv /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/gtkrc-2.0 /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/.gtkrc-2.0
-	mv /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/config /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/.config
-	mv /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/icons /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/etc/skel/.icons
+	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
+	mv gtkrc-2.0 .gtkrc-2.0
+	mv config .config
+	mv icons .icons
+	cd $scriptdir
 
-	cp -R /root/arch-linux-install/cfg-files/desktopenvironment-$desktopenvironment/* /
+	cp -R $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 
 sleep 3
@@ -268,7 +279,7 @@ echo ""
 
 useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers -s /bin/bash $username
 echo "$username:$password" | chpasswd
-cp -R /root/arch-linux-install /home/$username
-chown -R $username:users /home/$username/arch-linux-install
+cp -R $scriptdir /home/$username
+chown -R $username:users /home/$username/$scriptparentdirname
 
 echo ""

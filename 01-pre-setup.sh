@@ -5,11 +5,17 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+script="$( readlink -f "${BASH_SOURCE[0]}" )"
+scriptdir="$( dirname "$script" )"
+scriptparentdirname="$(basename "$(dirname "$scriptdir")")"
+
+cd "$scriptdir" || exit 1
+
 echo ""
 echo "- Setting up setup.conf file ... "
 echo ""
 
-if ! source /root/arch-linux-install/setup.conf; then
+if ! source $scriptdir/setup.conf; then
 	while true
 	do
 		read -p "Please enter username:" username
@@ -19,10 +25,10 @@ if ! source /root/arch-linux-install/setup.conf; then
 		fi
 		echo "Incorrect username."
 	done
-	echo "username=${username,,}" >> /root/arch-linux-install/setup.conf
+	echo "username=${username,,}" >> $scriptdir/setup.conf
 
     read -p "Please enter password:" password
-	echo "password=${password,,}" >> /root/arch-linux-install/setup.conf
+	echo "password=${password,,}" >> $scriptdir/setup.conf
 
 	while true
 	do
@@ -37,16 +43,16 @@ if ! source /root/arch-linux-install/setup.conf; then
 			break
 		fi
 	done
-    echo "nameofmachine=${nameofmachine,,}" >> /root/arch-linux-install/setup.conf
+    echo "nameofmachine=${nameofmachine,,}" >> $scriptdir/setup.conf
 
-	echo "typeofmachine=pc" >> /root/arch-linux-install/setup.conf
-	echo "bootloader=grub" >> /root/arch-linux-install/setup.conf
-	echo "bootloaderinstallpath=/dev/sda" >> /root/arch-linux-install/setup.conf
-	echo "displaymanager=sddm" >> /root/arch-linux-install/setup.conf
-	echo "desktopenvironment=kde" >> /root/arch-linux-install/setup.conf
+	echo "typeofmachine=pc" >> $scriptdir/setup.conf
+	echo "bootloader=grub" >> $scriptdir/setup.conf
+	echo "bootloaderinstallpath=/dev/sda" >> $scriptdir/setup.conf
+	echo "displaymanager=sddm" >> $scriptdir/setup.conf
+	echo "desktopenvironment=kde" >> $scriptdir/setup.conf
 fi
 
-source /root/arch-linux-install/setup.conf
+source $scriptdir/setup.conf
 
 sleep 3
 echo ""
@@ -69,10 +75,10 @@ echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
 
-pacstrap -K /mnt - < /root/arch-linux-install/pkg-lists/pkg-arch-base.txt --noconfirm --needed
+pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-cp -R /root/arch-linux-install/ /mnt/root/arch-linux-install/
-cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
+cp -R $scriptdir/ /mnt/root/$scriptparentdirname/
+#cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 sleep 3
 echo ""
