@@ -13,19 +13,18 @@ echo "- Enabling services ... "
 echo ""
 
 ntpd -qg
-systemctl enable ntpd
-systemctl enable cups
-systemctl enable bluetooth
-systemctl enable sddm
-systemctl disable dhcpcd
-systemctl stop dhcpcd
-systemctl enable NetworkManager
-systemctl enable smb
-systemctl enable nmb
-systemctl enable winbind
-systemctl enable sshd
-systemctl enable teamviewerd
-systemctl enable vboxservice
+systemctl enable ntpd.service
+systemctl enable cups.service
+systemctl enable bluetooth.service
+systemctl enable sddm.service
+systemctl disable dhcpcd.service
+systemctl enable NetworkManager.service
+systemctl enable smb.service
+systemctl enable nmb.service
+systemctl enable winbind.service
+systemctl enable sshd.service
+systemctl enable teamviewerd.service
+systemctl enable nxserver.service
 
 sleep 3
 echo ""
