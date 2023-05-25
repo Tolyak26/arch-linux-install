@@ -17,32 +17,37 @@ function __AURHelperDoJob()
 
 export -f __AURHelperDoJob
 
+function InstallAURPackages()
+{
+   echo ""
+   echo "- Installing AUR Helper ... "
+   echo ""
+
+   cd $HOME
+   git clone https://aur.archlinux.org/yay.git
+   cd $HOME/yay
+   sudo pacman -S --noconfirm --needed go
+   makepkg -si --noconfirm --needed
+   rm -rf $HOME/yay
+
+   sleep 1
+   echo ""
+   echo "- Installing AUR Desktop Environment packages ... "
+   echo ""
+
+   "__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt"
+
+   sleep 1
+   echo ""
+   echo "- Installing AUR User Software packages ... "
+   echo ""
+
+   "__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-user-soft.txt"
+}
+
 # Import settings from setup.conf
 source $scriptdir/setup.conf
 
-echo ""
-echo "- Installing AUR Helper ... "
-echo ""
-
-cd $HOME
-git clone https://aur.archlinux.org/yay.git
-cd $HOME/yay
-sudo pacman -S --noconfirm --needed go
-makepkg -si --noconfirm --needed
-rm -rf $HOME/yay
-
-sleep 1
-echo ""
-echo "- Installing AUR Desktop Environment packages ... "
-echo ""
-
-"__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt"
-
-sleep 1
-echo ""
-echo "- Installing AUR User Software packages ... "
-echo ""
-
-"__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-user-soft.txt"
+InstallAURPackages
 
 echo ""
