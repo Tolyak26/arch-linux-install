@@ -69,6 +69,13 @@ pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
 sleep 1
 echo ""
+echo "- Installing Wayland packages ... "
+echo ""
+
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-wayland.txt
+
+sleep 1
+echo ""
 echo "- Installing driver packages for GPU ... "
 echo ""
 
