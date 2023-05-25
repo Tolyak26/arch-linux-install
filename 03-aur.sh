@@ -23,7 +23,6 @@ cd $HOME/yay
 sudo pacman -S --noconfirm go
 makepkg -si --noconfirm
 rm -rf $HOME/yay
-cd $scriptdir
 
 sleep 5
 echo ""
