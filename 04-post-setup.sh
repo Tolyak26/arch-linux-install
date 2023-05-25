@@ -17,7 +17,7 @@ echo ""
 echo "- Enabling services ... "
 echo ""
 
-ntpd -qg
+timedatectl set-ntp true
 systemctl enable ntpd.service
 systemctl enable cups.service
 systemctl enable bluetooth.service
