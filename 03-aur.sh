@@ -35,14 +35,20 @@ function InstallAURPackages()
    echo "- Installing AUR Desktop Environment packages ... "
    echo ""
 
-   "__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt"
+   for aur_de_pkgs in $( cat $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt )
+   do
+      __AURHelperDoJob $aur_de_pkgs
+   done
 
    sleep 1
    echo ""
    echo "- Installing AUR User Software packages ... "
    echo ""
 
-   "__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-user-soft.txt"
+   for aur_user_soft in $( cat $scriptdir/pkg-lists/pkg-aur-user-soft.txt )
+   do
+      __AURHelperDoJob $aur_user_soft
+   done
 }
 
 # Import settings from setup.conf
