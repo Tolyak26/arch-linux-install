@@ -29,13 +29,13 @@ echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
-yay -S --noconfirm --needed --noeditmenu --removemake --nouseask - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+yay -S --needed --noeditmenu --removemake - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
 sleep 5
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""
 
-yay -S --noconfirm --needed --noeditmenu --removemake --nouseask - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
+yay -S --needed --noeditmenu --removemake - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
 
 echo ""
