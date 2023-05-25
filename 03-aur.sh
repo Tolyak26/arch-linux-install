@@ -10,6 +10,13 @@ scriptdir="$( dirname "$script" )"
 
 cd "$scriptdir" || exit 1
 
+function __AURHelperDoJob()
+{
+   yay -S --noconfirm --needed --noeditmenu --removemake $1 
+}
+
+export -f __AURHelperDoJob
+
 # Import settings from setup.conf
 source $scriptdir/setup.conf
 
@@ -29,13 +36,13 @@ echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
-yay -S --noconfirm --needed --noeditmenu --removemake --useask - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+__AURHelperDoJob '{}' < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
 sleep 1
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""
 
-yay -S --noconfirm --needed --noeditmenu --removemake --useask - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
+__AURHelperDoJob '{}' < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
 
 echo ""
