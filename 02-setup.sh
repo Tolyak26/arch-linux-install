@@ -231,6 +231,13 @@ if [ $desktopenvironment == "i3" ]; then
 	cp -R $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 
+if [ $desktopenvironment == "kde" ]; then
+	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
+	mv config/ .config/
+
+	cp -R $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
+fi
+
 sleep 1
 echo ""
 echo "- Setting up system locale and timezone ... "
