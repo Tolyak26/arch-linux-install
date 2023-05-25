@@ -11,7 +11,7 @@ echo ""
 
 yay -S --noconfirm --noeditmenu --needed --removemake --mflags "--skippgpcheck" linux-fsync-nobara-bin
 
-sleep 5
+sleep 1
 echo ""
 echo "- Updating /boot/grub/grub.cfg ... "
 echo ""

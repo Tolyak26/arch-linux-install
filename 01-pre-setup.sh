@@ -53,14 +53,14 @@ fi
 
 source $scriptdir/setup.conf
 
-sleep 5
+sleep 1
 echo ""
 echo "- Updating system clocks ... "
 echo ""
 
 timedatectl set-ntp true
 
-sleep 5
+sleep 1
 echo ""
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
@@ -69,7 +69,7 @@ pacman -S --noconfirm --needed python3 pacman-contrib reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-sleep 5
+sleep 1
 echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
@@ -79,14 +79,14 @@ echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R $scriptdir/ /mnt/root/arch-linux-install/
 #cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
-sleep 5
+sleep 1
 echo ""
 echo "- Generating fstab file ... "
 echo ""
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
-sleep 5
+sleep 1
 echo ""
 echo "- Making swap file for low memory systems <8GB ... "
 echo ""

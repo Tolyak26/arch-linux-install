@@ -24,14 +24,14 @@ sudo pacman -S --noconfirm --needed go
 makepkg -si --noconfirm --needed
 rm -rf $HOME/yay
 
-sleep 5
+sleep 1
 echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
 yay -S --needed --noeditmenu --removemake - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
-sleep 5
+sleep 1
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""

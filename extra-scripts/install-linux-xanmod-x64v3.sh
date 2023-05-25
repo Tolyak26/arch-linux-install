@@ -11,7 +11,7 @@ echo ""
 
 yay -S --noconfirm --noeditmenu --needed --removemake --mflags "--skippgpcheck" linux-xanmod-linux-bin-x64v3 linux-xanmod-linux-headers-bin-x64v3
 
-sleep 5
+sleep 1
 echo ""
 echo "- Updating /boot/grub/grub.cfg ... "
 echo ""

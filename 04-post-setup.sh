@@ -31,7 +31,7 @@ systemctl enable sshd.service
 systemctl enable teamviewerd.service
 systemctl enable nxserver.service
 
-sleep 5
+sleep 1
 echo ""
 echo "- Updating /boot/grub/grub.cfg ... "
 echo ""
