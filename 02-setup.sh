@@ -17,7 +17,7 @@ echo ""
 echo "- Optimizing pacman for optimal download ... "
 echo ""
 
-pacman -S --noconfirm python3 reflector
+pacman -S --noconfirm --needed python3 reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
@@ -37,14 +37,14 @@ echo ""
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-arch-additional.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-arch-additional.txt
 
 sleep 5
 echo ""
 echo "- Installing NetworkManager packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-networkmanager.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-networkmanager.txt
 
 sleep 5
 echo ""
@@ -54,10 +54,10 @@ echo ""
 get_cpu_vendor=$(lscpu)
 if grep -E "GenuineIntel" <<< ${get_cpu_vendor}; then
     echo "Installing Intel microcode package"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-microcode-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-intel.txt
 elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
     echo "Installing AMD microcode package"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
 fi
 
 sleep 5
@@ -65,7 +65,7 @@ echo ""
 echo "- Installing Xorg packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-xorg.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
 sleep 5
 echo ""
@@ -75,24 +75,24 @@ echo ""
 get_gpu_vendor=$(lspci)
 if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
 	echo "Installing NVIDIA packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
 elif lspci | grep 'VGA' | grep -E "Radeon HD"; then
 	echo "Installing ATI Legacy packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 elif lspci | grep 'VGA' | grep -E "AMD"; then
 	echo "Installing AMDGPU packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
 elif grep -E "Integrated Graphics Controller" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
 
@@ -104,11 +104,11 @@ echo ""
 get_vm_product=$(dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
 if grep -E "VirtualBox" <<< ${get_vm_product}; then
     echo "Installing VirtualBox packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
 	systemctl enable vboxservice.service
 elif grep -E "VMware" <<< ${get_vm_product}; then
     echo "Installing VMWare packages"
-    pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
+    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 
@@ -117,14 +117,14 @@ echo ""
 echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-sound.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound.txt
 
 sleep 5
 echo ""
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
 
 sleep 5
 echo ""
@@ -139,7 +139,7 @@ echo "- Installing Bootloader packages ... "
 echo ""
 
 if [ $bootloader == "grub" ]; then
-	pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-bootloader-$bootloader.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-bootloader-$bootloader.txt
 	if [[ -d "/sys/firmware/efi" ]]; then
 		grub-install --target=x86_64-efi --efi-directory=/boot $bootloaderinstallpath 
 	else
@@ -164,35 +164,35 @@ echo ""
 echo "- Installing Display Manager packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
 
 sleep 5
 echo ""
 echo "- Installing Desktop Environment packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 
 sleep 5
 echo ""
 echo "- Installing Samba packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-samba.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-samba.txt
 
 sleep 5
 echo ""
 echo "- Installing Media Codec packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-media-codecs.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 
 sleep 5
 echo ""
 echo "- Installing User Software packages ... "
 echo ""
 
-pacman -S --noconfirm - < $scriptdir/pkg-lists/pkg-user-soft.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
 
 sleep 5
 echo ""

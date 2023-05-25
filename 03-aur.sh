@@ -20,8 +20,8 @@ echo ""
 cd $HOME
 git clone https://aur.archlinux.org/yay.git
 cd $HOME/yay
-sudo pacman -S --noconfirm go
-makepkg -si --noconfirm
+sudo pacman -S --noconfirm --needed go
+makepkg -si --noconfirm --needed
 rm -rf $HOME/yay
 
 sleep 5
@@ -29,13 +29,13 @@ echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
-yay -S --noconfirm --noeditmenu --removemake - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+yay -S --noconfirm --needed --noeditmenu --removemake --nouseask - < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
 
 sleep 5
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""
 
-yay -S --noconfirm --noeditmenu --removemake - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
+yay -S --noconfirm --needed --noeditmenu --removemake --nouseask - < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
 
 echo ""

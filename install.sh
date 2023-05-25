@@ -11,7 +11,7 @@ scriptdir="$( dirname "$script" )"
 cd "$scriptdir" || exit 1
 
 pacman -Sy --noconfirm
-pacman -S --noconfirm git
+pacman -S --noconfirm --needed git
 git clone https://github.com/Tolyak26/arch-linux-install.git
 
 # Import settings from setup.conf
