@@ -36,13 +36,13 @@ echo ""
 echo "- Installing AUR Desktop Environment packages ... "
 echo ""
 
-__AURHelperDoJob '{}' < $scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt
+"__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-desktopenvironment-$desktopenvironment.txt"
 
 sleep 1
 echo ""
 echo "- Installing AUR User Software packages ... "
 echo ""
 
-__AURHelperDoJob '{}' < $scriptdir/pkg-lists/pkg-aur-user-soft.txt
+"__AURHelperDoJob '{}'" < "$scriptdir/pkg-lists/pkg-aur-user-soft.txt"
 
 echo ""
