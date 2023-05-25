@@ -65,7 +65,7 @@ echo ""
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
 
-pacman -S --noconfirm --needed python3 pacman-contrib reflector
+pacman -S --noconfirm python3 pacman-contrib reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -74,7 +74,7 @@ echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
 
-pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
+pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R $scriptdir/ /mnt/root/arch-linux-install/
 #cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
