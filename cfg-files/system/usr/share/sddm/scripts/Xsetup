@@ -3,4 +3,4 @@
 
 xrandr --output HDMI-A-0 --off &
 xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 &
-/usr/bin/x11vnc -many -display :0 -loop -noxdamage -shared -xkb &
+x11vnc -many -display :0 -loop -noxdamage -shared -xkb &
