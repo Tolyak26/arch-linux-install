@@ -66,7 +66,7 @@ echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
 
 pacman -S --noconfirm --needed python3 pacman-contrib reflector
-#sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 sleep 5
