@@ -18,7 +18,7 @@ if ! source $scriptdir/setup.conf; then
 	while true
 	do
 		read -p "Please enter username:" username
-		if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]]
+		if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]];
 		then
 			break
 		fi
@@ -32,35 +32,40 @@ if ! source $scriptdir/setup.conf; then
 	while true
 	do
 		read -p "Please name your machine:" nameofmachine
-		if [[ "${nameofmachine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]]
+		if [[ "${nameofmachine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]];
 		then
 			break
 		fi
-		read -p "Hostname doesn't seem correct. Do you still want to save it? (y/n)" force
-		if [[ "${force,,}" = "y" ]]
+		read -p "Hostname doesn't seem correct. Do you still want to save it? ( y / n )" force
+		if [[ "${force,,}" = "y" ]] || [[ "${force,,}" = "yes" ]];
 		then
 			break
 		fi
 	done
     echo "nameofmachine=${nameofmachine,,}" >> $scriptdir/setup.conf
 
-	echo "typeofmachine=pc" >> $scriptdir/setup.conf
+    read -p "Please enter type of your machine ( homepc | tvbox | server | workpc | laptop ):" typeofmachine
+	echo "typeofmachine=${typeofmachine,,}" >> $scriptdir/setup.conf
+
 	echo "bootloader=grub" >> $scriptdir/setup.conf
-	echo "bootloaderinstallpath=/dev/sda" >> $scriptdir/setup.conf
+
+	read -p "Please enter bootloader install path ( /dev/sda | /dev/vda ):" bootloaderinstallpath
+	echo "bootloaderinstallpath=${bootloaderinstallpath,,}" >> $scriptdir/setup.conf
+
 	echo "displaymanager=sddm" >> $scriptdir/setup.conf
-	echo "desktopenvironment=kde" >> $scriptdir/setup.conf
+
+	read -p "Please enter your desktop environment ( i3 | kde ):" desktopenvironment
+	echo "desktopenvironment=${desktopenvironment,,}" >> $scriptdir/setup.conf
 fi
 
 source $scriptdir/setup.conf
 
-sleep 1
 echo ""
 echo "- Updating system clocks ... "
 echo ""
 
 timedatectl set-ntp true
 
-sleep 1
 echo ""
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
 echo ""
@@ -69,7 +74,6 @@ pacman -S --noconfirm --needed python3 pacman-contrib reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
-sleep 1
 echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
@@ -79,14 +83,12 @@ echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R $scriptdir/ /mnt/root/arch-linux-install/
 #cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
-sleep 1
 echo ""
 echo "- Generating fstab file ... "
 echo ""
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
-sleep 1
 echo ""
 echo "- Making swap file for low memory systems <8GB ... "
 echo ""

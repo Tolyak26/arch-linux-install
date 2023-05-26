@@ -30,7 +30,6 @@ function InstallAURPackages()
    makepkg -si --noconfirm --needed
    rm -rf $HOME/yay
 
-   sleep 1
    echo ""
    echo "- Installing AUR Desktop Environment packages ... "
    echo ""
@@ -40,7 +39,6 @@ function InstallAURPackages()
       __AURHelperDoJob $aur_de_pkgs
    done
 
-   sleep 1
    echo ""
    echo "- Installing AUR User Software packages ... "
    echo ""
