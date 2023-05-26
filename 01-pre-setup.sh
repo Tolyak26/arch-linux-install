@@ -17,7 +17,7 @@ echo ""
 if ! source $scriptdir/setup.conf; then
 	while true
 	do
-		read -p "Please enter username:" username
+		read -p "Please enter username: " username
 		if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]];
 		then
 			break
@@ -26,17 +26,17 @@ if ! source $scriptdir/setup.conf; then
 	done
 	echo "username=${username,,}" >> $scriptdir/setup.conf
 
-    read -p "Please enter password:" password
+    read -p "Please enter password: " password
 	echo "password=${password,,}" >> $scriptdir/setup.conf
 
 	while true
 	do
-		read -p "Please name your machine:" nameofmachine
+		read -p "Please name your machine: " nameofmachine
 		if [[ "${nameofmachine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]];
 		then
 			break
 		fi
-		read -p "Hostname doesn't seem correct. Do you still want to save it? ( y / n )" force
+		read -p "Hostname doesn't seem correct. Do you still want to save it? ( y / n ): " force
 		if [[ "${force,,}" = "y" ]] || [[ "${force,,}" = "yes" ]];
 		then
 			break
@@ -44,17 +44,17 @@ if ! source $scriptdir/setup.conf; then
 	done
     echo "nameofmachine=${nameofmachine,,}" >> $scriptdir/setup.conf
 
-    read -p "Please enter type of your machine ( homepc | tvbox | server | workpc | laptop ):" typeofmachine
+    read -p "Please enter type of your machine ( homepc | tvbox | server | workpc | laptop ): " typeofmachine
 	echo "typeofmachine=${typeofmachine,,}" >> $scriptdir/setup.conf
 
 	echo "bootloader=grub" >> $scriptdir/setup.conf
 
-	read -p "Please enter bootloader install path ( /dev/sda | /dev/vda ):" bootloaderinstallpath
+	read -p "Please enter bootloader install path ( /dev/sda | /dev/vda ): " bootloaderinstallpath
 	echo "bootloaderinstallpath=${bootloaderinstallpath,,}" >> $scriptdir/setup.conf
 
 	echo "displaymanager=sddm" >> $scriptdir/setup.conf
 
-	read -p "Please enter your desktop environment ( i3 | kde ):" desktopenvironment
+	read -p "Please enter your desktop environment ( i3 | kde ): " desktopenvironment
 	echo "desktopenvironment=${desktopenvironment,,}" >> $scriptdir/setup.conf
 fi
 
