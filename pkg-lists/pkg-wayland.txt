@@ -1,4 +1,4 @@
 wayland
-xorg-wayland
+xorg-xwayland
 xorg-xlsclients
 glfw-wayland
