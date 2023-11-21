@@ -14,9 +14,6 @@ pacman -Sy --noconfirm
 pacman -S --noconfirm --needed git
 git clone https://github.com/Tolyak26/arch-linux-install.git
 
-# Import settings from setup.conf
-source $scriptdir/arch-linux-install/setup.conf
-
 chmod +x $scriptdir/arch-linux-install/01-pre-setup.sh
 chmod +x $scriptdir/arch-linux-install/02-setup.sh
 chmod +x $scriptdir/arch-linux-install/03-aur.sh
@@ -34,6 +31,9 @@ then
 else
     $scriptdir/arch-linux-install/01-pre-setup.sh
 fi
+
+# Import settings from setup.conf
+source $scriptdir/arch-linux-install/setup.conf
 
 echo "Running 02-setup.sh in root folder ... "
 
