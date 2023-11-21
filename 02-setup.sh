@@ -75,28 +75,28 @@ echo ""
 get_gpu_vendor=$(lspci | grep -E 'VGA')
 if grep -E "NVIDIA|GeForce" <<< ${get_gpu_vendor}; then
 	echo "Installing NVIDIA packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
 elif grep -E "Radeon HD" <<< ${get_gpu_vendor}; then
 	echo "Installing ATI Legacy packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 elif grep -E "Radeon RX" <<< ${get_gpu_vendor}; then
 	echo "Installing AMDGPU packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
 elif grep -E "Intel|Integrated Graphics Controller" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 elif grep -E "Intel Corporation UHD" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 elif grep -E "Intel|UHD Graphics" <<< ${get_gpu_vendor}; then
 	echo "Installing Intel packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
 
