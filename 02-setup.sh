@@ -203,11 +203,11 @@ echo ""
 cd $scriptdir/cfg-files/system/etc/skel
 mv config/ .config/
 
-cp -R $scriptdir/cfg-files/system/* /
+cp -R -v $scriptdir/cfg-files/system/* /
 
 if [ $displaymanager == "sddm" ]; then
 	mkdir -p /etc/sddm.conf.d
-	cp -R $scriptdir/cfg-files/displaymanager-$displaymanager/* /
+	cp -R -v $scriptdir/cfg-files/displaymanager-$displaymanager/* /
 fi
 
 if [ $desktopenvironment == "i3" ]; then
@@ -216,14 +216,14 @@ if [ $desktopenvironment == "i3" ]; then
 	mv config/ .config/
 	mv icons/ .icons/
 
-	cp -R $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
+	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 
 if [ $desktopenvironment == "kde" ]; then
 	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
 	mv config/ .config/
 
-	cp -R $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
+	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 
 echo ""
@@ -267,7 +267,7 @@ echo ""
 
 useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel,vboxusers -s /bin/bash $username
 echo "${username}:${password}" | chpasswd
-cp -R $scriptdir /home/$username
+cp -R -v $scriptdir /home/$username
 chown -R $username:users /home/$username/arch-linux-install
 
 echo ""

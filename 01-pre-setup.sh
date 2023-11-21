@@ -80,7 +80,7 @@ echo ""
 
 pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-cp -R $scriptdir/ /mnt/root/arch-linux-install/
+cp -R -v $scriptdir/ /mnt/root/arch-linux-install/
 #cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 echo ""
