@@ -82,7 +82,7 @@ elif grep -E "Radeon HD" <<< ${get_gpu_vendor}; then
 	echo "Installing ATI Legacy packages"
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
-elif grep -E "Radeon RX" <<< ${get_gpu_vendor}; then
+elif grep -E "Radeon RX|Radeon R9|Radeon Pro" <<< ${get_gpu_vendor}; then
 	echo "Installing AMDGPU packages"
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
