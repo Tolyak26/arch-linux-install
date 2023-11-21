@@ -15,6 +15,7 @@ echo "- Setting up setup.conf file ... "
 echo ""
 
 if ! source $scriptdir/setup.conf; then
+	echo ""
 	while true
 	do
 		read -p "Please enter username: " username
