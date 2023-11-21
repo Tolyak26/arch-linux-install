@@ -8,7 +8,6 @@ easytag
 vlc
 handbrake
 code
-youtube-dl
 filezilla
 qbittorrent
 thunderbird

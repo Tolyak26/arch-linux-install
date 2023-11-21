@@ -25,7 +25,6 @@ skanlite
 partitionmanager
 kcalc
 qt5-imageformats
-kimageformats
 libappimage
 icoutils
 ffmpegthumbs
