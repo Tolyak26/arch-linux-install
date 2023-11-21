@@ -193,7 +193,7 @@ echo "- Installing theme files ... "
 echo ""
 
 if [ $desktopenvironment == "i3" ]; then
-tar -xf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
+	tar -xf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
 fi
 
 if [ $displaymanager == "sddm" ]; then
