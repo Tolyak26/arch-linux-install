@@ -10,6 +10,8 @@ scriptdir="$( dirname "$script" )"
 
 cd "$scriptdir" || exit 1
 
+### Setting up setup.conf file - Start ###
+
 echo ""
 echo "- Setting up setup.conf file ... "
 echo ""
@@ -61,11 +63,19 @@ fi
 
 source $scriptdir/setup.conf
 
+### Setting up setup.conf file - Done ###
+
+### Updating system clocks - Start ###
+
 echo ""
 echo "- Updating system clocks ... "
 echo ""
 
 timedatectl set-ntp true
+
+### Updating system clocks - Done ###
+
+### Setting up Arch Linux repo mirror for optimal download - Start ###
 
 echo ""
 echo "- Setting up Arch Linux repo mirror for optimal download ... "
@@ -75,6 +85,10 @@ pacman -S --noconfirm --needed python3 pacman-contrib reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
+### Setting up Arch Linux repo mirror for optimal download - Done ###
+
+### Installing Arch Linux base system - Start ###
+
 echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
@@ -83,11 +97,19 @@ pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R -v $scriptdir/ /mnt/root/arch-linux-install/
 
+### Installing Arch Linux base system - Done ###
+
+### Generating fstab file - Start ###
+
 echo ""
 echo "- Generating fstab file ... "
 echo ""
 
 genfstab -U /mnt >> /mnt/etc/fstab
+
+### Generating fstab file - Done ###
+
+### Making swap file for low memory systems <8GB - Start ###
 
 echo ""
 echo "- Making swap file for low memory systems <8GB ... "
@@ -101,5 +123,7 @@ if [ $get_total_memory -lt 8000000 ]; then
     mkswap /mnt/swapfile
     echo "/swapfile none swap sw 0 0" >> /mnt/etc/fstab
 fi
+
+### Making swap file for low memory systems <8GB - Done ###
 
 echo ""

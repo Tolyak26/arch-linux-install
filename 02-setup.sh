@@ -10,8 +10,10 @@ scriptdir="$( dirname "$script" )"
 
 cd "$scriptdir" || exit 1
 
-# Import settings from setup.conf
+### Import settings from setup.conf
 source $scriptdir/setup.conf
+
+### Optimizing pacman for optimal download - Start ###
 
 echo ""
 echo "- Optimizing pacman for optimal download ... "
@@ -23,6 +25,10 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
 
+### Optimizing pacman for optimal download - Done ###
+
+### Optimizing makeflags configuration for your CPU - Start ###
+
 echo ""
 echo "- Optimizing makeflags configuration for your CPU ... "
 echo ""
@@ -31,17 +37,29 @@ get_cpu_core_count=$(grep -c ^processor /proc/cpuinfo)
 sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$get_cpu_core_count\"/g" /etc/makepkg.conf
 sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $get_cpu_core_count -z -)/g" /etc/makepkg.conf
 
+### Optimizing makeflags configuration for your CPU - Done ###
+
+### Installing additional packages for Arch Linux system - Start ###
+
 echo ""
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-arch-additional.txt
 
+### Installing additional packages for Arch Linux system - Done ###
+
+### Installing NetworkManager packages - Start ###
+
 echo ""
 echo "- Installing NetworkManager packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-networkmanager.txt
+
+### Installing NetworkManager packages - Done ###
+
+### Installing microcode packages for CPU - Start ###
 
 echo ""
 echo "- Installing microcode packages for CPU ... "
@@ -56,17 +74,29 @@ elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
     pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
 fi
 
+### Installing microcode packages for CPU - Done ###
+
+### Installing Xorg packages - Start ###
+
 echo ""
 echo "- Installing Xorg packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
+### Installing Xorg packages - Done ###
+
+### Installing Wayland packages - Start ###
+
 echo ""
 echo "- Installing Wayland packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-wayland.txt
+
+### Installing Wayland packages - Done ###
+
+### Installing driver packages for GPU - Start ###
 
 echo ""
 echo "- Installing driver packages for GPU ... "
@@ -100,6 +130,10 @@ elif grep -E "Intel|UHD Graphics" <<< ${get_gpu_vendor}; then
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
 
+### Installing driver packages for GPU - Done ###
+
+### Installing packages for Virtual Machine Environment - Start ###
+
 echo ""
 echo "- Installing packages for Virtual Machine Environment ... "
 echo ""
@@ -115,11 +149,19 @@ elif grep -E "VMware" <<< ${get_vm_product}; then
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 
+### Installing packages for Virtual Machine Environment - Done ###
+
+### Installing ALSA, PulseAudio packages for Sound hardware - Start ###
+
 echo ""
 echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound.txt
+
+### Installing ALSA, PulseAudio packages for Sound hardware - Done ###
+
+### Installing packages for Bluetooth hardware - Start ###
 
 echo ""
 echo "- Installing packages for Bluetooth hardware ... "
@@ -127,11 +169,19 @@ echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
 
+### Installing packages for Bluetooth hardware - Done ###
+
+### Generating mkinitcpio - Start ###
+
 echo ""
 echo "- Generating mkinitcpio ... "
 echo ""
 
 mkinitcpio -P
+
+### Generating mkinitcpio - Done ###
+
+### Installing Bootloader packages - Start ###
 
 echo ""
 echo "- Installing Bootloader packages ... "
@@ -158,11 +208,19 @@ if [ $bootloader == "grub" ]; then
 	grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
+### Installing Bootloader packages - Done ###
+
+### Installing Display Manager packages - Start ###
+
 echo ""
 echo "- Installing Display Manager packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
+
+### Installing Display Manager packages - Done ###
+
+### Installing Desktop Environment packages - Start ###
 
 echo ""
 echo "- Installing Desktop Environment packages ... "
@@ -170,11 +228,19 @@ echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 
+### Installing Desktop Environment packages - Done ###
+
+### Installing Samba packages - Start ###
+
 echo ""
 echo "- Installing Samba packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-samba.txt
+
+### Installing Samba packages - Done ###
+
+### Installing Media Codec packages - Start ###
 
 echo ""
 echo "- Installing Media Codec packages ... "
@@ -182,11 +248,19 @@ echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 
+### Installing Media Codec packages - Done ###
+
+### Installing User Software packages - Start ###
+
 echo ""
 echo "- Installing User Software packages ... "
 echo ""
 
 pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
+
+### Installing User Software packages - Done ###
+
+### Installing theme files - Start ###
 
 echo ""
 echo "- Installing theme files ... "
@@ -200,8 +274,12 @@ if [ $displaymanager == "sddm" ]; then
 	tar -xf $scriptdir/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 fi
 
+### Installing theme files - Done ###
+
+### Copying config files - Start ###
+
 echo ""
-echo "- Copy config files ... "
+echo "- Copying config files ... "
 echo ""
 
 cd $scriptdir/cfg-files/system/etc/skel
@@ -230,6 +308,10 @@ if [ $desktopenvironment == "kde" ]; then
 	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
 
+### Copying config files - Done ###
+
+### Setting up system locale and timezone - Start ###
+
 echo ""
 echo "- Setting up system locale and timezone ... "
 echo ""
@@ -247,8 +329,12 @@ EOF
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
 hwclock --systohc
 
+### Setting up system locale and timezone - Done ###
+
+### Setiing up /etc/hosts & /etc/hostname - Start ###
+
 echo ""
-echo "- Setiing up /etc/hosts & /etc/hostname"
+echo "- Setiing up /etc/hosts & /etc/hostname ... "
 echo ""
 
 tee -a /etc/hosts << EOF
@@ -259,11 +345,19 @@ EOF
 
 echo $nameofmachine > /etc/hostname
 
+### Setiing up /etc/hosts & /etc/hostname - Done ###
+
+### Setting up sudo without no password rights for users - Start ###
+
 echo ""
 echo "- Setting up sudo without no password rights for users ... "
 echo ""
 
 sed -i 's/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+
+### Setting up sudo without no password rights for users - Done ###
+
+### Adding user - Start ###
 
 echo ""
 echo "- Adding user $username ... "
@@ -274,5 +368,7 @@ chpasswd_cmd=`echo "$username":$password | chpasswd`
 echo $chpasswd_cmd
 cp -R -v $scriptdir /home/$username
 chown -R $username:users /home/$username/arch-linux-install
+
+### Adding user - Done ###
 
 echo ""

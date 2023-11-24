@@ -10,6 +10,8 @@ scriptdir="$( dirname "$script" )"
 
 cd "$scriptdir" || exit 1
 
+### AUR Helper Command - Start ###
+
 function __AURHelperDoJob()
 {
    yay -S --noconfirm --needed --noeditmenu --removemake $1 
@@ -17,8 +19,13 @@ function __AURHelperDoJob()
 
 export -f __AURHelperDoJob
 
+### AUR Helper Command - Done ###
+
 function InstallAURPackages()
 {
+
+   ### Installing AUR Helper - Start ###
+
    echo ""
    echo "- Installing AUR Helper ... "
    echo ""
@@ -30,6 +37,10 @@ function InstallAURPackages()
    makepkg -si --noconfirm --needed
    rm -rf $HOME/yay
 
+   ### Installing AUR Helper - Done ###
+
+   ### Installing AUR Desktop Environment packages - Start ###
+
    echo ""
    echo "- Installing AUR Desktop Environment packages ... "
    echo ""
@@ -39,6 +50,10 @@ function InstallAURPackages()
       __AURHelperDoJob $aur_de_pkgs
    done
 
+   ### Installing AUR Desktop Environment packages - Done ###
+
+   ### Installing AUR User Software packages - Start ###
+
    echo ""
    echo "- Installing AUR User Software packages ... "
    echo ""
@@ -47,9 +62,12 @@ function InstallAURPackages()
    do
       __AURHelperDoJob $aur_user_soft
    done
+
+   ### Installing AUR User Software packages - Done ###
+
 }
 
-# Import settings from setup.conf
+### Import settings from setup.conf ###
 source $scriptdir/setup.conf
 
 InstallAURPackages
