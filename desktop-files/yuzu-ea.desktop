@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=yuzu (Early Access)
+TryExec=/appimages/yuzu-ea.AppImage
+Exec=/appimages/yuzu-ea.AppImage %f
+Icon=yuzu-ea
+Comment=Nintendo Switch video game console emulator
+Categories=Game;Emulator;
+Terminal=false

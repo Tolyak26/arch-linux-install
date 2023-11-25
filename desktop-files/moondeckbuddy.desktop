@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=MoonDeckBuddy
+TryExec=/appimages/moondeckbuddy.AppImage
+Exec=/appimages/moondeckbuddy.AppImage --exec MoonDeckBuddy
+Icon=moondeckbuddy
+Comment=A server-side part of the MoonDeck plugin for the SteamDeck
+Categories=Network;Game;
+Terminal=false

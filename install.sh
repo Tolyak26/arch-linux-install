@@ -19,7 +19,8 @@ git clone https://github.com/Tolyak26/arch-linux-install.git
 chmod +x $scriptdir/arch-linux-install/01-pre-setup.sh
 chmod +x $scriptdir/arch-linux-install/02-setup.sh
 chmod +x $scriptdir/arch-linux-install/03-aur.sh
-chmod +x $scriptdir/arch-linux-install/04-post-setup.sh
+chmod +x $scriptdir/arch-linux-install/04-appimage.sh
+chmod +x $scriptdir/arch-linux-install/05-post-setup.sh
 
 mkdir -p /mnt/{boot,root,opt}
 
@@ -69,18 +70,31 @@ fi
 
 ### Running 03-aur.sh in user home folder - Done ###
 
-### Running 04-post-setup.sh in root folder - Start ###
+### Running 04-appimage.sh in root folder - Start ###
 
-echo "Running 04-post-setup.sh in root folder ... "
+echo "Running 04-appimage.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh | tee 04-post-setup.log
+    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh | tee 04-appimage.log
 else
-    arch-chroot /mnt /root/arch-linux-install/04-post-setup.sh
+    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh
 fi
 
-### Running 04-post-setup.sh in root folder - Done ###
+### Running 04-appimage.sh in root folder - Done ###
+
+### Running 05-post-setup.sh in root folder - Start ###
+
+echo "Running 05-post-setup.sh in root folder ... "
+
+if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+then
+    arch-chroot /mnt /root/arch-linux-install/05-post-setup.sh | tee 05-post-setup.log
+else
+    arch-chroot /mnt /root/arch-linux-install/05-post-setup.sh
+fi
+
+### Running 05-post-setup.sh in root folder - Done ###
 
 ### Cleaning - Start ###
 
