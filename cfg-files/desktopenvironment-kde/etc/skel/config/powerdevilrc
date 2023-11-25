@@ -1,0 +1,5 @@
+[BatteryManagement]
+BatteryCriticalAction=1
+
+[General]
+pausePlayersOnSuspend=false
