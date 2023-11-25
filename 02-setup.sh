@@ -267,11 +267,11 @@ echo "- Installing theme files ... "
 echo ""
 
 if [ $desktopenvironment == "i3" ]; then
-	tar -xf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
+	tar -xvf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
 fi
 
 if [ $displaymanager == "sddm" ]; then
-	tar -xf $scriptdir/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
+	tar -xvf $scriptdir/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 fi
 
 ### Installing theme files - Done ###

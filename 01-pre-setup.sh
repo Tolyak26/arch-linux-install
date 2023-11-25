@@ -21,21 +21,21 @@ if ! source $scriptdir/setup.conf; then
 	while true
 	do
 		read -p "Please enter username: " username
-		if [[ "${username,,}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]];
+		if [[ "${username}" =~ ^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$ ]];
 		then
 			break
 		fi
 		echo "Incorrect username."
 	done
-	echo "username=${username,,}" >> $scriptdir/setup.conf
+	echo "username=${username}" >> $scriptdir/setup.conf
 
     read -p "Please enter password: " password
-	echo "password=${password,,}" >> $scriptdir/setup.conf
+	echo "password=${password}" >> $scriptdir/setup.conf
 
 	while true
 	do
 		read -p "Please name your machine: " nameofmachine
-		if [[ "${nameofmachine,,}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]];
+		if [[ "${nameofmachine}" =~ ^[a-z][a-z0-9_.-]{0,62}[a-z0-9]$ ]];
 		then
 			break
 		fi
@@ -45,7 +45,7 @@ if ! source $scriptdir/setup.conf; then
 			break
 		fi
 	done
-    echo "nameofmachine=${nameofmachine,,}" >> $scriptdir/setup.conf
+    echo "nameofmachine=${nameofmachine}" >> $scriptdir/setup.conf
 
     read -p "Please enter type of your machine ( homepc | tvbox | server | workpc | laptop ): " typeofmachine
 	echo "typeofmachine=${typeofmachine,,}" >> $scriptdir/setup.conf
