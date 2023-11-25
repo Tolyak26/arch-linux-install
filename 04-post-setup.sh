@@ -35,6 +35,14 @@ systemctl enable avahi-daemon
 
 ### Enabling services - Done ###
 
+### Enabling auto-start for apps in the user folder - Start ###
+
+### Enabling auto-start for apps in the user folder - Done ###
+
+### Installing AppImage's - Start ###
+
+### Installing AppImage's - Done ###
+
 ### Updating /boot/grub/grub.cfg - Start ###
 
 echo ""
