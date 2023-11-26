@@ -37,6 +37,16 @@ systemctl enable avahi-daemon
 
 ### Enabling auto-start for apps in the user folder - Start ###
 
+echo ""
+echo "- Enabling auto-start for apps in the user folder ... "
+echo ""
+
+# Sunshine
+cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
+sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop
+
+chown -R $username:users /home/$username/.config/autostart
+
 ### Enabling auto-start for apps in the user folder - Done ###
 
 ### Updating /boot/grub/grub.cfg - Start ###
