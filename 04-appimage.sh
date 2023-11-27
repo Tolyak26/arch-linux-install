@@ -34,14 +34,14 @@ wget -O /usr/share/icons/hicolor/scalable/apps/yuzu-mainline.svg https://raw.git
 cp -v $scriptdir/desktop-files/yuzu-mainline.desktop /usr/share/applications
 
 # MoonDeckBuddy
-curl -fSs https://api.github.com/repos/FrogTheFrog/moondeck-buddy/releases/latest | grep "browser_download_url" | grep -E "MoonDeckBuddy-(.*)-x86_64.AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/moondeckbuddy.AppImage -i -
-chmod +x /appimages/moondeckbuddy.AppImage
-wget -O /usr/share/icons/hicolor/16x16/apps/moondeckbuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-16.png
-wget -O /usr/share/icons/hicolor/32x32/apps/moondeckbuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-32.png
-wget -O /usr/share/icons/hicolor/64x64/apps/moondeckbuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-64.png
-wget -O /usr/share/icons/hicolor/128x128/apps/moondeckbuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-128.png
-wget -O /usr/share/icons/hicolor/256x256/apps/moondeckbuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-256.png
-cp -v $scriptdir/desktop-files/moondeckbuddy.desktop /usr/share/applications
+curl -fSs https://api.github.com/repos/FrogTheFrog/moondeck-buddy/releases/latest | grep "browser_download_url" | grep -E "MoonDeckBuddy-(.*)-x86_64.AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/MoonDeckBuddy.AppImage -i -
+chmod +x /appimages/MoonDeckBuddy.AppImage
+wget -O /usr/share/icons/hicolor/16x16/apps/MoonDeckBuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-16.png
+wget -O /usr/share/icons/hicolor/32x32/apps/MoonDeckBuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-32.png
+wget -O /usr/share/icons/hicolor/64x64/apps/MoonDeckBuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-64.png
+wget -O /usr/share/icons/hicolor/128x128/apps/MoonDeckBuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-128.png
+wget -O /usr/share/icons/hicolor/256x256/apps/MoonDeckBuddy.png https://raw.githubusercontent.com/FrogTheFrog/moondeck-buddy/main/resources/icons/app-256.png
+cp -v $scriptdir/desktop-files/MoonDeckBuddy.desktop /usr/share/applications
 
 chown -R $username:users /appimages
 
