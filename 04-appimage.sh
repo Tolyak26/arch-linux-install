@@ -22,16 +22,16 @@ echo ""
 mkdir -p /appimages
 
 # yuzu early access
-curl -fSs https://api.github.com/repos/pineappleEA/pineapple-src/releases/latest | grep "browser_download_url" | grep -E "Linux-Yuzu-EA-(.*).AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/yuzu-ea.AppImage -i -
-chmod +x /appimages/yuzu-ea.AppImage
-wget -O /usr/share/icons/hicolor/scalable/apps/yuzu-ea.svg https://raw.githubusercontent.com/pineappleEA/pineapple-src/main/dist/yuzu.svg
-cp -v $scriptdir/desktop-files/yuzu-ea.desktop /usr/share/applications
+#curl -fSs https://api.github.com/repos/pineappleEA/pineapple-src/releases/latest | grep "browser_download_url" | grep -E "Linux-Yuzu-EA-(.*).AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/yuzu-ea.AppImage -i -
+#chmod +x /appimages/yuzu-ea.AppImage
+#wget -O /usr/share/icons/hicolor/scalable/apps/yuzu-ea.svg https://raw.githubusercontent.com/pineappleEA/pineapple-src/main/dist/yuzu.svg
+#cp -v $scriptdir/desktop-files/yuzu-ea.desktop /usr/share/applications
 
 # yuzu mainline
-curl -fSs https://api.github.com/repos/yuzu-emu/yuzu-mainline/releases/latest | grep "browser_download_url" | grep -E "yuzu-mainline-(.*)-(.*).AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/yuzu-mainline.AppImage -i -
-chmod +x /appimages/yuzu-mainline.AppImage
-wget -O /usr/share/icons/hicolor/scalable/apps/yuzu-mainline.svg https://raw.githubusercontent.com/yuzu-emu/yuzu-mainline/master/dist/yuzu.svg
-cp -v $scriptdir/desktop-files/yuzu-mainline.desktop /usr/share/applications
+#curl -fSs https://api.github.com/repos/yuzu-emu/yuzu-mainline/releases/latest | grep "browser_download_url" | grep -E "yuzu-mainline-(.*)-(.*).AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/yuzu-mainline.AppImage -i -
+#chmod +x /appimages/yuzu-mainline.AppImage
+#wget -O /usr/share/icons/hicolor/scalable/apps/yuzu-mainline.svg https://raw.githubusercontent.com/yuzu-emu/yuzu-mainline/master/dist/yuzu.svg
+#cp -v $scriptdir/desktop-files/yuzu-mainline.desktop /usr/share/applications
 
 # MoonDeckBuddy
 curl -fSs https://api.github.com/repos/FrogTheFrog/moondeck-buddy/releases/latest | grep "browser_download_url" | grep -E "MoonDeckBuddy-(.*)-x86_64.AppImage" | head -1 | cut -d '"' -f 4 | wget -O /appimages/MoonDeckBuddy.AppImage -i -
