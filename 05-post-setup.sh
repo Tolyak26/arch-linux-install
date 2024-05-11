@@ -41,6 +41,8 @@ echo ""
 echo "- Enabling auto-start for apps in the user folder ... "
 echo ""
 
+mkdir -p /home/$username/.config/autostart
+
 # Sunshine
 cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
 sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop

@@ -33,5 +33,4 @@ kio-admin
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-plasma-wayland-session
 qt5-wayland
