@@ -3,6 +3,10 @@
 
 ----
 
+https://wiki.archlinux.org/title/Iwd#Connect_to_a_network
+
+----
+
 ```
 pacman -Sy
 
