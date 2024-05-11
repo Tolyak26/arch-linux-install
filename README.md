@@ -73,8 +73,10 @@ mkfs.ext4 /dev/sda2
 UEFI GPT:
 
 mkfs.fat -F32 /dev/sda1
+mkfs.fat -F32 /dev/mmcblk1p1
 
 mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/mmcblk1p2
 ```
 
 ----
@@ -106,4 +108,12 @@ mount /dev/sda2 /mnt
 mkdir /mnt/boot
 
 mount /dev/sda1 /mnt/boot
+
+----
+
+mount /dev/mmcblk1p2 /mnt
+
+mkdir /mnt/boot
+
+mount /dev/mmcblk1p1 /mnt/boot
 ```
