@@ -15,3 +15,5 @@ winbox
 protonup-qt
 cpu-x
 sunshine
+waydroid
+binder_linux-dkms
