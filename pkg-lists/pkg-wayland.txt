@@ -2,3 +2,4 @@ wayland
 xorg-xwayland
 xorg-xlsclients
 glfw-wayland
+xwaylandvideobridge
