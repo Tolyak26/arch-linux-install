@@ -32,6 +32,7 @@ systemctl enable sshd
 systemctl enable teamviewerd
 systemctl enable nxserver
 systemctl enable avahi-daemon
+systemctl enable libvirtd
 
 ### Enabling services - Done ###
 

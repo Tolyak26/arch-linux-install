@@ -18,3 +18,11 @@ steam
 gamescope
 gamemode
 lib32-gamemode
+qemu
+libvirt
+vde2
+edk2-ovmf
+virt-manager
+bridge-utils
+dnsmasq
+swtpm
