@@ -34,7 +34,7 @@ echo "Running 01-pre-setup.sh ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    $scriptdir/arch-linux-install/01-pre-setup.sh ||& tee 01-pre-setup.log
+    $scriptdir/arch-linux-install/01-pre-setup.sh f|& tee 01-pre-setup.log
 else
     $scriptdir/arch-linux-install/01-pre-setup.sh
 fi
