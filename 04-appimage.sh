@@ -5,6 +5,8 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+set -ex
+
 script="$( readlink -f "${BASH_SOURCE[0]}" )"
 scriptdir="$( dirname "$script" )"
 
