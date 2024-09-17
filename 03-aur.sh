@@ -16,7 +16,7 @@ cd "$scriptdir" || exit 1
 
 function __AURHelperDoJob()
 {
-   yay -S --noconfirm --needed --removemake --useask $1 
+   yay -S --noconfirm --needed --removemake $1 
 }
 
 export -f __AURHelperDoJob
