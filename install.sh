@@ -36,7 +36,7 @@ echo "Running 01-pre-setup.sh ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    $scriptdir/arch-linux-install/01-pre-setup.sh |& tee 01-pre-setup.log
+    $scriptdir/arch-linux-install/01-pre-setup.sh | tee -a 01-pre-setup.log
 else
     $scriptdir/arch-linux-install/01-pre-setup.sh
 fi
@@ -52,7 +52,7 @@ echo "Running 02-setup.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    arch-chroot /mnt /root/arch-linux-install/02-setup.sh |& tee 02-setup.log
+    arch-chroot /mnt /root/arch-linux-install/02-setup.sh | tee -a 02-setup.log
 else
     arch-chroot /mnt /root/arch-linux-install/02-setup.sh
 fi
@@ -65,7 +65,7 @@ echo "Running 03-aur.sh in $username's home folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh |& tee 03-aur.log
+    arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh | tee -a 03-aur.log
 else
     arch-chroot /mnt /usr/bin/runuser -u $username -- /home/$username/arch-linux-install/03-aur.sh
 fi
@@ -78,7 +78,7 @@ echo "Running 04-appimage.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh |& tee 04-appimage.log
+    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh | tee -a 04-appimage.log
 else
     arch-chroot /mnt /root/arch-linux-install/04-appimage.sh
 fi
@@ -91,7 +91,7 @@ echo "Running 05-post-setup.sh in root folder ... "
 
 if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
 then
-    arch-chroot /mnt /root/arch-linux-install/05-post-setup.sh |& tee 05-post-setup.log
+    arch-chroot /mnt /root/arch-linux-install/05-post-setup.sh | tee -a 05-post-setup.log
 else
     arch-chroot /mnt /root/arch-linux-install/05-post-setup.sh
 fi
