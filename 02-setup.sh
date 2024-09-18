@@ -153,15 +153,39 @@ fi
 
 ### Installing packages for Virtual Machine Environment - Done ###
 
-### Installing ALSA, PulseAudio packages for Sound hardware - Start ###
+### Installing ALSA packages for Sound hardware - Start ###
 
 echo ""
-echo "- Installing ALSA, PulseAudio packages for Sound hardware ... "
+echo "- Installing ALSA packages for Sound hardware ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound.txt
+pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound-alsa.txt
 
-### Installing ALSA, PulseAudio packages for Sound hardware - Done ###
+### Installing ALSA packages for Sound hardware - Done ###
+
+### Installing PulseAudio packages for Sound hardware - Start ###
+
+if [[ $soundserver == "pulseaudio" ]] || [[ $soundserver == "pulse" ]]; then
+	echo ""
+	echo "- Installing PulseAudio packages for Sound hardware ... "
+	echo ""
+
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-server-sound-pulseaudio.txt
+fi
+
+### Installing PulseAudio packages for Sound hardware - Done ###
+
+### Installing PipeWire packages for Sound hardware - Start ###
+
+if [[ $soundserver == "pipewire" ]]; then
+	echo ""
+	echo "- Installing PipeWire packages for Sound hardware ... "
+	echo ""
+
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-server-sound-pipewire.txt
+fi
+
+### Installing PipeWire packages for Sound hardware - Done ###
 
 ### Installing packages for Bluetooth hardware - Start ###
 

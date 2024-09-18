@@ -1,0 +1,7 @@
+pipewire
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+lib32-pipewire-jack
+wireplumber

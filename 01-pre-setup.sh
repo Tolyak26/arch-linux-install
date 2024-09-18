@@ -52,15 +52,20 @@ if ! source $scriptdir/setup.conf; then
     read -p "Please enter type of your machine ( homepc | tvbox | server | workpc | laptop ): " typeofmachine
 	echo "typeofmachine=${typeofmachine,,}" >> $scriptdir/setup.conf
 
-	echo "bootloader=grub" >> $scriptdir/setup.conf
+    read -p "Please enter your favorite bootloader ( grub ): " bootloader
+	echo "bootloader=${bootloader,,}" >> $scriptdir/setup.conf
 
 	read -p "Please enter bootloader install path ( /dev/sda | /dev/vda ): " bootloaderinstallpath
 	echo "bootloaderinstallpath=${bootloaderinstallpath,,}" >> $scriptdir/setup.conf
 
-	echo "displaymanager=sddm" >> $scriptdir/setup.conf
+    read -p "Please enter your favorite display manager ( sddm ): " displaymanager
+	echo "displaymanager=${displaymanager,,}" >> $scriptdir/setup.conf
 
 	read -p "Please enter your desktop environment ( i3 | kde ): " desktopenvironment
 	echo "desktopenvironment=${desktopenvironment,,}" >> $scriptdir/setup.conf
+
+    read -p "Please enter your favorite sound server ( pulseaudio | pipewire ): " soundserver
+	echo "soundserver=${soundserver,,}" >> $scriptdir/setup.conf
 fi
 
 source $scriptdir/setup.conf
