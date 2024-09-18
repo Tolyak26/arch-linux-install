@@ -170,7 +170,7 @@ if [[ $soundserver == "pulseaudio" ]] || [[ $soundserver == "pulse" ]]; then
 	echo "- Installing PulseAudio packages for Sound hardware ... "
 	echo ""
 
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-server-sound-pulseaudio.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-sound-server-pulseaudio.txt
 fi
 
 ### Installing PulseAudio packages for Sound hardware - Done ###
@@ -182,7 +182,7 @@ if [[ $soundserver == "pipewire" ]]; then
 	echo "- Installing PipeWire packages for Sound hardware ... "
 	echo ""
 
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-server-sound-pipewire.txt
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-sound-server-pipewire.txt
 fi
 
 ### Installing PipeWire packages for Sound hardware - Done ###
