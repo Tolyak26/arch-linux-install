@@ -1,5 +1,4 @@
 mintstick-git
-jdownloader2
 xdman
 youtubedl-gui
 skypeforlinux-stable-bin
