@@ -140,7 +140,7 @@ echo ""
 echo "- Installing packages for Virtual Machine Environment ... "
 echo ""
 
-get_vm_product=$(dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
+get_vm_product=$(/usr/bin/dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
 if grep -E "VirtualBox" <<< ${get_vm_product}; then
     echo "Installing VirtualBox packages"
     pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
