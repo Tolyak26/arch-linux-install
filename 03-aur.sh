@@ -33,7 +33,7 @@ function InstallAURPackages()
    echo ""
 
    cd $HOME
-   git clone https://aur.archlinux.org/yay.git
+   /usr/bin/git clone https://aur.archlinux.org/yay.git
    cd $HOME/yay
    sudo pacman -S --noconfirm --needed go
    makepkg -si --noconfirm --needed
