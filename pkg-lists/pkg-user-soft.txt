@@ -1,5 +1,4 @@
 tor
-vde2
 strawberry
 easytag
 vlc
