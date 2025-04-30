@@ -1,7 +1,4 @@
 tor
-virtualbox
-virtualbox-host-dkms
-virtualbox-guest-iso
 vde2
 strawberry
 easytag
