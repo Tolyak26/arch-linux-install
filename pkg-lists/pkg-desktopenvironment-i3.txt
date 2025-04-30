@@ -19,8 +19,8 @@ xfce4-datetime-plugin
 xfce4-pulseaudio-plugin
 pavucontrol
 ttf-ubuntu-font-family
-arc-gtk-theme
-arc-icon-theme
+adapta-gtk-theme
+adwaita-icon-theme
 pcmanfm
 system-config-printer
 systemd-ui
