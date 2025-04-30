@@ -16,7 +16,7 @@ cd "$scriptdir" || exit 1
 
 pacman -Sy --noconfirm
 pacman -S --noconfirm --needed git
-git clone https://github.com/Tolyak26/arch-linux-install.git
+/usr/bin/git clone https://github.com/Tolyak26/arch-linux-install.git
 
 chmod +x $scriptdir/arch-linux-install/01-pre-setup.sh
 chmod +x $scriptdir/arch-linux-install/02-setup.sh
