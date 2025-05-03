@@ -29,3 +29,4 @@ xed
 xreader
 qalculate-gtk
 blueberry
+python-setuptools
