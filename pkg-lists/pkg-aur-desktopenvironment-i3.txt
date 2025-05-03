@@ -3,3 +3,5 @@ betterlockscreen
 clearine-git
 pamac-aur
 pix
+arc-gtk-theme
+arc-icon-theme
