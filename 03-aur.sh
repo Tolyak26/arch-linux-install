@@ -56,14 +56,14 @@ function InstallAURPackages()
 
    ### Installing AUR User Software packages - Start ###
 
-   echo ""
-   echo "- Installing AUR User Software packages ... "
-   echo ""
+   #echo ""
+   #echo "- Installing AUR User Software packages ... "
+   #echo ""
 
-   for aur_user_soft in $( cat $scriptdir/pkg-lists/pkg-aur-user-soft.txt )
-   do
-      __AURHelperDoJob $aur_user_soft
-   done
+   #for aur_user_soft in $( cat $scriptdir/pkg-lists/pkg-aur-user-soft.txt )
+   #do
+   #   __AURHelperDoJob $aur_user_soft
+   #done
 
    ### Installing AUR User Software packages - Done ###
 
