@@ -77,15 +77,15 @@ fi
 
 ### Running 04-appimage.sh in root folder - Start ###
 
-echo "Running 04-appimage.sh in root folder ... "
+#echo "Running 04-appimage.sh in root folder ... "
 
-if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
-then
-    rm 04-appimage.log
-    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh 2>&1 | tee 04-appimage.log
-else
-    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh
-fi
+#if [[ "$1" == "--debug" ]] || [[ "$1" == "-dbg" ]] || [[ "$1" == "debug" ]] || [[ "$1" == "dbg" ]];
+#then
+#    rm 04-appimage.log
+#    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh 2>&1 | tee 04-appimage.log
+#else
+#    arch-chroot /mnt /root/arch-linux-install/04-appimage.sh
+#fi
 
 ### Running 04-appimage.sh in root folder - Done ###
 
