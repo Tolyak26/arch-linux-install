@@ -142,12 +142,12 @@ echo ""
 
 get_vm_product=$(/usr/bin/dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
 if grep -E "VirtualBox" <<< ${get_vm_product}; then
-    echo "Installing VirtualBox packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
+	echo "Installing VirtualBox packages"
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
 	systemctl enable vboxservice.service
 elif grep -E "VMware" <<< ${get_vm_product}; then
-    echo "Installing VMWare packages"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
+	echo "Installing VMWare packages"
+	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 
@@ -278,11 +278,11 @@ pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 
 ### Installing User Software packages - Start ###
 
-echo ""
-echo "- Installing User Software packages ... "
-echo ""
+#echo ""
+#echo "- Installing User Software packages ... "
+#echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
+#pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
 
 ### Installing User Software packages - Done ###
 
