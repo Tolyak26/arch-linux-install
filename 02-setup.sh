@@ -329,6 +329,7 @@ fi
 
 if [ $desktopenvironment == "kde" ]; then
 	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
+ 	mv gtkrc-2.0 .gtkrc-2.0
 	mv config/ .config/
 
 	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
