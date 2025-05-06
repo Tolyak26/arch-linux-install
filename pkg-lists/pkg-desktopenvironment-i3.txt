@@ -30,3 +30,6 @@ xreader
 qalculate-gtk
 blueberry
 python-setuptools
+maim
+xclip
+xdotool
