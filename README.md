@@ -109,7 +109,5 @@ mount --mkdir /dev/sda1 /mnt/boot
 
 mount /dev/mmcblk1p2 /mnt
 
-mkdir /mnt/boot
-
 mount --mkdir /dev/mmcblk1p1 /mnt/boot
 ```
