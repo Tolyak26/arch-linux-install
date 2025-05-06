@@ -44,10 +44,14 @@ echo "- Enabling auto-start for apps in the user folder ... "
 echo ""
 
 mkdir -p /home/$username/.config/autostart
+mkdir -p /etc/skel/.config/autostart
 
 # Sunshine
 cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
 sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop
+
+# Octopi Notifier
+cp -v /usr/share/applications/octopi-notifier.desktop /etc/skel/.config/autostart
 
 chown -R $username:users /home/$username/.config/autostart
 
