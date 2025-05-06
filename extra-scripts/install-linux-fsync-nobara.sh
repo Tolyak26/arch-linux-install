@@ -9,7 +9,7 @@ echo ""
 echo "- Installing linux-fsync-nobara binary packages from AUR ... "
 echo ""
 
-yay -S --noconfirm --noeditmenu --needed --removemake --mflags "--skippgpcheck" linux-fsync-nobara-bin
+yay -S --noconfirm --noedit --needed --removemake --mflags "--skippgpcheck" linux-fsync-nobara-bin
 
 sleep 1
 echo ""
