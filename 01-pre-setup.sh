@@ -101,10 +101,7 @@ echo "- Installing Arch Linux base system ... "
 echo ""
 
 pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
-echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-echo "keyserver hkps://keys.openpgp.org" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-echo "keyserver hkp://keys.gnupg.net" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-echo "keyserver hkps://pgp.mit.edu" >> /mnt/etc/pacman.d/gnupg/gpg.conf
+echo "keyserver hkp://keyserver.ubuntu.com:80" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R -v $scriptdir/ /mnt/root/arch-linux-install/
 
 ### Installing Arch Linux base system - Done ###
