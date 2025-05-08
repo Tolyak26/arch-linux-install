@@ -12,4 +12,4 @@ echo ""
 #yay -R --noconfirm libva-mesa-driver mesa mesa-libgl mesa-vdpau opencl-clover-mesa opencl-rusticl-mesa vulkan-intel vulkan-mesa-layers vulkan-radeon vulkan-swrast
 #yay -R --noconfirm lib32-libva-mesa-driver lib32-mesa lib32-mesa-libgl lib32-mesa-vdpau lib32-vulkan-intel lib32-vulkan-mesa-layers lib32-vulkan-radeon
 
-yay -S --noconfirm --noedit --needed --removemake --mflags "--skippgpcheck" mesa-git lib32-mesa-git
+yay -S --answeredit N --answerclean N --answerdiff N --answerupgrade Y --noconfirm --needed --removemake --mflags "--skippgpcheck" mesa-git lib32-mesa-git
