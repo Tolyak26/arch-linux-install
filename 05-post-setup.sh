@@ -34,6 +34,7 @@ systemctl enable sshd
 systemctl enable nxserver
 systemctl enable avahi-daemon
 systemctl enable libvirtd
+systemctl enable toggle-gpp0-to-fix-wakeup
 
 ### Enabling services - Done ###
 
@@ -51,7 +52,7 @@ cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
 sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop
 
 # Octopi Notifier
-cp -v /usr/share/applications/octopi-notifier.desktop /etc/skel/.config/autostart
+cp -v /usr/share/applications/octopi-notifier.desktop /etc/xdg/autostart
 
 chown -R $username:users /home/$username/.config/autostart
 
