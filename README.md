@@ -8,15 +8,7 @@ https://wiki.archlinux.org/title/Iwd#Connect_to_a_network
 ----
 
 ```
-pacman -Sy
-
-pacman -S wget
-
-wget -O install.sh tinyurl.com/arch-tolyak26
-
-chmod +x install.sh
-
-./install.sh
+pacman -Sy && pacman -S wget && wget -O install.sh tinyurl.com/arch-tolyak26 && chmod +x install.sh && ./install.sh -dbg
 ```
 
 ----
