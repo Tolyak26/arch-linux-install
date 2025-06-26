@@ -1,1 +1,2 @@
 octopi
+xwaylandvideobridge
