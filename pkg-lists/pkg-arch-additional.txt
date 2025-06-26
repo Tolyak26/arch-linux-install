@@ -41,7 +41,6 @@ cifs-utils
 net-tools
 ffmpeg
 dmidecode
-neofetch
 screenfetch
 lshw
 freerdp
