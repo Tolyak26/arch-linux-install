@@ -2,6 +2,4 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulseaudio-equalizer
-pulseaudio-jack
 lib32-libpulse
-lib32-jack
