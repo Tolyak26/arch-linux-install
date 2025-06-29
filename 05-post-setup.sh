@@ -70,6 +70,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Removing pubring.db.lock - Start ###
 
+echo ""
+echo "- Removing pubring.db.lock ... "
+echo ""
+
 rm /home/$username/.gnupg/public-keys.d/pubring.db.lock
 
 ### Removing pubring.db.lock - Done ###
