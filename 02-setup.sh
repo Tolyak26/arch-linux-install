@@ -355,6 +355,7 @@ LANG=en_US.UTF-8
 EOF
 ln -sf /usr/share/zoneinfo/Asia/Krasnoyarsk /etc/localtime
 hwclock --systohc
+localectl --no-convert set-x11-keymap us,ru pc105 dvorak, grp:alt_shift_toggle
 
 ### Setting up system locale and timezone - Done ###
 
