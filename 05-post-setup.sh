@@ -38,16 +38,6 @@ systemctl enable toggle-gpp0-to-fix-wakeup
 
 ### Enabling services - Done ###
 
-### fix for x11 EN-RU keyboard layout - Start ###
-
-echo ""
-echo "- Enabling x11 EN-RU keyboard layout ... "
-echo ""
-
-localectl --no-convert set-x11-keymap us,ru pc105 dvorak grp:alt_shift_toggle
-
-### Enabling x11 EN-RU keyboard layout - Done ###
-
 ### Enabling auto-start for apps in the user folder - Start ###
 
 echo ""
