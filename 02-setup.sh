@@ -111,15 +111,21 @@ if [[ $graphicscard == "nvidia" ]]; then
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
-elif [[ $graphicscard == "ati" ]]; then
+fi
+
+if [[ $graphicscard == "ati" ]]; then
 	echo "Installing ATI Legacy packages"
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
-elif [[ $graphicscard == "amd" ]]; then
+fi
+
+if [[ $graphicscard == "amd" ]]; then
 	echo "Installing AMDGPU packages"
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
-elif [[ $graphicscard == "intel" ]]; then
+fi
+
+if [[ $graphicscard == "intel" ]]; then
 	echo "Installing Intel packages"
 	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
