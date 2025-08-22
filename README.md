@@ -58,11 +58,16 @@ mkfs.ext4 /dev/sda2
 UEFI MBR/GPT:
 
 mkfs.fat -F32 /dev/sda1
-mkfs.fat -F32 /dev/mmcblk1p1
-mkfs.fat -F32 /dev/nvme0n1p1
-
 mkfs.ext4 /dev/sda2
+
+----
+
+mkfs.fat -F32 /dev/mmcblk1p1
 mkfs.ext4 /dev/mmcblk1p2
+
+----
+
+mkfs.fat -F32 /dev/nvme0n1p1
 mkfs.ext4 /dev/nvme0n1p2
 ```
 
