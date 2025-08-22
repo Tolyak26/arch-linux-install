@@ -35,6 +35,7 @@ systemctl enable nxserver
 systemctl enable avahi-daemon
 systemctl enable libvirtd
 systemctl enable toggle-gpp0-to-fix-wakeup
+systemctl enable power-profiles-daemon
 
 ### Enabling services - Done ###
 
