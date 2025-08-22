@@ -55,20 +55,15 @@ BIOS GPT:
 mkfs.ext4 /dev/sda2
 
 
-UEFI MBR:
-
-mkfs.fat -F32 /dev/sda1
-
-mkfs.ext4 /dev/sda2
-
-
-UEFI GPT:
+UEFI MBR/GPT:
 
 mkfs.fat -F32 /dev/sda1
 mkfs.fat -F32 /dev/mmcblk1p1
+mkfs.fat -F32 /dev/nvme0n1p1
 
 mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/mmcblk1p2
+mkfs.ext4 /dev/nvme0n1p2
 ```
 
 ----
@@ -84,22 +79,18 @@ BIOS GPT:
 mount /dev/sda2 /mnt
 
 
-UEFI MBR:
+UEFI MBR/GPT:
 
 mount /dev/sda2 /mnt
-
-mount --mkdir /dev/sda1 /mnt/boot
-
-
-UEFI GPT:
-
-mount /dev/sda2 /mnt
-
 mount --mkdir /dev/sda1 /mnt/boot
 
 ----
 
 mount /dev/mmcblk1p2 /mnt
-
 mount --mkdir /dev/mmcblk1p1 /mnt/boot
+
+----
+
+mount /dev/nvme0n1p2 /mnt
+mount --mkdir /dev/nvme0n1p1 /mnt/boot
 ```
