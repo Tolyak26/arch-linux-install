@@ -21,10 +21,11 @@ echo ""
 echo "- Optimizing pacman for optimal download ... "
 echo ""
 
-pacman -S --noconfirm --needed python3 reflector
+#pacman -S --noconfirm --needed python3 reflector
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+#reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+echo "Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm
 
 ### Optimizing pacman for optimal download - Done ###
