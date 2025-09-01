@@ -106,7 +106,7 @@ echo ""
 echo "- Installing Arch Linux base system ... "
 echo ""
 
-pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --needed
+pacstrap -K /mnt - < $scriptdir/pkg-lists/pkg-arch-base.txt --noconfirm --disable-download-timeout --needed
 echo "keyserver hkps://keys.openpgp.org" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 echo "keyserver hkp://keys.gnupg.net" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 echo "keyserver hkps://pgp.mit.edu" >> /mnt/etc/pacman.d/gnupg/gpg.conf
