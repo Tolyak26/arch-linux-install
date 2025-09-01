@@ -48,15 +48,17 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id feh --no-fehbg --bg-scale ~/default_wallpaper.png
 exec --no-startup-id betterlockscreen -u ~/default_wallpaper.png --fx dim,pixel
-#exec --no-startup-id picom --daemon --backend glx --vsync
+# exec --no-startup-id picom --daemon --backend glx --vsync
 exec --no-startup-id xfce4-panel --disable-wm-check
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-screensaver
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id blueberry-tray
 exec --no-startup-id playerctld daemon
-exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
+# exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -65,8 +67,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use xbacklight to adjust 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -90,10 +92,8 @@ bindsym $mod+g exec --no-startup-id google-chrome-stable
 # start a pamac-manager
 bindsym $mod+p exec --no-startup-id pamac-manager
 
-# start a betterlockscreen
-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
-
-# start a betterlockscreen
+# start a lockscreen
+# bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
 bindsym $mod+x exec --no-startup-id clearine
 
 # kill focused window
