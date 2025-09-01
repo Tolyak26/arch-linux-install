@@ -24,7 +24,6 @@ adwaita-icon-theme
 pcmanfm
 system-config-printer
 systemd-ui
-grub-customizer
 xed
 xreader
 qalculate-gtk
