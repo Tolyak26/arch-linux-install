@@ -48,11 +48,13 @@ Mount point "/" -> Device "/dev/sda2" -> Type "Linux filesystem" -> All disk spa
 BIOS MBR:
 
 mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/vda1
 
 
 BIOS GPT:
 
 mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/vda2
 
 
 UEFI MBR/GPT:
@@ -77,11 +79,13 @@ mkfs.ext4 /dev/nvme0n1p2
 BIOS MBR:
 
 mount /dev/sda1 /mnt
+mount /dev/vda1 /mnt
 
 
 BIOS GPT:
 
 mount /dev/sda2 /mnt
+mount /dev/vda2 /mnt
 
 
 UEFI MBR/GPT:
