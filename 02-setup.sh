@@ -23,6 +23,7 @@ echo ""
 
 #pacman -S --noconfirm --needed python3 reflector
 #sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+sed -i 's/^ParallelDownloads = 5/ParallelDownloads = 1/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 echo 'Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
