@@ -35,7 +35,7 @@ function InstallAURPackages()
    cd $HOME
    /usr/bin/git clone https://aur.archlinux.org/yay.git
    cd $HOME/yay
-   sudo pacman -S --noconfirm --needed go
+   sudo pacman -S --noconfirm --disable-download-timeout --needed go
    makepkg -si --noconfirm --needed
    rm -rf $HOME/yay
 
