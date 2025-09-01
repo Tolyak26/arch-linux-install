@@ -28,7 +28,7 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 echo 'Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
 echo 'Server = https://mirror.truenetwork.ru/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
-pacman -Sy --noconfirm
+pacman -Sy --noconfirm --disable-download-timeout
 
 ### Optimizing pacman for optimal download - Done ###
 
@@ -50,7 +50,7 @@ echo ""
 echo "- Installing additional packages for Arch Linux system ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-arch-additional.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-arch-additional.txt
 
 ### Installing additional packages for Arch Linux system - Done ###
 
@@ -60,7 +60,7 @@ echo ""
 echo "- Installing NetworkManager packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-networkmanager.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-networkmanager.txt
 
 ### Installing NetworkManager packages - Done ###
 
@@ -73,10 +73,10 @@ echo ""
 get_cpu_vendor=$(lscpu)
 if grep -E "GenuineIntel" <<< ${get_cpu_vendor}; then
     echo "Installing Intel microcode package"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-intel.txt
+    pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-microcode-intel.txt
 elif grep -E "AuthenticAMD" <<< ${get_cpu_vendor}; then
     echo "Installing AMD microcode package"
-    pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
+    pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-microcode-amd.txt
 fi
 
 ### Installing microcode packages for CPU - Done ###
@@ -87,7 +87,7 @@ echo ""
 echo "- Installing Xorg packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
 ### Installing Xorg packages - Done ###
 
@@ -97,7 +97,7 @@ echo ""
 echo "- Installing Wayland packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-wayland.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-wayland.txt
 
 ### Installing Wayland packages - Done ###
 
@@ -109,26 +109,26 @@ echo ""
 
 if [[ $graphicscard == "nvidia" ]]; then
 	echo "Installing NVIDIA packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-video-nvidia.txt
 	sed -i 's/^MODULES=()/MODULES=(nvidia)/' /etc/mkinitcpio.conf
 	nvidia-xconfig
 fi
 
 if [[ $graphicscard == "ati" ]]; then
 	echo "Installing ATI Legacy packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-video-ati.txt
 	sed -i 's/^MODULES=()/MODULES=(radeon)/' /etc/mkinitcpio.conf
 fi
 
 if [[ $graphicscard == "amd" ]]; then
 	echo "Installing AMDGPU packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-video-amd.txt
 	sed -i 's/^MODULES=()/MODULES=(amdgpu)/' /etc/mkinitcpio.conf
 fi
 
 if [[ $graphicscard == "intel" ]]; then
 	echo "Installing Intel packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-video-intel.txt
 	sed -i 's/^MODULES=()/MODULES=(i915)/' /etc/mkinitcpio.conf
 fi
 
@@ -143,11 +143,11 @@ echo ""
 get_vm_product=$(/usr/bin/dmidecode -t system | grep -E 'Product Name:' | awk '{split ($0, a, ": "); print a[2]}')
 if grep -E "VirtualBox" <<< ${get_vm_product}; then
 	echo "Installing VirtualBox packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-vm-virtualbox.txt
 	systemctl enable vboxservice.service
 elif grep -E "VMware" <<< ${get_vm_product}; then
 	echo "Installing VMWare packages"
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-vm-vmware.txt
 	systemctl enable vmtoolsd.service vmware-vmblock-fuse.service
 fi
 
@@ -159,7 +159,7 @@ echo ""
 echo "- Installing ALSA packages for Sound hardware ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-sound-alsa.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-sound-alsa.txt
 
 ### Installing ALSA packages for Sound hardware - Done ###
 
@@ -170,7 +170,7 @@ if [[ $soundserver == "pulseaudio" ]] || [[ $soundserver == "pulse" ]]; then
 	echo "- Installing PulseAudio packages for Sound hardware ... "
 	echo ""
 
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-sound-server-pulseaudio.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-sound-server-pulseaudio.txt
 fi
 
 ### Installing PulseAudio packages for Sound hardware - Done ###
@@ -182,7 +182,7 @@ if [[ $soundserver == "pipewire" ]]; then
 	echo "- Installing PipeWire packages for Sound hardware ... "
 	echo ""
 
-	pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-sound-server-pipewire.txt
+	pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-sound-server-pipewire.txt
 fi
 
 ### Installing PipeWire packages for Sound hardware - Done ###
@@ -193,7 +193,7 @@ echo ""
 echo "- Installing packages for Bluetooth hardware ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-driver-bluetooth.txt
 
 ### Installing packages for Bluetooth hardware - Done ###
 
@@ -242,7 +242,7 @@ echo ""
 echo "- Installing Display Manager packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-displaymanager-$displaymanager.txt
 
 ### Installing Display Manager packages - Done ###
 
@@ -252,7 +252,7 @@ echo ""
 echo "- Installing Desktop Environment packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-desktopenvironment-$desktopenvironment.txt
 
 ### Installing Desktop Environment packages - Done ###
 
@@ -262,7 +262,7 @@ echo ""
 echo "- Installing Samba packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-samba.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-samba.txt
 
 ### Installing Samba packages - Done ###
 
@@ -272,7 +272,7 @@ echo ""
 echo "- Installing Media Codec packages ... "
 echo ""
 
-pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 
 ### Installing Media Codec packages - Done ###
 
@@ -282,7 +282,7 @@ pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-media-codecs.txt
 #echo "- Installing User Software packages ... "
 #echo ""
 
-#pacman -S --noconfirm --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
+#pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-user-soft.txt
 
 ### Installing User Software packages - Done ###
 
