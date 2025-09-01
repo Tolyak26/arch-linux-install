@@ -14,8 +14,8 @@ cd "$scriptdir" || exit 1
 
 ### Preparing archiso for the install - Start ###
 
-pacman -Sy --noconfirm
-pacman -S --noconfirm --needed git
+pacman -Sy --noconfirm --disable-download-timeout
+pacman -S --noconfirm --disable-download-timeout --needed git
 /usr/bin/git clone https://github.com/Tolyak26/arch-linux-install.git
 
 chmod +x $scriptdir/arch-linux-install/01-pre-setup.sh
