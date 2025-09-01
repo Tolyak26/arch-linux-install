@@ -4,18 +4,19 @@
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
-    <property name="dark-mode" type="bool" value="false"/>
+    <property name="dark-mode" type="bool" value="true"/>
     <property name="panel-1" type="empty">
       <property name="position" type="string" value="p=8;x=400;y=586"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="16"/>
-      <property name="size" type="uint" value="28"/>
+      <property name="size" type="uint" value="42"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="4"/>
         <value type="int" value="11"/>
         <value type="int" value="6"/>
         <value type="int" value="2"/>
+        <value type="int" value="3"/>
         <value type="int" value="10"/>
         <value type="int" value="12"/>
       </property>
@@ -33,6 +34,10 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “tolyak26-wifi-5” active: tolyak26-wifi-5 (82%)"/>
+        <value type="string" value="wi-fi network connection “tolyak26-wifi-5” active: tolyak26-wifi-5 (77%)"/>
+        <value type="string" value="nxrunner.bin"/>
+        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="blueberry-tray.py"/>
         <value type="string" value="pamac-tray"/>
         <value type="string" value="networkmanager applet"/>
@@ -43,6 +48,8 @@
       <property name="symbolic-icons" type="bool" value="false"/>
       <property name="hide-new-items" type="bool" value="false"/>
       <property name="known-items" type="array">
+        <value type="string" value="TelegramDesktop"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="Strawberry"/>
         <value type="string" value="remmina-icon"/>
         <value type="string" value="tray-id"/>
@@ -64,16 +71,17 @@
     <property name="plugin-12" type="string" value="clock">
       <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
       <property name="digital-format" type="string" value="%_H:%M"/>
-      <property name="digital-time-font" type="string" value="Sans 11"/>
+      <property name="digital-time-font" type="string" value="Sans 12"/>
       <property name="mode" type="uint" value="2"/>
-      <property name="digital-date-font" type="string" value="Sans 11"/>
+      <property name="digital-date-font" type="string" value="Sans 12"/>
       <property name="digital-date-format" type="string" value="%d %B %Y"/>
       <property name="show-week-numbers" type="bool" value="false"/>
     </property>
     <property name="plugin-2" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="enable-wnck" type="bool" value="true"/>
-      <property name="known-players" type="string" value="Chrome;Chromium;org.strawberrymusicplayer.strawberry;spotify"/>
+      <property name="known-players" type="string" value="Chrome;Chromium;org.strawberrymusicplayer.strawberry;spotify;vlc"/>
     </property>
+    <property name="plugin-3" type="string" value="power-manager-plugin"/>
   </property>
 </channel>
