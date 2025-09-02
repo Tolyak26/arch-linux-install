@@ -74,14 +74,20 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 floating_modifier $mod
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+#bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+#bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+#bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym Print exec --no-startup-id xfce4-screenshooter -s "/home/$USER/Pictures/$(date).png" -f -m
+bindsym $mod+Print exec --no-startup-id xfce4-screenshooter -s "/home/$USER/Pictures/$(date).png" -w -m
+bindsym Shift+Print exec --no-startup-id xfce4-screenshooter -s "/home/$USER/Pictures/$(date).png" -r -m
 
 ## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+#bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+#bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+#bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter -s /dev/stdout -f -m | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id xfce4-screenshooter -s /dev/stdout -w -m | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id xfce4-screenshooter -s /dev/stdout -r -m | xclip -selection clipboard -t image/png
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
@@ -109,6 +115,7 @@ bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id xfce4-popup-whiskermenu
 
 # change focus
 bindsym $mod+j focus left
