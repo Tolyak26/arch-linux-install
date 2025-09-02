@@ -13,10 +13,12 @@ lxappearance-gtk3
 lxrandr-gtk3
 xfce4-taskmanager
 xfce4-power-manager
+xfce4-screensaver
 xfce4-panel
 xfce4-battery-plugin
 xfce4-datetime-plugin
 xfce4-pulseaudio-plugin
+xfce4-xkb-plugin
 pavucontrol
 ttf-ubuntu-font-family
 adapta-gtk-theme
