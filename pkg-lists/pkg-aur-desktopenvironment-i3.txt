@@ -5,4 +5,3 @@ pamac-aur
 pix
 arc-gtk-theme
 arc-icon-theme
-xwaylandvideobridge
