@@ -35,3 +35,4 @@ python-setuptools
 maim
 xclip
 xdotool
+gnome-disk-utility
