@@ -1,6 +1,5 @@
 i3lock-color
 betterlockscreen
-clearine-git
 pamac-aur
 pix
 arc-gtk-theme
