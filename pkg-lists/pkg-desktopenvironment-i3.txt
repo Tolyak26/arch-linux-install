@@ -8,9 +8,9 @@ feh
 network-manager-applet
 alacritty
 xfce4-notifyd
-lxsession-gtk3
-lxappearance-gtk3
-lxrandr-gtk3
+lxsession
+lxappearance
+lxrandr
 xfce4-taskmanager
 xfce4-power-manager
 xfce4-screensaver
