@@ -35,3 +35,6 @@ maim
 xclip
 xdotool
 gnome-disk-utility
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
