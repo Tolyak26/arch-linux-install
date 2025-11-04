@@ -1,0 +1,77 @@
+{
+    "apps": [
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Desktop (Steam Deck)",
+            "prep-cmd": [
+                {
+                    "do": "xrandr --output DisplayPort-2 --mode 1280x800 --rate 60",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Desktop (TV)",
+            "prep-cmd": [
+                {
+                    "do": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 60",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (Steam Deck)",
+            "prep-cmd": [
+                {
+                    "do": "xrandr --output DisplayPort-2 --mode 1280x800 --rate 60",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (TV)",
+            "prep-cmd": [
+                {
+                    "do": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 60",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
+        }
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    }
+}
