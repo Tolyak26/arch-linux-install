@@ -29,3 +29,7 @@ sudo pacman -S --noconfirm --disable-download-timeout --needed handbrake
 yay -S --noconfirm --needed --removemake music-presence-bin
 ##
 
+## Spotify (Binary)
+yay -S --noconfirm --needed --removemake spotify
+##
+
