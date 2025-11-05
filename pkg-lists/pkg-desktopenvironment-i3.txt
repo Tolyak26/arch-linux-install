@@ -38,3 +38,7 @@ gnome-disk-utility
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+qt5ct
+qt6ct
+kvantum
+kvantum-qt5
