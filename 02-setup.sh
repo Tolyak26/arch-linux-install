@@ -321,6 +321,7 @@ fi
 if [ $desktopenvironment == "i3" ]; then
 	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
 	mv gtkrc-2.0 .gtkrc-2.0
+	mv profile .profile
 	mv config/ .config/
 	mv icons/ .icons/
 
