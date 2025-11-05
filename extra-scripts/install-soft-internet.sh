@@ -29,3 +29,6 @@ yay -S --noconfirm --needed --removemake xdman
 yay -S --noconfirm --needed --removemake google-chrome
 ##
 
+## Brave (Binary)
+yay -S --noconfirm --needed --removemake brave-bin
+##
