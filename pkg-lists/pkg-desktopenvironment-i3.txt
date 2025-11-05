@@ -3,6 +3,7 @@ i3status
 i3blocks
 rofi
 dmenu
+dex
 feh
 network-manager-applet
 alacritty
