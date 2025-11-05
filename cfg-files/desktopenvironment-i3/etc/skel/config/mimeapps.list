@@ -1,0 +1,15 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+inode/directory=pcmanfm.desktop
+image/png=pix.desktop
+image/jpeg=pix.desktop
+text/plain=org.x.editor.desktop
+
+[Added Associations]
+image/png=pix.desktop;
+image/jpeg=pix.desktop;
+text/plain=org.x.editor.desktop;
