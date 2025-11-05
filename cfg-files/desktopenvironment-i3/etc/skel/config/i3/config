@@ -103,7 +103,7 @@ bindsym $mod+p exec --no-startup-id pcmanfm
 
 # start a lockscreen
 # bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l dim
-bindsym $mod+x exec --no-startup-id clearine
+bindsym $mod+x exec --no-startup-id xfce4-screensaver-command --lock
 
 # kill focused window
 bindsym $mod+Shift+q kill
