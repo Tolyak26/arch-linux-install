@@ -395,6 +395,8 @@ useradd -m -g users -G audio,games,lp,optical,power,scanner,storage,video,wheel 
 echo "${username}:${password}" | chpasswd
 cp -R -v $scriptdir /home/$username
 chown -R $username:users /home/$username/arch-linux-install
+mv /home/$username/arch-linux-install/extra-scripts /home/$username/extra-scripts
+chmod -R 0755 /home/$username/extra-scripts
 
 ### Adding user - Done ###
 
