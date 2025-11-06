@@ -27,7 +27,7 @@ wireless-regdb
 wireless_tools
 wpa_supplicant
 mc
-neovim
+vim
 zip
 unzip
 unrar
