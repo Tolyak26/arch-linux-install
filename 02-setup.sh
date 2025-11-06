@@ -396,7 +396,7 @@ echo "${username}:${password}" | chpasswd
 cp -R -v $scriptdir /home/$username
 chown -R $username:users /home/$username/arch-linux-install
 mv -v /home/$username/arch-linux-install/extra-scripts /home/$username/extra-scripts
-chmod -R 755 /home/$username/extra-scripts
+chmod -R 700 /home/$username/extra-scripts
 
 ### Adding user - Done ###
 
