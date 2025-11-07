@@ -24,7 +24,14 @@ pavucontrol
 ttf-ubuntu-font-family
 adapta-gtk-theme
 adwaita-icon-theme
-pcmanfm
+thunar
+thunar-archive-plugin
+thunar-media-tags-plugin
+thunar-shares-plugin
+thunar-volman
+xarchiver
+tumbler
+ffmpegthumbnailer
 system-config-printer
 systemd-ui
 xed
