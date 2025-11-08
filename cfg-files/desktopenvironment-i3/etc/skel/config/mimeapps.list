@@ -15,3 +15,4 @@ image/png=pix.desktop;
 image/jpeg=pix.desktop;
 text/plain=org.x.editor.desktop;
 video/mp4=vlc.desktop;
+application/x-remmina=org.x.editor.desktop;
