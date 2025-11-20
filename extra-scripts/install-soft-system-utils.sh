@@ -29,3 +29,6 @@ yay -S --noconfirm --needed --removemake ventoy-bin
 sudo pacman -S --noconfirm --disable-download-timeout --needed cpu-x
 ##
 
+## Gnome Disk Utility
+sudo pacman -S --noconfirm --disable-download-timeout --needed gnome-disk-utility
+##

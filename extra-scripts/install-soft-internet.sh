@@ -22,7 +22,7 @@ sudo pacman -S --noconfirm --disable-download-timeout --needed telegram-desktop
 ##
 
 ## Xdman
-yay -S --noconfirm --needed --removemake xdman 
+###yay -S --noconfirm --needed --removemake xdman
 ##
 
 ## Google Chrome (Stable)

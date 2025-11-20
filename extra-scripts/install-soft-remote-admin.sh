@@ -20,13 +20,13 @@ yay -S --noconfirm --needed --removemake anydesk-bin
 ## Rustdesk (Binary)
 yay -S --noconfirm --needed --removemake rustdesk-bin
 
-#sudo systemctl enable --now rustdesk.service
+sudo systemctl enable --now rustdesk.service
 ##
 
 ## Rudesktop
-yay -S --noconfirm --needed --removemake rudesktop
+###yay -S --noconfirm --needed --removemake rudesktop
 
-sudo systemctl enable --now rudesktop.service
+###sudo systemctl enable --now rudesktop.service
 ##
 
 ## Nomachine
