@@ -1,0 +1,8 @@
+[Desktop Entry]
+X-AppImage-Version=2cdda9
+TryExec=/home/your-user-name/AppImages/moondeckbuddy.appimage
+Name=MoonDeckBuddy
+Type=Application
+Exec=env DESKTOPINTEGRATION=1 /home/your-user-name/AppImages/moondeckbuddy.appimage
+Icon=/home/your-user-name/AppImages/.icons/moondeckbuddy.png
+Categories=Utility
