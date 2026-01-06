@@ -1,7 +1,6 @@
 xf86-video-ati
 mesa
 lib32-mesa
-mesa-vdpau
 libva-mesa-driver
 vulkan-radeon
 lib32-vulkan-radeon
