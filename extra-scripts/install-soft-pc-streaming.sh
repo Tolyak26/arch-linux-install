@@ -20,5 +20,8 @@ EOF
 sudo pacman -Sy --noconfirm --disable-download-timeout
 
 sudo pacman -S --noconfirm --disable-download-timeout --needed lizardbyte/sunshine
+
+cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
+sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop
 ##
 
