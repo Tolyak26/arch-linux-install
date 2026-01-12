@@ -5,6 +5,10 @@
 # Tolyak26
 # URL: github.com/Tolyak26/arch-linux-install
 
+if [ -z "${username}" ]; then
+	username="$(id -un)"
+fi
+
 echo ""
 echo "- Installing packages for PC game streaming ... "
 echo ""
@@ -21,7 +25,7 @@ sudo pacman -Sy --noconfirm --disable-download-timeout
 
 sudo pacman -S --noconfirm --disable-download-timeout --needed lizardbyte/sunshine
 
-sudo cp -v /usr/share/applications/dev.lizardbyte.app.Sunshine.desktop /home/$username/.config/autostart
-sudo sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/dev.lizardbyte.app.Sunshine.desktop
+sudo cp -v /usr/share/applications/dev.lizardbyte.app.Sunshine.desktop /home/${username}/.config/autostart
+sudo sed -i 's/^Terminal=true/Terminal=false/' /home/${username}/.config/autostart/dev.lizardbyte.app.Sunshine.desktop
 ##
 
