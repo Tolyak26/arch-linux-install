@@ -48,10 +48,6 @@ echo ""
 mkdir -p /home/$username/.config/autostart
 mkdir -p /etc/skel/.config/autostart
 
-# Sunshine
-cp -v /usr/share/applications/sunshine.desktop /home/$username/.config/autostart
-sed -i 's/^Terminal=true/Terminal=false/' /home/$username/.config/autostart/sunshine.desktop
-
 # Octopi Notifier
 cp -v /usr/share/applications/octopi-notifier.desktop /etc/xdg/autostart
 
