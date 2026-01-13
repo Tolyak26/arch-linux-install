@@ -1,0 +1,25 @@
+[2766ef59-bc26-4493-ad9c-4d7ae1b6c8a4]
+Description=Window settings for Picture in picture
+above=true
+aboverule=3
+title=Picture in picture
+titlematch=1
+types=1
+wmclass=brave brave
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=2
+rules=df1db19b-68ed-40c9-a48a-7027c3079eea,2766ef59-bc26-4493-ad9c-4d7ae1b6c8a4
+
+[df1db19b-68ed-40c9-a48a-7027c3079eea]
+Description=Window settings for Picture in picture
+above=true
+aboverule=3
+title=Picture in picture
+titlematch=1
+types=1
+wmclass=chrome chrome
+wmclasscomplete=true
+wmclassmatch=1
