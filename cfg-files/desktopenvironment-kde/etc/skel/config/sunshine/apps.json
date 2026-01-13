@@ -8,8 +8,38 @@
             "name": "Desktop (Steam Deck)",
             "prep-cmd": [
                 {
-                    "do": "kscreen-doctor output.DP-3.mode.1280x800@60 output.DP-3.scale.1.25",
-                    "undo": "kscreen-doctor output.DP-3.mode.1920x1080@165 output.DP-3.scale.1"
+                    "do": "kscreen-doctor output.HDMI-A-1.enable",
+                    "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
+                },
+                {
+                    "do": "kscreen-doctor output.DP-3.disable",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.mode.1280x800@60 output.HDMI-A-1.scale.1.25",
+                    "undo": ""
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Desktop (TV)",
+            "prep-cmd": [
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.enable",
+                    "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
+                },
+                {
+                    "do": "kscreen-doctor output.DP-3.disable",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.mode.1920x1080@60 output.HDMI-A-1.scale.1.25",
+                    "undo": ""
                 }
             ],
             "wait-all": true
@@ -25,26 +55,20 @@
             "name": "Steam Big Picture (Steam Deck)",
             "prep-cmd": [
                 {
-                    "do": "kscreen-doctor output.DP-3.mode.1280x800@60 output.DP-3.scale.1.25",
-                    "undo": "kscreen-doctor output.DP-3.mode.1920x1080@165 output.DP-3.scale.1"
+                    "do": "kscreen-doctor output.HDMI-A-1.enable",
+                    "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
+                },
+                {
+                    "do": "kscreen-doctor output.DP-3.disable",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.mode.1280x800@60 output.HDMI-A-1.scale.1.25",
+                    "undo": ""
                 },
                 {
                     "do": "",
                     "undo": "setsid steam steam://close/bigpicture"
-                }
-            ],
-            "wait-all": true
-        },
-        {
-            "auto-detach": true,
-            "exclude-global-prep-cmd": false,
-            "exit-timeout": 5,
-            "image-path": "",
-            "name": "Desktop (TV)",
-            "prep-cmd": [
-                {
-                    "do": "kscreen-doctor output.DP-3.mode.1920x1080@60 output.DP-3.scale.1.25",
-                    "undo": "kscreen-doctor output.DP-3.mode.1920x1080@165 output.DP-3.scale.1"
                 }
             ],
             "wait-all": true
@@ -60,8 +84,16 @@
             "name": "Steam Big Picture (TV)",
             "prep-cmd": [
                 {
-                    "do": "kscreen-doctor output.DP-3.mode.1920x1080@60 output.DP-3.scale.1.25",
-                    "undo": "kscreen-doctor output.DP-3.mode.1920x1080@165 output.DP-3.scale.1"
+                    "do": "kscreen-doctor output.HDMI-A-1.enable",
+                    "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
+                },
+                {
+                    "do": "kscreen-doctor output.DP-3.disable",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.mode.1920x1080@60 output.HDMI-A-1.scale.1.25",
+                    "undo": ""
                 },
                 {
                     "do": "",
