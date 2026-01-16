@@ -36,6 +36,7 @@ systemctl enable avahi-daemon
 systemctl enable libvirtd
 systemctl enable toggle-gpp0-to-fix-wakeup
 systemctl enable power-profiles-daemon
+systemctl enable wol@eth0
 
 ### Enabling services - Done ###
 
