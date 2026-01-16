@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable Wake-on-LAN for %I
+Requires=network.target
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ethtool -s %I wol g
+
+[Install]
+WantedBy=multi-user.target
