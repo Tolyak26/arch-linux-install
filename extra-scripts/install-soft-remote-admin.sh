@@ -30,7 +30,7 @@ sudo systemctl enable --now rustdesk.service
 ##
 
 ## Nomachine
-yay -S --noconfirm --needed --removemake nomachine
+##yay -S --noconfirm --needed --removemake nomachine
 ##
 
 ## Mikrotik's Winbox

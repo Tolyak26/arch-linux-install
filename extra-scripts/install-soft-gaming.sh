@@ -30,3 +30,7 @@ yay -S --noconfirm --needed --removemake protonup-qt
 ## Bottles
 yay -S --noconfirm --needed --removemake bottles
 ##
+
+## xpadneo
+yay -S --noconfirm --needed --removemake xpadneo-dkms
+##
