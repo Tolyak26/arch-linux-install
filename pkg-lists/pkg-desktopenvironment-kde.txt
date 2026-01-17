@@ -35,4 +35,3 @@ noto-fonts-emoji
 noto-fonts-extra
 qt5-wayland
 power-profiles-daemon
-plymouth
