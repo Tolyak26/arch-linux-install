@@ -32,5 +32,6 @@ yay -S --noconfirm --needed --removemake bottles
 ##
 
 ## xpadneo
+sudo pacman -S lld
 yay -S --noconfirm --needed --removemake xpadneo-dkms
 ##
