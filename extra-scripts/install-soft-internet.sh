@@ -32,3 +32,11 @@ yay -S --noconfirm --needed --removemake google-chrome
 ## Brave (Binary)
 yay -S --noconfirm --needed --removemake brave-bin
 ##
+
+## Parsec
+yay -S --noconfirm --needed --removemake parsec-bin
+##
+
+## Hiddify
+yay -S --noconfirm --needed --removemake hiddify
+##

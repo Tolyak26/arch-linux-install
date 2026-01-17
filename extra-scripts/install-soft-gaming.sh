@@ -10,7 +10,7 @@ echo "- Installing packages for gaming ... "
 echo ""
 
 ## Steam
-sudo pacman -S --noconfirm --disable-download-timeout --needed steam
+sudo pacman -S --noconfirm --disable-download-timeout --needed steam lib32-gnutls
 
 sudo sed -i 's|^Exec=/usr/bin/steam %U$|Exec=/usr/bin/steam -system-composer %U|' /usr/share/applications/steam.desktop
 ##
@@ -19,11 +19,14 @@ sudo sed -i 's|^Exec=/usr/bin/steam %U$|Exec=/usr/bin/steam -system-composer %U|
 sudo pacman -S --noconfirm --disable-download-timeout --needed gamemode lib32-gamemode
 ##
 
-## Mangohud
-sudo pacman -S --noconfirm --disable-download-timeout --needed mangohud lib32-mangohud
+## Mangohud & Goverlay
+sudo pacman -S --noconfirm --disable-download-timeout --needed mangohud lib32-mangohud goverlay
 ##
 
 ## ProtonUp-Qt
 yay -S --noconfirm --needed --removemake protonup-qt
 ##
 
+## Bottles
+yay -S --noconfirm --needed --removemake bottles
+##
