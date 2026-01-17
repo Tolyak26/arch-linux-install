@@ -4,5 +4,5 @@ TryExec=/opt/MoonDeckBuddy-appimage/MoonDeckBuddy.AppImage
 Name=MoonDeckBuddy
 Type=Application
 Exec=env DESKTOPINTEGRATION=1 /opt/MoonDeckBuddy-appimage/MoonDeckBuddy.AppImage
-Icon=MoonDeckBuddy.png
+#Icon=MoonDeckBuddy.png
 Categories=Utility
