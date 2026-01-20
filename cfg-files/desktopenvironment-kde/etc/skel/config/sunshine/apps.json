@@ -8,6 +8,10 @@
             "name": "Desktop (Steam Deck)",
             "prep-cmd": [
                 {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
                     "do": "kscreen-doctor output.HDMI-A-1.enable",
                     "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
                 },
@@ -29,6 +33,10 @@
             "image-path": "",
             "name": "Desktop (TV)",
             "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
                 {
                     "do": "kscreen-doctor output.HDMI-A-1.enable",
                     "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
@@ -54,6 +62,10 @@
             "image-path": "",
             "name": "Steam Big Picture (Steam Deck)",
             "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
                 {
                     "do": "kscreen-doctor output.HDMI-A-1.enable",
                     "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
@@ -83,6 +95,10 @@
             "image-path": "",
             "name": "Steam Big Picture (TV)",
             "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
                 {
                     "do": "kscreen-doctor output.HDMI-A-1.enable",
                     "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
