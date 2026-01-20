@@ -23,6 +23,8 @@ EOF
 
 sudo pacman -Sy --noconfirm --disable-download-timeout
 
+sudo pacman -S --noconfirm --disable-download-timeout --needed ydotool
+
 sudo pacman -S --noconfirm --disable-download-timeout --needed lizardbyte/sunshine
 
 sudo cp -v /usr/share/applications/dev.lizardbyte.app.Sunshine.desktop /home/${username}/.config/autostart
