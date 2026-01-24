@@ -5,4 +5,4 @@
 xrandr --output DisplayPort-0 --mode 1920x1080 --rate 164.92 &
 xrandr --output DisplayPort-1 --mode 1920x1080 --rate 164.92 &
 xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 &
-# x11vnc -many -display :0 -loop -noxdamage -shared -xkb &
+xrandr --output DisplayPort-3 --mode 1920x1080 --rate 164.92 &
