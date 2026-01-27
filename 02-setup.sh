@@ -26,8 +26,12 @@ echo ""
 sed -i 's/^ParallelDownloads = 5/ParallelDownloads = 1/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #reflector --country Russia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-echo 'Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
-echo 'Server = https://mirror.truenetwork.ru/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+#echo 'Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+#echo 'Server = https://mirror.truenetwork.ru/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+echo 'Server = https://fastly.mirror.pkgbuild.com/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+echo 'Server = https://ftpmirror.infania.net/mirror/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+echo 'Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 pacman -Sy --noconfirm --disable-download-timeout
 
 ### Optimizing pacman for optimal download - Done ###
