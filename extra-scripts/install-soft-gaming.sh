@@ -21,6 +21,8 @@ sudo pacman -S --noconfirm --disable-download-timeout --needed gamemode lib32-ga
 
 ## Mangohud & Goverlay
 sudo pacman -S --noconfirm --disable-download-timeout --needed mangohud lib32-mangohud goverlay
+yay -S --noconfirm --needed --removemake zenergy-dkms-git
+sudo modprobe zenergy
 ##
 
 ## ProtonUp-Qt
