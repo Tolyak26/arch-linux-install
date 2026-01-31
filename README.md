@@ -8,7 +8,9 @@ https://wiki.archlinux.org/title/Iwd#Connect_to_a_network
 ----
 
 ```
-bash <(curl -sSL tinyurl.com/arch-tolyak26)
+curl -sSL tinyurl.com/arch-tolyak26 -o install.sh
+chmod +x install.sh
+./install.sh or install.sh -dbg
 ```
 
 ----
