@@ -37,7 +37,6 @@ systemd-ui
 xed
 xreader
 qalculate-gtk
-blueberry
 python-setuptools
 maim
 xclip
