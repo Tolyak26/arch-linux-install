@@ -8,8 +8,20 @@
             "name": "Desktop (Steam Deck)",
             "prep-cmd": [
                 {
-                    "do": "xrandr --output DisplayPort-2 --mode 1280x800 --rate 60",
-                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --auto",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off"
+                },
+                {
+                    "do": "xrandr --output DisplayPort-2 --off",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 1.25x1.25",
+                    "undo": ""
                 }
             ],
             "wait-all": true
@@ -22,8 +34,20 @@
             "name": "Desktop (TV)",
             "prep-cmd": [
                 {
-                    "do": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 60",
-                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --auto",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off"
+                },
+                {
+                    "do": "xrandr --output DisplayPort-2 --off",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 1.50x1.50",
+                    "undo": ""
                 }
             ],
             "wait-all": true
@@ -39,8 +63,20 @@
             "name": "Steam Big Picture (Steam Deck)",
             "prep-cmd": [
                 {
-                    "do": "xrandr --output DisplayPort-2 --mode 1280x800 --rate 60",
-                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --auto",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off"
+                },
+                {
+                    "do": "xrandr --output DisplayPort-2 --off",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 1.25x1.25",
+                    "undo": ""
                 },
                 {
                     "do": "",
@@ -60,8 +96,20 @@
             "name": "Steam Big Picture (TV)",
             "prep-cmd": [
                 {
-                    "do": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 60",
-                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 165"
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --auto",
+                    "undo": "xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off"
+                },
+                {
+                    "do": "xrandr --output DisplayPort-2 --off",
+                    "undo": ""
+                },
+                {
+                    "do": "xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 1.50x1.50",
+                    "undo": ""
                 },
                 {
                     "do": "",
