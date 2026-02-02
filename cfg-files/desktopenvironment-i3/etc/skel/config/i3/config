@@ -56,7 +56,6 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-screensaver
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
-exec --no-startup-id blueberry-tray
 exec --no-startup-id playerctld daemon
 # exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
