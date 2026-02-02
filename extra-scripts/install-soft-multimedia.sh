@@ -18,7 +18,7 @@ sudo pacman -S --noconfirm --disable-download-timeout --needed easytag
 ##
 
 ## VLC
-sudo pacman -S --noconfirm --disable-download-timeout --needed vlc
+sudo pacman -S --noconfirm --disable-download-timeout --needed vlc vlc-plugin-aom vlc-plugin-ass vlc-plugin-bluray vlc-plugin-dvd vlc-plugin-ffmpeg vlc-plugin-freetype vlc-plugin-matroska vlc-plugin-mpeg2 vlc-plugin-x264 vlc-plugin-x265
 ##
 
 ## Handbrake
