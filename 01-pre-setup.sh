@@ -32,7 +32,7 @@ if ! source $scriptdir/setup.conf; then
 	echo "username=${username}" >> $scriptdir/setup.conf
 
     read -p "Please enter password: " password
-	echo "password=${password}" >> $scriptdir/setup.conf
+	echo "password='${password}'" >> $scriptdir/setup.conf
 
 	while true
 	do
