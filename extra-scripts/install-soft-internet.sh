@@ -38,5 +38,5 @@ yay -S --noconfirm --needed --removemake parsec-bin
 ##
 
 ## Hiddify
-yay -S --noconfirm --needed --removemake hiddify
+yay -S --noconfirm --needed --removemake hiddify-app-bin
 ##
