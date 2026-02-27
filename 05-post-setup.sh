@@ -21,9 +21,12 @@ echo ""
 echo "- Enabling services ... "
 echo ""
 
-systemctl enable sddm
-
-systemctl enable plasmalogin
+if [ $displaymanager == "sddm" ]; then
+	systemctl enable sddm
+fi
+if [ $displaymanager == "sddm" ]; then
+	systemctl enable plasmalogin
+fi
 
 systemctl enable ntpd
 systemctl enable cups
