@@ -24,7 +24,7 @@ echo ""
 if [ $displaymanager == "sddm" ]; then
 	systemctl enable sddm
 fi
-if [ $displaymanager == "sddm" ]; then
+if [ $displaymanager == "kde" ]; then
 	systemctl enable plasmalogin
 fi
 
