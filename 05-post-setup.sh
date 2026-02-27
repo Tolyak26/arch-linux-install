@@ -21,10 +21,13 @@ echo ""
 echo "- Enabling services ... "
 echo ""
 
+systemctl enable sddm
+
+systemctl enable plasmalogin
+
 systemctl enable ntpd
 systemctl enable cups
 systemctl enable bluetooth
-systemctl enable sddm
 systemctl disable dhcpcd
 systemctl enable NetworkManager
 systemctl enable smb
