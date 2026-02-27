@@ -61,7 +61,7 @@ if ! source $scriptdir/setup.conf; then
 	read -p "Please enter your current graphics card ( amd | nvidia | intel | ati ): " graphicscard
 	echo "graphicscard=${graphicscard,,}" >> $scriptdir/setup.conf
 
-    read -p "Please enter your favorite display manager ( sddm ): " displaymanager
+    read -p "Please enter your favorite display manager ( sddm | kde ): " displaymanager
 	echo "displaymanager=${displaymanager,,}" >> $scriptdir/setup.conf
 
 	read -p "Please enter your desktop environment ( i3 | kde ): " desktopenvironment
