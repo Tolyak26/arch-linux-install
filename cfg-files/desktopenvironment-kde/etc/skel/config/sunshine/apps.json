@@ -117,6 +117,39 @@
                 }
             ],
             "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (Flip 2)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.enable",
+                    "undo": "kscreen-doctor output.DP-3.enable output.HDMI-A-1.disable"
+                },
+                {
+                    "do": "kscreen-doctor output.DP-3.disable",
+                    "undo": ""
+                },
+                {
+                    "do": "kscreen-doctor output.HDMI-A-1.mode.1280x720@60 output.HDMI-A-1.scale.1.25",
+                    "undo": ""
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
         }
     ],
     "env": {
