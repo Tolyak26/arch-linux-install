@@ -1,0 +1,125 @@
+{
+    "apps": [
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Desktop (Steam Deck)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --auto\"",
+                    "undo": "sh -c \"xrandr --output DisplayPort-2 --auto && xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off\""
+                },
+                {
+                    "do": "sh -c \"xrandr --output DisplayPort-2 --off\"",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 0.75x0.75\"",
+                    "undo": ""
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Desktop (TV)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --auto\"",
+                    "undo": "sh -c \"xrandr --output DisplayPort-2 --auto && xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off\""
+                },
+                {
+                    "do": "sh -c \"xrandr --output DisplayPort-2 --off\"",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 0.50x0.50\"",
+                    "undo": ""
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (Steam Deck)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --auto\"",
+                    "undo": "sh -c \"xrandr --output DisplayPort-2 --auto && xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off\""
+                },
+                {
+                    "do": "sh -c \"xrandr --output DisplayPort-2 --off\"",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 0.75x0.75\"",
+                    "undo": ""
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (TV)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --auto\"",
+                    "undo": "sh -c \"xrandr --output DisplayPort-2 --auto && xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off\""
+                },
+                {
+                    "do": "sh -c \"xrandr --output DisplayPort-2 --off\"",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 0.50x0.50\"",
+                    "undo": ""
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
+        }
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    }
+}
