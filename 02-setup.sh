@@ -300,6 +300,10 @@ if [ $desktopenvironment == "i3" ]; then
 	tar -xvf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
 fi
 
+if [ $desktopenvironment == "xfce" ]; then
+	tar -xvf $scriptdir/theme-files/icons/McMojave-cursors.tar.xz -C /usr/share/icons
+fi
+
 if [ $displaymanager == "sddm" ]; then
 	tar -xvf $scriptdir/theme-files/displaymanager-$displaymanager/archlinux-themes-sddm.tar -C /usr/share/sddm/themes
 fi
@@ -336,6 +340,16 @@ if [ $desktopenvironment == "kde" ]; then
 	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
  	mv gtkrc-2.0 .gtkrc-2.0
 	mv config/ .config/
+
+	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
+fi
+
+if [ $desktopenvironment == "xfce" ]; then
+	cd $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/etc/skel
+	mv gtkrc-2.0 .gtkrc-2.0
+	mv profile .profile
+	mv config/ .config/
+	mv icons/ .icons/
 
 	cp -R -v $scriptdir/cfg-files/desktopenvironment-$desktopenvironment/* /
 fi
