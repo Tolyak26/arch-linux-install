@@ -64,7 +64,7 @@ if ! source $scriptdir/setup.conf; then
     read -p "Please enter your favorite display manager ( sddm | kde ): " displaymanager
 	echo "displaymanager=${displaymanager,,}" >> $scriptdir/setup.conf
 
-	read -p "Please enter your desktop environment ( i3 | kde ): " desktopenvironment
+	read -p "Please enter your desktop environment ( i3 | kde | xfce ): " desktopenvironment
 	echo "desktopenvironment=${desktopenvironment,,}" >> $scriptdir/setup.conf
 
     read -p "Please enter your favorite sound server ( pulseaudio | pipewire ): " soundserver
