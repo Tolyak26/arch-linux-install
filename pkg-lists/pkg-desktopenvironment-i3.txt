@@ -49,4 +49,3 @@ qt6ct
 kvantum
 kvantum-qt5
 blueman
-sddm-conf
