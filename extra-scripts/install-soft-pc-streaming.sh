@@ -29,7 +29,6 @@ sudo pacman -S --noconfirm --disable-download-timeout --needed lizardbyte/sunshi
 
 sudo cp -v /usr/share/applications/dev.lizardbyte.app.Sunshine.desktop /home/${username}/.config/autostart
 sudo sed -i 's/^Terminal=true/Terminal=false/' /home/${username}/.config/autostart/dev.lizardbyte.app.Sunshine.desktop
-sudo curl -sSL https://raw.githubusercontent.com/Tolyak26/arch-linux-install/refs/heads/master/cfg-files/desktopenvironment-kde/etc/skel/config/sunshine/apps.json -o /home/${username}/.config/sunshine/apps.json
 
 sudo usermod -aG input ${username}
 
