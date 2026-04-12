@@ -117,6 +117,39 @@
                 }
             ],
             "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "",
+            "name": "Steam Big Picture (Flip 2)",
+            "prep-cmd": [
+                {
+                    "do": "ydotool key 42:1 42:0",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --auto\"",
+                    "undo": "sh -c \"xrandr --output DisplayPort-2 --auto && xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 && xrandr --output HDMI-A-0 --off\""
+                },
+                {
+                    "do": "sh -c \"xrandr --output DisplayPort-2 --off\"",
+                    "undo": ""
+                },
+                {
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x720 --rate 60.00 --scale 0.75x0.75\"",
+                    "undo": ""
+                },
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ],
+            "wait-all": true
         }
     ],
     "env": {
