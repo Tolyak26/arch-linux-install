@@ -1,4 +1,4 @@
 pamac-aur
 arc-gtk-theme
 arc-icon-theme
-pix
+sddm-conf
