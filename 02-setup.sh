@@ -87,13 +87,32 @@ fi
 
 ### Installing Xorg packages - Start ###
 
-echo ""
-echo "- Installing Xorg packages ... "
-echo ""
+# echo ""
+# echo "- Installing Xorg packages ... "
+# echo ""
 
-pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
+# pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-xorg.txt
 
 ### Installing Xorg packages - Done ###
+
+### Installing XLibre packages - Start ###
+
+echo ""
+echo "- Installing XLibre packages ... "
+echo ""
+
+grep -q "^\[xlibre\]" /etc/pacman.conf || sudo tee -a /etc/pacman.conf > /dev/null <<'EOF'
+
+[xlibre]
+SigLevel = Optional
+Server = https://x11libre.net/repo/arch_based/x86_64/
+EOF
+
+pacman -Sy --noconfirm --disable-download-timeout
+
+pacman -S --noconfirm --disable-download-timeout --needed xlibre-meta
+
+### Installing XLibre packages - Done ###
 
 ### Installing Wayland packages - Start ###
 
