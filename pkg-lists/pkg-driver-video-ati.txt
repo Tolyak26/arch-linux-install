@@ -1,4 +1,4 @@
-xf86-video-ati
+xlibre-video-ati
 mesa
 lib32-mesa
 libva-mesa-driver
