@@ -1,8 +1,5 @@
 xlibre-meta
 xlibre-input-synaptics
-xlibre-video-amdgpu
-xlibre-video-ati
-xlibre-video-intel
 xlibre-video-qxl
 xorg-xrandr
 xorg-xgamma
