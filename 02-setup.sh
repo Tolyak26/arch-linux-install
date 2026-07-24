@@ -107,14 +107,13 @@ grep -q "^\[xlibre\]" /etc/pacman.conf || sudo tee -a /etc/pacman.conf > /dev/nu
 Server = https://packages.xlibre.net/arch/stable/$arch
 EOF
 
-curl -O https://xlibre-arch.github.io/xlibre-archlinux.asc
-pacman-key --add xlibre-archlinux.asc
+curl -fsSL https://xlibre-arch.github.io/xlibre-archlinux.asc | pacman-key --add -
 pacman-key --finger B97F7C613F359424
 pacman-key --lsign-key B97F7C613F359424
 
 pacman -Sy --noconfirm --disable-download-timeout
 
-pacman -S --noconfirm --disable-download-timeout --needed xlibre-meta xlibre-input-synaptics xlibre-video-amdgpu xlibre-video-amdgpu xlibre-video-ati xlibre-video-intel xlibre-video-qxl
+pacman -S --noconfirm --disable-download-timeout --needed - < $scriptdir/pkg-lists/pkg-xlibre.txt
 
 ### Installing XLibre packages - Done ###
 
