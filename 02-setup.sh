@@ -114,7 +114,7 @@ pacman-key --lsign-key B97F7C613F359424
 
 pacman -Sy --noconfirm --disable-download-timeout
 
-pacman -S --noconfirm --disable-download-timeout --needed xlibre-meta
+pacman -S --noconfirm --disable-download-timeout --needed xlibre-meta xlibre-input-synaptics xlibre-video-amdgpu xlibre-video-amdgpu xlibre-video-ati xlibre-video-intel xlibre-video-qxl
 
 ### Installing XLibre packages - Done ###
 
