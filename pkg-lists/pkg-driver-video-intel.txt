@@ -1,3 +1,4 @@
+xlibre-video-intel
 intel-media-driver
 libva-intel-driver
 mesa
