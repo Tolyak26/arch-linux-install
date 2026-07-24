@@ -108,6 +108,10 @@ SigLevel = Optional
 Server = https://x11libre.net/repo/arch_based/x86_64/
 EOF
 
+pacman-key --recv-keys 73580DE2EDDFA6D6
+pacman-key --finger 73580DE2EDDFA6D6
+pacman-key --lsign-key 73580DE2EDDFA6D6
+
 pacman -Sy --noconfirm --disable-download-timeout
 
 pacman -S --noconfirm --disable-download-timeout --needed xlibre-meta
