@@ -104,13 +104,13 @@ echo ""
 grep -q "^\[xlibre\]" /etc/pacman.conf || sudo tee -a /etc/pacman.conf > /dev/null <<'EOF'
 
 [xlibre]
-SigLevel = Optional
-Server = https://x11libre.net/repo/arch_based/x86_64/
+Server = https://packages.xlibre.net/arch/stable/$arch
 EOF
 
-pacman-key --recv-keys 73580DE2EDDFA6D6
-pacman-key --finger 73580DE2EDDFA6D6
-pacman-key --lsign-key 73580DE2EDDFA6D6
+curl -O https://xlibre-arch.github.io/xlibre-archlinux.asc
+pacman-key --add xlibre-archlinux.asc
+pacman-key --finger B97F7C613F359424
+pacman-key --lsign-key B97F7C613F359424
 
 pacman -Sy --noconfirm --disable-download-timeout
 
