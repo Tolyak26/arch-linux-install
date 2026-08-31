@@ -15,11 +15,11 @@
         <value type="int" value="5"/>
         <value type="int" value="9"/>
         <value type="int" value="11"/>
-        <value type="int" value="6"/>
-        <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="10"/>
+        <value type="int" value="2"/>
         <value type="int" value="1"/>
+        <value type="int" value="6"/>
         <value type="int" value="12"/>
         <value type="int" value="7"/>
       </property>
@@ -30,31 +30,70 @@
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-6" type="string" value="systray">
-      <property name="square-icons" type="bool" value="true"/>
+      <property name="square-icons" type="bool" value="false"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="ethernet network connection “wired connection 1” active"/>
-        <value type="string" value="wi-fi network connection “tolyak26-wifi-5” active: tolyak26-wifi-5 (82%)"/>
-        <value type="string" value="wi-fi network connection “tolyak26-wifi-5” active: tolyak26-wifi-5 (77%)"/>
-        <value type="string" value="nxrunner.bin"/>
-        <value type="string" value="xfce4-power-manager"/>
-        <value type="string" value="blueberry-tray.py"/>
+        <value type="string" value="rustdesk"/>
         <value type="string" value="pamac-tray"/>
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="single-row" type="bool" value="false"/>
       <property name="icon-size" type="int" value="0"/>
       <property name="menu-is-primary" type="bool" value="false"/>
-      <property name="symbolic-icons" type="bool" value="false"/>
-      <property name="hide-new-items" type="bool" value="false"/>
+      <property name="symbolic-icons" type="bool" value="true"/>
+      <property name="hide-new-items" type="bool" value="true"/>
       <property name="known-items" type="array">
-        <value type="string" value="TelegramDesktop"/>
-        <value type="string" value="vlc"/>
-        <value type="string" value="Strawberry"/>
+        <value type="string" value="tray-icon tray app 106197-1"/>
+        <value type="string" value="trayid429491"/>
+        <value type="string" value="tray-icon tray app 42612-1"/>
+        <value type="string" value="trayid51691"/>
+        <value type="string" value="tray-icon tray app 4631-1"/>
+        <value type="string" value="tray-icon tray app 427376-1"/>
+        <value type="string" value="tray-icon tray app 383732-1"/>
+        <value type="string" value="tray-icon tray app 338050-1"/>
+        <value type="string" value="tray-icon tray app 296263-1"/>
+        <value type="string" value="tray-icon tray app 256576-1"/>
+        <value type="string" value="tray-icon tray app 230044-1"/>
+        <value type="string" value="tray-icon tray app 195913-1"/>
+        <value type="string" value="tray-icon tray app 131488-1"/>
+        <value type="string" value="tray-icon tray app 73974-1"/>
+        <value type="string" value="trayid33061"/>
+        <value type="string" value="tray-icon tray app 2397-1"/>
+        <value type="string" value="tray-icon tray app 599941-1"/>
+        <value type="string" value="MoonDeckBuddy"/>
+        <value type="string" value="tray-icon tray app 569076-1"/>
+        <value type="string" value="discord_status_icon_1"/>
+        <value type="string" value="tray-icon tray app 480849-1"/>
+        <value type="string" value="trayid2023731"/>
+        <value type="string" value="blueman"/>
         <value type="string" value="remmina-icon"/>
-        <value type="string" value="tray-id"/>
-        <value type="string" value="chrome_status_icon_1"/>
         <value type="string" value="steam"/>
-        <value type="string" value="discord1"/>
+      </property>
+      <property name="hidden-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="rustdesk"/>
+        <value type="string" value="pamac-tray"/>
+      </property>
+      <property name="hidden-items" type="array">
+        <value type="string" value="tray-icon tray app 2397-1"/>
+        <value type="string" value="tray-icon tray app 599941-1"/>
+        <value type="string" value="tray-icon tray app 73974-1"/>
+        <value type="string" value="trayid51691"/>
+        <value type="string" value="tray-icon tray app 131488-1"/>
+        <value type="string" value="tray-icon tray app 4631-1"/>
+        <value type="string" value="tray-icon tray app 383732-1"/>
+        <value type="string" value="discord_status_icon_1"/>
+        <value type="string" value="tray-icon tray app 230044-1"/>
+        <value type="string" value="tray-icon tray app 106197-1"/>
+        <value type="string" value="tray-icon tray app 338050-1"/>
+        <value type="string" value="tray-icon tray app 427376-1"/>
+        <value type="string" value="MoonDeckBuddy"/>
+        <value type="string" value="tray-icon tray app 569076-1"/>
+        <value type="string" value="tray-icon tray app 195913-1"/>
+        <value type="string" value="tray-icon tray app 256576-1"/>
+        <value type="string" value="tray-icon tray app 296263-1"/>
+        <value type="string" value="trayid33061"/>
+        <value type="string" value="trayid429491"/>
+        <value type="string" value="tray-icon tray app 42612-1"/>
       </property>
     </property>
     <property name="plugin-10" type="string" value="notification-plugin"/>
@@ -74,7 +113,7 @@
     <property name="plugin-2" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="enable-wnck" type="bool" value="true"/>
-      <property name="known-players" type="string" value="Chrome;Chromium;org.strawberrymusicplayer.strawberry;spotify;vlc"/>
+      <property name="known-players" type="string" value="Brave;Chrome;Chromium;org.strawberrymusicplayer.strawberry;spotify;vlc"/>
     </property>
     <property name="plugin-3" type="string" value="power-manager-plugin"/>
     <property name="plugin-1" type="string" value="xkb">
