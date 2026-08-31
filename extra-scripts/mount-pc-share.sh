@@ -4,7 +4,7 @@
 # Формат:
 # "//server/share:/mnt/point:mount-label:/path/to/credentials"
 LOCAL_SHARES=(
-    "/dev/sdb1:/mnt/sdb1:ntfs:ssd_ntfs_2_2tb"
+    "/dev/sdb1:/mnt/sdb1:ntfs:ssd_ntfs_2_1tb"
     "/dev/nvme0n1p1:/mnt/nvme0n1p1:ext4:nvme_ext4_3_2tb"
 )
 
