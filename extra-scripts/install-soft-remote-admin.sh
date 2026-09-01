@@ -26,11 +26,11 @@ sudo systemctl enable --now rustdesk.service
 ## Rudesktop
 ###yay -S --noconfirm --needed --removemake rudesktop
 
-##sudo systemctl enable --now rudesktop.service
+###sudo systemctl enable --now rudesktop.service
 ##
 
 ## Nomachine
-##yay -S --noconfirm --needed --removemake nomachine
+###yay -S --noconfirm --needed --removemake nomachine
 ##
 
 ## Mikrotik's Winbox
