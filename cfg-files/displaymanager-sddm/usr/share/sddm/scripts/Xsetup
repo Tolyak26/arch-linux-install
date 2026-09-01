@@ -7,6 +7,6 @@ xrandr --newmode "1280x800_60.00"   83.50  1280 1352 1480 1680  800 803 809 831 
 xrandr --addmode HDMI-A-0 "1280x800_60.00" &
 
 # Monitor HP X27
-##xrandr --output DisplayPort-0 --mode 1920x1080 --rate 164.92 &
+xrandr --output DisplayPort-0 --mode 1920x1080 --rate 164.92 &
 ##xrandr --output DisplayPort-1 --mode 1920x1080 --rate 164.92 &
-xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 &
+##xrandr --output DisplayPort-2 --mode 1920x1080 --rate 164.92 &
