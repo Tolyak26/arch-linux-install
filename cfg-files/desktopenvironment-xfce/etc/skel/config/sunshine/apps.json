@@ -20,7 +20,7 @@
                     "undo": ""
                 },
                 {
-                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 0.75x0.75\"",
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 1x1\"",
                     "undo": ""
                 }
             ],
@@ -46,7 +46,7 @@
                     "undo": ""
                 },
                 {
-                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 0.50x0.50\"",
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 1x1\"",
                     "undo": ""
                 }
             ],
@@ -75,7 +75,7 @@
                     "undo": ""
                 },
                 {
-                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 0.75x0.75\"",
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x800_60.00 --rate 59.81 --scale 1x1\"",
                     "undo": ""
                 },
                 {
@@ -108,7 +108,7 @@
                     "undo": ""
                 },
                 {
-                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 0.50x0.50\"",
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 --scale 1x1\"",
                     "undo": ""
                 },
                 {
@@ -141,7 +141,7 @@
                     "undo": ""
                 },
                 {
-                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x720 --rate 60.00 --scale 0.75x0.75\"",
+                    "do": "sh -c \"xrandr --output HDMI-A-0 --mode 1280x720 --rate 60.00 --scale 1x1\"",
                     "undo": ""
                 },
                 {
