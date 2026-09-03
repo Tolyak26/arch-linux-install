@@ -77,7 +77,7 @@ for ENTRY in "${LOCAL_SHARES[@]}"; do
     fi
 
     if [ $MOUNT_FS_TYPE == "ntfs" ]; then
-        echo "$LOCAL_SHARE $MOUNT_POINT $MOUNT_FS_TYPE uid=tolyak26,gid=users,nofail,x-gvfs-show,x-gvfs-name=$MOUNT_LABEL 0 0" >> "$FSTAB"
+        echo "$LOCAL_SHARE $MOUNT_POINT $MOUNT_FS_TYPE uid=tolyak26,gid=users,nofail,x-gvfs-show,x-gvfs-name=$MOUNT_LABEL,windows_names 0 0" >> "$FSTAB"
     fi
 
     if [ $MOUNT_FS_TYPE == "ext4" ]; then
